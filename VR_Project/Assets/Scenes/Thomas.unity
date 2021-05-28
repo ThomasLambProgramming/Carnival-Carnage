@@ -864,6 +864,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &454400691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 454400692}
+  - component: {fileID: 454400693}
+  m_Layer: 0
+  m_Name: PlayerContainerTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &454400692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454400691}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 929713417}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &454400693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454400691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d11b4201415fc93459c412a44ff2d6ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DashDistance: 2
+  DashDelay: 0.1
+  Player: {fileID: 1512898100}
 --- !u!1 &602252399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1854,6 +1900,7 @@ Transform:
   - {fileID: 1252713096}
   - {fileID: 1143800798}
   - {fileID: 302111125}
+  - {fileID: 454400692}
   m_Father: {fileID: 1512898102}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2838,6 +2885,7 @@ GameObject:
   - component: {fileID: 1572622616}
   - component: {fileID: 1572622614}
   - component: {fileID: 1572622613}
+  - component: {fileID: 1572622615}
   m_Layer: 0
   m_Name: RightHand Gameplay Controller
   m_TagString: Untagged
@@ -2925,6 +2973,19 @@ MonoBehaviour:
   m_PlayHapticsOnHoverExited: 0
   m_HapticHoverExitIntensity: 0
   m_HapticHoverExitDuration: 0
+--- !u!114 &1572622615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572622611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10feffc7f2c862b489e2cb4abc9a502e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShootForce: 200
 --- !u!114 &1572622616
 MonoBehaviour:
   m_ObjectHideFlags: 0
