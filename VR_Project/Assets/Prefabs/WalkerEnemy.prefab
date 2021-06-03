@@ -679,6 +679,8 @@ MonoBehaviour:
   shatterForce: 10
   TagsToCheck:
   - Hammer
+  hasCollided: 0
+  launchable: 1
 --- !u!1 &8256709747501859280
 GameObject:
   m_ObjectHideFlags: 0

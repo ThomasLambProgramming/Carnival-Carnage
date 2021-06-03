@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 7594945507659682662}
   - component: {fileID: 7594945507659682663}
   - component: {fileID: 8959763408506105950}
+  - component: {fileID: 245054961}
   m_Layer: 0
   m_Name: TeleportingEnemy
   m_TagString: Enemy
@@ -161,6 +162,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &245054961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7594945507659682681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243ac5c2dd67b0a40818466ee9a50212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shatterVersion: {fileID: 0}
+  shatterForce: 10
+  TagsToCheck:
+  - Ground
+  hasCollided: 0
+  launchable: 1
 --- !u!1 &7594945509067855667
 GameObject:
   m_ObjectHideFlags: 0
