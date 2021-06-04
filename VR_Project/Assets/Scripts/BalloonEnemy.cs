@@ -8,6 +8,7 @@ public class BalloonEnemy : MonoBehaviour
     public float bounceSpeed = 0.2f;
     private float yOffset = 0f;
     bool move = true;
+    private float delay = 0f;
     /*
      * TO ADD
      * Particle effect for string snap, balloon pop and enemy hit
@@ -15,6 +16,7 @@ public class BalloonEnemy : MonoBehaviour
 
     void Start()
     {
+        delay = Random.Range(-1.0f, 1.0f);
         yOffset = transform.position.y;
     }
 
@@ -24,7 +26,7 @@ public class BalloonEnemy : MonoBehaviour
         if (move)
         transform.position = new Vector3(
             transform.position.x,
-            yOffset + (Mathf.Sin(Time.time * bounceSpeed) * bounceAmount),
+            yOffset + (Mathf.Sin(Time.time * bounceSpeed) * delay * bounceAmount) ,
             transform.position.z);
     }
 

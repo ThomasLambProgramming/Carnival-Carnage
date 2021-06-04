@@ -21,6 +21,18 @@ public class Shatter : MonoBehaviour
     }
     public void Update()
     {
+        /*
+         Destructable versions of enemies
+         hammer interaction with enemies
+         launching of enemies when hit with particle effect and sound
+         spider walking working with wall climbing
+        */
+
+
+
+
+
+
         //timeCount += Time.deltaTime;
         //if (timeCount >= timer)
         //{
