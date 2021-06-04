@@ -21,7 +21,7 @@ public class WalkerEnemy : MonoBehaviour
         if (makePath)
         {
             if (Vector3.Magnitude(navmesh.destination - transform.position) < distanceToNewPath * distanceToNewPath)
-                navmesh.SetDestination(new Vector3(Random.Range(-12, 12), 1, Random.Range(-12, 12)));
+                navmesh.SetDestination(new Vector3(Random.Range(-18, 2), 1, Random.Range(-35, -7)));
         }
 
     }
