@@ -25,7 +25,7 @@ public class HammerSpawn : MonoBehaviour
     public void SpawnHammer()
     {
         CurrentHammer = Instantiate(HammerPrefab, transform);
-        CurrentHammer.transform.localRotation.Set(0, 90, 0, 0);
+        CurrentHammer.transform.localRotation.Set(0, -90, 0, 0);
     }
 
     public void Update()
