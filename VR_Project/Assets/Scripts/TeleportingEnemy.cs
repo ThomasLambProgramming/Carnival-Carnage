@@ -10,34 +10,48 @@ public class TeleportingEnemy : MonoBehaviour
     private float teleportTimer = 0;
     //this makes sure it doesnt teleport into ground or anything
     public GameObject[] telePortPoints;
-    private Shatter shatterScript = null;
-    private void Start()
-    {
-        shatterScript = GetComponent<Shatter>();
-    }
-
+    public GameObject destructableVersion = null;
+    private bool hasBeenHit = false;
     void Update()
     {
-        //if the shatter has detected a collision then we exit out as we want it to do nothing
-        if (shatterScript.hasCollided)
-            return;
-
-        teleportTimer += Time.deltaTime;
-        if (teleportTimer >= TeleportRate)
+        //if it has been hit we dont want it rotating or teleporting after
+        if (!hasBeenHit)
         {
-                        //play particle effect
-            if (telePortPoints.Length > 0)
+            teleportTimer += Time.deltaTime;
+            if (teleportTimer >= TeleportRate)
             {
-                transform.position = telePortPoints[Random.Range(0, telePortPoints.Length - 1)].transform.position;
+                //play particle effect
+                if (telePortPoints.Length > 0)
+                {
+                    transform.position = telePortPoints[Random.Range(0, telePortPoints.Length - 1)].transform.position;
+                }
+                teleportTimer = 0;
             }
-            teleportTimer = 0;
+            transform.Rotate(new Vector3(0, spinSpeed * Time.deltaTime, 0));
         }
-        transform.Rotate(new Vector3(0, spinSpeed * Time.deltaTime, 0));
     }
-    
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.CompareTag("Hammer"))
+        {
+            //get hammer velocity or probs just increase the inital velocity 
+            //as the hammer will already move it the way we want it too
+            hasBeenHit = true;
+        }
+        if (collision.transform.CompareTag("Enemy"))
+        {
+            //disableGameobject
+            gameObject.SetActive(false);
+
+            //AddScore / ticket thingy
+            
+            //enable shatter version and do all the force stuff required
+            destructableVersion.SetActive(true);
+        }
+    }
 
 
-    
+
 
 
 }
