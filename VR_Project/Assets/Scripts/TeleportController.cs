@@ -8,10 +8,19 @@ public class TeleportController : MonoBehaviour
     //Object that has the teleporting controller script
     public GameObject PlayerObject = null;
     //reference to the input action reference that contains the button mapping data for activation
-    public float dashDistance = 0.3f;
-    public float dashCooldown = 0.25f;
+    public float dashDistance = 1f;
+    public float dashSpeed = 2f;
 
-    public float turnSpeed = 10f;
+    //amount of time till a dash can be done again
+    public float dashCooldown = 1f;
+    public float dashCDTimer = 1;
+
+    public float dashRaySearchLimit = 2f;
+    //this is to have a set dash movement over time so it doesnt change until the next input
+    private Vector3 moveDirection;
+    bool isDashing = false;
+
+    public float turnSpeed = 40f;
 
     private InputDevice rightJoyStick;
     private InputDevice leftJoyStick;
@@ -40,11 +49,14 @@ public class TeleportController : MonoBehaviour
 
     private void Update()
     {
+        dashCDTimer += Time.deltaTime;
+
+   
         leftJoyStick.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 leftAxisValue);
         rightJoyStick.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 rightAxisValue);
 
 
-        headSetObject.transform.Rotate(new Vector3(0, turnSpeed * Time.deltaTime * rightAxisValue.x, 0));
+        //headSetObject.transform.Rotate(new Vector3(0, turnSpeed * Time.deltaTime * rightAxisValue.x, 0));
 
 
         float dotCheck = 0.8f;
@@ -57,26 +69,70 @@ public class TeleportController : MonoBehaviour
         Vector3 forwardDirection = headSetObject.transform.forward;
         forwardDirection.y = 0;
 
-        //up
-        if (Vector2.Dot(leftAxisValue, new Vector2(0, 1)) > dotCheck)
+        if (dashCDTimer > dashCooldown && isDashing == false)
         {
-            PlayerObject.transform.position += forwardDirection * dashDistance * Time.deltaTime;
+
+            //up
+            if (Vector2.Dot(leftAxisValue, new Vector2(0, 1)) > dotCheck)
+            {
+                moveDirection = forwardDirection;
+                isDashing = true;
+            }
+            //down
+            if (Vector2.Dot(leftAxisValue, new Vector2(0, -1)) > dotCheck)
+            {
+                moveDirection = -forwardDirection;
+                isDashing = true;
+            }
+            //left
+            if (Vector2.Dot(leftAxisValue, new Vector2(-1, 0)) > dotCheck)
+            {
+                moveDirection = -rightDirection;
+                isDashing = true;
+            }
+            //right
+            if (Vector2.Dot(leftAxisValue, new Vector2(1, 0)) > dotCheck)
+            {
+                moveDirection = rightDirection;
+                isDashing = true;
+            }
         }
-        //down
-        if (Vector2.Dot(leftAxisValue, new Vector2(0, -1)) > dotCheck)
+        if (isDashing)
         {
-            PlayerObject.transform.position -= forwardDirection * dashDistance * Time.deltaTime;
+            if (DashMove())
+                isDashing = false;
         }
-        //left
-        if (Vector2.Dot(leftAxisValue, new Vector2(-1, 0)) > dotCheck)
+    }
+    //this will move the player in the moveDirection until it has to stop then it will return false;
+    private bool DashMove()
+    {
+        //gives the data back 
+        RaycastHit hit;
+        //this is to get the waist level so the raycasts dont go over anything 
+        float yHeight = headSetObject.transform.position.y / 2;
+        Vector3 searchPosition = headSetObject.transform.position;
+        searchPosition.y = yHeight;
+
+        //if any of these hit / if the dash distance has been hit then we return true as dash is done
+        if (Physics.Raycast(searchPosition, new Vector3(moveDirection.x, 0, moveDirection.z), out hit, dashRaySearchLimit))
         {
-            PlayerObject.transform.position -= rightDirection * dashDistance * Time.deltaTime;
+            //if ()
         }
-        //right
-        if (Vector2.Dot(leftAxisValue, new Vector2(1, 0)) > dotCheck)
+        if (Physics.Raycast(searchPosition, new Vector3(moveDirection.x, -0.3f, moveDirection.z), out hit, dashRaySearchLimit))
         {
-            PlayerObject.transform.position += rightDirection * dashDistance * Time.deltaTime;
+
         }
+        if (Physics.Raycast(searchPosition, new Vector3(moveDirection.x, -0.6f, moveDirection.z), out hit, dashRaySearchLimit))
+        {
+
+        }
+
+
+
+        transform.position = PlayerObject.transform.position + moveDirection * dashSpeed * Time.deltaTime;
+
+
+        return false;
     }
 
 }
