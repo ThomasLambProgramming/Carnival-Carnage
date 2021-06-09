@@ -13,12 +13,16 @@ public class TeleportController : MonoBehaviour
 
     //amount of time till a dash can be done again
     public float dashCooldown = 1f;
-    public float dashCDTimer = 1;
+    private float dashCDTimer = 1;
 
     public float dashRaySearchLimit = 2f;
     //this is to have a set dash movement over time so it doesnt change until the next input
     private Vector3 moveDirection;
     bool isDashing = false;
+
+    //timer thingy for the dash
+    private float amountDashed = 0f;
+
 
     public float turnSpeed = 40f;
 
@@ -26,7 +30,7 @@ public class TeleportController : MonoBehaviour
     private InputDevice leftJoyStick;
     public GameObject headSetObject = null;
 
-    private void Start()
+    public void Start()
     {
         List<InputDevice> devices = new List<InputDevice>();
         InputDeviceCharacteristics leftControllerCharacteristics = InputDeviceCharacteristics.Left;
@@ -43,14 +47,11 @@ public class TeleportController : MonoBehaviour
         {
             rightJoyStick = devices[0];
         }
-
-
     }
 
-    private void Update()
+    public void Update()
     {
         dashCDTimer += Time.deltaTime;
-
    
         leftJoyStick.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 leftAxisValue);
         rightJoyStick.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 rightAxisValue);
@@ -69,7 +70,7 @@ public class TeleportController : MonoBehaviour
         Vector3 forwardDirection = headSetObject.transform.forward;
         forwardDirection.y = 0;
 
-        if (dashCDTimer > dashCooldown && isDashing == false)
+        if (dashCDTimer >= dashCooldown && isDashing == false)
         {
 
             //up
@@ -77,24 +78,28 @@ public class TeleportController : MonoBehaviour
             {
                 moveDirection = forwardDirection;
                 isDashing = true;
+                dashCDTimer = 0;
             }
             //down
             if (Vector2.Dot(leftAxisValue, new Vector2(0, -1)) > dotCheck)
             {
                 moveDirection = -forwardDirection;
                 isDashing = true;
+                dashCDTimer = 0;
             }
             //left
             if (Vector2.Dot(leftAxisValue, new Vector2(-1, 0)) > dotCheck)
             {
                 moveDirection = -rightDirection;
                 isDashing = true;
+                dashCDTimer = 0;
             }
             //right
             if (Vector2.Dot(leftAxisValue, new Vector2(1, 0)) > dotCheck)
             {
                 moveDirection = rightDirection;
                 isDashing = true;
+                dashCDTimer = 0;
             }
         }
         if (isDashing)
@@ -113,23 +118,42 @@ public class TeleportController : MonoBehaviour
         Vector3 searchPosition = headSetObject.transform.position;
         searchPosition.y = yHeight;
 
-        //if any of these hit / if the dash distance has been hit then we return true as dash is done
+        //if any of these hit the obstacle layer then we know not to move anymore 
         if (Physics.Raycast(searchPosition, new Vector3(moveDirection.x, 0, moveDirection.z), out hit, dashRaySearchLimit))
         {
-            //if ()
+            if (hit.transform.gameObject.layer == 11)
+            {
+                amountDashed = 0;
+                return true;
+            }
         }
         if (Physics.Raycast(searchPosition, new Vector3(moveDirection.x, -0.3f, moveDirection.z), out hit, dashRaySearchLimit))
         {
-
+            if (hit.transform.gameObject.layer == 11)
+            {
+                amountDashed = 0;
+                return true;
+            }
         }
         if (Physics.Raycast(searchPosition, new Vector3(moveDirection.x, -0.6f, moveDirection.z), out hit, dashRaySearchLimit))
         {
-
+            if (hit.transform.gameObject.layer == 11)
+            {
+                amountDashed = 0;
+                return true;
+            }
         }
 
-
-
-        transform.position = PlayerObject.transform.position + moveDirection * dashSpeed * Time.deltaTime;
+        //if the dash distance has been hit then we return true as dash is done
+        Vector3 moveAmount = moveDirection * (dashSpeed * Time.deltaTime);
+        amountDashed += Vector3.Magnitude(moveAmount);
+        if (amountDashed >= dashDistance)
+        {
+            amountDashed = 0;
+            moveDirection = Vector3.zero;
+            return true;
+        }
+        PlayerObject.transform.position += moveAmount;
 
 
         return false;
