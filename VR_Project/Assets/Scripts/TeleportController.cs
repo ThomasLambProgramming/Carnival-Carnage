@@ -55,15 +55,17 @@ public class TeleportController : MonoBehaviour
     public void Update()
     {
         dashCDTimer += Time.deltaTime;
-   
+
+        leftJoyStick.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 leftVelocity);
+        //rightJoyStick.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 rightVelocity);
+
         leftJoyStick.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 leftAxisValue);
-        rightJoyStick.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 rightAxisValue);
+        //rightJoyStick.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 rightAxisValue);
 
-
+        leftJoyStick.TryGetFeatureValue(CommonUsages.trigger, out float triggerAmount);
         //headSetObject.transform.Rotate(new Vector3(0, turnSpeed * Time.deltaTime * rightAxisValue.x, 0));
 
 
-        //float dotCheck = 0.8f;
 
         //the reason we set the y to 0 is so the teleport is along the 2d axis so height does not change
         //as the headset will have rotation on it and can affect the y on transform forward and right
@@ -82,6 +84,51 @@ public class TeleportController : MonoBehaviour
                 moveDirection = moveDirection.normalized;
                 isDashing = true;
                 dashCDTimer = 0;
+            }
+            if (Vector3.Magnitude(leftVelocity) > 1f && triggerAmount > 0.7f)
+            {
+
+                //leftvel is global
+
+
+                ////up
+                //float dotCheck = 0.8f;
+                Vector2 leftVelDirection = new Vector2(leftVelocity.x, leftVelocity.z).normalized;
+
+                moveDirection = leftVelDirection;
+                isDashing = true;
+                amountDashed = 0;
+
+                //Vector2 forwardCheck = new Vector2(headSetObject.transform.forward.x, headSetObject.transform.forward.z);
+                //Vector2 rightCheck = new Vector2(headSetObject.transform.right.x, headSetObject.transform.right.z);
+
+                //if (Vector2.Dot(leftVelDirection, forwardCheck) > dotCheck)
+                //{
+                //    moveDirection = forwardDirection;
+                //    isDashing = true;
+                //    dashCDTimer = 0;
+                //}
+                ////down
+                //if (Vector2.Dot(leftVelDirection, -forwardCheck) > dotCheck)
+                //{
+                //    moveDirection = -forwardDirection;
+                //    isDashing = true;
+                //    dashCDTimer = 0;
+                //}
+                ////left
+                //if (Vector2.Dot(leftVelDirection, -rightCheck) > dotCheck)
+                //{
+                //    moveDirection = -rightDirection;
+                //    isDashing = true;
+                //    dashCDTimer = 0;
+                //}
+                ////right
+                //if (Vector2.Dot(leftVelDirection, rightCheck) > dotCheck)
+                //{
+                //    moveDirection = rightDirection;
+                //    isDashing = true;
+                //    dashCDTimer = 0;
+                //}
             }
 
 
