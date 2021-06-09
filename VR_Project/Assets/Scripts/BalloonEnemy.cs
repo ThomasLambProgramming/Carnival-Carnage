@@ -9,6 +9,9 @@ public class BalloonEnemy : MonoBehaviour
     private float yOffset = 0f;
     bool move = true;
     private float delay = 0f;
+    public GameObject ballonShatterVersion = null;
+    public GameObject headShatterVersion = null;
+   
     /*
      * TO ADD
      * Particle effect for string snap, balloon pop and enemy hit
@@ -30,12 +33,17 @@ public class BalloonEnemy : MonoBehaviour
             transform.position.z);
     }
 
-    public void OnHit()
+    public void BalloonHit()
     {
+        //decouple the main body and add gravity or whatever
+        //explode the balloon
         move = false;
-        transform.GetChild(0).parent = null;
-        //pop particle effect 
-        //then destroy this 
-        Destroy(gameObject, 0.2f);
+    }
+    public void MainBodyHit()
+    {
+
+        //add to score
+        //explode the balloon
+        move = false;
     }
 }
