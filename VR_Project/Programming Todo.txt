@@ -1,0 +1,12 @@
+Movement refine, 
+Enemy Movement (walker)
+Hitting enemies with hammer (melee doesnt work right now, probably just a setting)
+fixing hammer with dashing so it doesnt bug out and muck around with the physics
+hammer spawning behind / recall
+Gameplay manager (time left, points / tickets collected, audio of main game)
+adding audio to enemy being hit and for recall/spawning new hammer and etc
+Lighting being better
+Everything made into prefabs
+Ui with all systems integrated
+Main menu, options scenes made
+small tutorial explaining controls/ point of game

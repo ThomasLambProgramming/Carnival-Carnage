@@ -62,7 +62,7 @@ public class TeleportController : MonoBehaviour
         leftJoyStick.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 leftAxisValue);
         //rightJoyStick.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 rightAxisValue);
 
-        leftJoyStick.TryGetFeatureValue(CommonUsages.trigger, out float triggerAmount);
+        leftJoyStick.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerPressed);
         //headSetObject.transform.Rotate(new Vector3(0, turnSpeed * Time.deltaTime * rightAxisValue.x, 0));
 
 
@@ -85,83 +85,43 @@ public class TeleportController : MonoBehaviour
                 isDashing = true;
                 dashCDTimer = 0;
             }
-            if (Vector3.Magnitude(leftVelocity) > 1f && triggerAmount > 0.7f)
+            if (Vector3.SqrMagnitude(leftVelocity) > 3f && triggerPressed)
             {
-
-                //leftvel is global
-
-
-                ////up
-                //float dotCheck = 0.8f;
+                float dotCheck = 0.8f;
                 Vector2 leftVelDirection = new Vector2(leftVelocity.x, leftVelocity.z).normalized;
+                
 
-                moveDirection = leftVelDirection;
-                isDashing = true;
-                amountDashed = 0;
+                Vector2 forwardCheck = new Vector2(headSetObject.transform.forward.x, headSetObject.transform.forward.z);
+                Vector2 rightCheck = new Vector2(headSetObject.transform.right.x, headSetObject.transform.right.z);
 
-                //Vector2 forwardCheck = new Vector2(headSetObject.transform.forward.x, headSetObject.transform.forward.z);
-                //Vector2 rightCheck = new Vector2(headSetObject.transform.right.x, headSetObject.transform.right.z);
-
-                //if (Vector2.Dot(leftVelDirection, forwardCheck) > dotCheck)
-                //{
-                //    moveDirection = forwardDirection;
-                //    isDashing = true;
-                //    dashCDTimer = 0;
-                //}
-                ////down
-                //if (Vector2.Dot(leftVelDirection, -forwardCheck) > dotCheck)
-                //{
-                //    moveDirection = -forwardDirection;
-                //    isDashing = true;
-                //    dashCDTimer = 0;
-                //}
-                ////left
-                //if (Vector2.Dot(leftVelDirection, -rightCheck) > dotCheck)
-                //{
-                //    moveDirection = -rightDirection;
-                //    isDashing = true;
-                //    dashCDTimer = 0;
-                //}
-                ////right
-                //if (Vector2.Dot(leftVelDirection, rightCheck) > dotCheck)
-                //{
-                //    moveDirection = rightDirection;
-                //    isDashing = true;
-                //    dashCDTimer = 0;
-                //}
+                if (Vector2.Dot(leftVelDirection, forwardCheck) > dotCheck)
+                {
+                    moveDirection = forwardDirection;
+                    isDashing = true;
+                    dashCDTimer = 0;
+                }
+                //down
+                if (Vector2.Dot(leftVelDirection, -forwardCheck) > dotCheck)
+                {
+                    moveDirection = -forwardDirection;
+                    isDashing = true;
+                    dashCDTimer = 0;
+                }
+                //left
+                if (Vector2.Dot(leftVelDirection, -rightCheck) > dotCheck)
+                {
+                    moveDirection = -rightDirection;
+                    isDashing = true;
+                    dashCDTimer = 0;
+                }
+                //right
+                if (Vector2.Dot(leftVelDirection, rightCheck) > dotCheck)
+                {
+                    moveDirection = rightDirection;
+                    isDashing = true;
+                    dashCDTimer = 0;
+                }
             }
-
-
-
-            //THIS IS THE CARDINAL DIRECTION CODE KEEPING FOR JUST IN CASE
-            ////up
-            //if (Vector2.Dot(leftAxisValue, new Vector2(0, 1)) > dotCheck)
-            //{
-            //    moveDirection = forwardDirection;
-            //    isDashing = true;
-            //    dashCDTimer = 0;
-            //}
-            ////down
-            //if (Vector2.Dot(leftAxisValue, new Vector2(0, -1)) > dotCheck)
-            //{
-            //    moveDirection = -forwardDirection;
-            //    isDashing = true;
-            //    dashCDTimer = 0;
-            //}
-            ////left
-            //if (Vector2.Dot(leftAxisValue, new Vector2(-1, 0)) > dotCheck)
-            //{
-            //    moveDirection = -rightDirection;
-            //    isDashing = true;
-            //    dashCDTimer = 0;
-            //}
-            ////right
-            //if (Vector2.Dot(leftAxisValue, new Vector2(1, 0)) > dotCheck)
-            //{
-            //    moveDirection = rightDirection;
-            //    isDashing = true;
-            //    dashCDTimer = 0;
-            //}
         }
         if (isDashing)
         {
@@ -175,19 +135,9 @@ public class TeleportController : MonoBehaviour
         //gives the data back 
         RaycastHit hit;
         //this is to get the waist level so the raycasts dont go over anything 
-        float yHeight = headSetObject.transform.position.y / 2;
         Vector3 searchPosition = headSetObject.transform.position;
-        searchPosition.y = yHeight;
+        searchPosition.y = headSetObject.transform.position.y / 2;
 
-        //if any of these hit the obstacle layer then we know not to move anymore 
-        if (Physics.Raycast(searchPosition, new Vector3(moveDirection.x, 0, moveDirection.z), out hit, dashRaySearchLimit))
-        {
-            if (hit.transform.gameObject.layer == 11)
-            {
-                amountDashed = 0;
-                return true;
-            }
-        }
         if (Physics.Raycast(searchPosition, new Vector3(moveDirection.x, -0.3f, moveDirection.z), out hit, dashRaySearchLimit))
         {
             if (hit.transform.gameObject.layer == 11)
