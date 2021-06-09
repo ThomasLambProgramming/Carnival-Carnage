@@ -4810,8 +4810,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerObject: {fileID: 1435112389}
   dashDistance: 10
+  dashSpeed: 2
+  minLeftStickInput: 0.2
   dashCooldown: 0.25
-  turnSpeed: 40
+  dashRaySearchLimit: 2
   headSetObject: {fileID: 1107268982}
 --- !u!1 &1667148678
 GameObject:
