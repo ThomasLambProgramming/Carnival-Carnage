@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Hammer
   - Ground
+  - Balloon
+  - BalloonBody
   layers:
   - Default
   - TransparentFX

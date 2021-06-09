@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class TeleportingEnemy : MonoBehaviour
+public class Pranksters : MonoBehaviour
 {
+    //public GameObject gameManager;
+
+
     //layer 9 
     //once every this many seconds it will teleport 
     public float TeleportRate = 5f;
