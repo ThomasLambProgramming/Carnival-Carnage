@@ -11,6 +11,9 @@ public class TeleportController : MonoBehaviour
     public float dashDistance = 1f;
     public float dashSpeed = 2f;
 
+    //this is the minimum amount the player has to move the stick before a dash
+    public float minLeftStickInput = 0.2f;
+
     //amount of time till a dash can be done again
     public float dashCooldown = 1f;
     private float dashCDTimer = 1;
@@ -24,7 +27,7 @@ public class TeleportController : MonoBehaviour
     private float amountDashed = 0f;
 
 
-    public float turnSpeed = 40f;
+    //public float turnSpeed = 40f;
 
     private InputDevice rightJoyStick;
     private InputDevice leftJoyStick;
@@ -60,7 +63,7 @@ public class TeleportController : MonoBehaviour
         //headSetObject.transform.Rotate(new Vector3(0, turnSpeed * Time.deltaTime * rightAxisValue.x, 0));
 
 
-        float dotCheck = 0.8f;
+        //float dotCheck = 0.8f;
 
         //the reason we set the y to 0 is so the teleport is along the 2d axis so height does not change
         //as the headset will have rotation on it and can affect the y on transform forward and right
@@ -72,35 +75,46 @@ public class TeleportController : MonoBehaviour
 
         if (dashCDTimer >= dashCooldown && isDashing == false)
         {
+            if (Vector3.Magnitude(leftAxisValue) > minLeftStickInput)
+            {
+                moveDirection = headSetObject.transform.right * leftAxisValue.x + headSetObject.transform.forward * leftAxisValue.y;
+                moveDirection.y = 0;
+                moveDirection = moveDirection.normalized;
+                isDashing = true;
+                dashCDTimer = 0;
+            }
 
-            //up
-            if (Vector2.Dot(leftAxisValue, new Vector2(0, 1)) > dotCheck)
-            {
-                moveDirection = forwardDirection;
-                isDashing = true;
-                dashCDTimer = 0;
-            }
-            //down
-            if (Vector2.Dot(leftAxisValue, new Vector2(0, -1)) > dotCheck)
-            {
-                moveDirection = -forwardDirection;
-                isDashing = true;
-                dashCDTimer = 0;
-            }
-            //left
-            if (Vector2.Dot(leftAxisValue, new Vector2(-1, 0)) > dotCheck)
-            {
-                moveDirection = -rightDirection;
-                isDashing = true;
-                dashCDTimer = 0;
-            }
-            //right
-            if (Vector2.Dot(leftAxisValue, new Vector2(1, 0)) > dotCheck)
-            {
-                moveDirection = rightDirection;
-                isDashing = true;
-                dashCDTimer = 0;
-            }
+
+
+            //THIS IS THE CARDINAL DIRECTION CODE KEEPING FOR JUST IN CASE
+            ////up
+            //if (Vector2.Dot(leftAxisValue, new Vector2(0, 1)) > dotCheck)
+            //{
+            //    moveDirection = forwardDirection;
+            //    isDashing = true;
+            //    dashCDTimer = 0;
+            //}
+            ////down
+            //if (Vector2.Dot(leftAxisValue, new Vector2(0, -1)) > dotCheck)
+            //{
+            //    moveDirection = -forwardDirection;
+            //    isDashing = true;
+            //    dashCDTimer = 0;
+            //}
+            ////left
+            //if (Vector2.Dot(leftAxisValue, new Vector2(-1, 0)) > dotCheck)
+            //{
+            //    moveDirection = -rightDirection;
+            //    isDashing = true;
+            //    dashCDTimer = 0;
+            //}
+            ////right
+            //if (Vector2.Dot(leftAxisValue, new Vector2(1, 0)) > dotCheck)
+            //{
+            //    moveDirection = rightDirection;
+            //    isDashing = true;
+            //    dashCDTimer = 0;
+            //}
         }
         if (isDashing)
         {
