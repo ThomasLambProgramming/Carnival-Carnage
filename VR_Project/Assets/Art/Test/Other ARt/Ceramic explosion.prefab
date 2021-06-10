@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2909564263880968312}
   - component: {fileID: 8104588378359978924}
   m_Layer: 0
-  m_Name: Particle System (2)
+  m_Name: Ceramic explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8127436500184852596}
   m_LocalRotation: {x: -1, y: -0, z: -0, w: 0.000000014901159}
-  m_LocalPosition: {x: -54.86, y: 5.01, z: -46.22}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.30951, y: 0.30951, z: 0.30951}
   m_Children: []
   m_Father: {fileID: 0}
@@ -115,7 +115,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.7
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1029,7 +1029,7 @@ ParticleSystem:
       repeatInterval: 0.01
       probability: 1
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -1040,18 +1040,27 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
-          outSlope: 1
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
+          time: 0.8803965
           value: 1
+          inSlope: -0.09643044
+          outSlope: -0.09643044
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.14505245
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 0
           inSlope: 1
-          outSlope: 0
+          outSlope: 1
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
