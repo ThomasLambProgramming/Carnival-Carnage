@@ -11,6 +11,7 @@ TagManager:
   - Balloon
   - BalloonBody
   - Prankster
+  - Button
   layers:
   - Default
   - TransparentFX
