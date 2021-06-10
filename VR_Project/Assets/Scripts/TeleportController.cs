@@ -26,7 +26,6 @@ public class TeleportController : MonoBehaviour
     //timer thingy for the dash
     private float amountDashed = 0f;
 
-
     //public float turnSpeed = 40f;
 
     private InputDevice rightJoyStick;
@@ -64,8 +63,6 @@ public class TeleportController : MonoBehaviour
 
         leftJoyStick.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerPressed);
         //headSetObject.transform.Rotate(new Vector3(0, turnSpeed * Time.deltaTime * rightAxisValue.x, 0));
-
-
 
         //the reason we set the y to 0 is so the teleport is along the 2d axis so height does not change
         //as the headset will have rotation on it and can affect the y on transform forward and right
