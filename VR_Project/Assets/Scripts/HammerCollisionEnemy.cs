@@ -52,12 +52,12 @@ public class HammerCollisionEnemy : MonoBehaviour
             if (grabScript.isSelected)
             {
                 forceToAdd = forceToAdd * meleeHitForce;
-                collision.transform.GetComponent<Rigidbody>().AddForce(forceToAdd);
+                collision.transform.GetComponent<WalkerEnemy>().HasBeenHit(forceToAdd);
             }
             else
             {
                 forceToAdd = forceToAdd * throwHitForce;
-                collision.transform.GetComponent<Rigidbody>().AddForce(forceToAdd);
+                collision.transform.GetComponent<WalkerEnemy>().HasBeenHit(forceToAdd);
             }
         }
     }
