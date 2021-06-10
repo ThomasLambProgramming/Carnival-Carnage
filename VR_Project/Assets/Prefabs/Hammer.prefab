@@ -269,9 +269,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37afdeb586ba1a4d9258074256b652e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yForceIncrease: 4
-  meleeHitForce: 200
+  yForceIncrease: 0.2
+  meleeHitForce: 400
   throwHitForce: 10
+  hammerPart: {fileID: 0}
 --- !u!1 &6690486868204375600
 GameObject:
   m_ObjectHideFlags: 0
