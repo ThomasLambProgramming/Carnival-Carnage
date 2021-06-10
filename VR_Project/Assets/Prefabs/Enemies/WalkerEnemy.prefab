@@ -5498,6 +5498,7 @@ MonoBehaviour:
   makePath: 1
   distanceToNewPath: 2
   headObject: {fileID: 2101610128052361454}
+  kill: 0
 --- !u!195 &2722777137373855828
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5505,7 +5506,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7031071465814922545}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 2
   m_Speed: 3.5
@@ -5517,7 +5518,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 0.3
-  m_BaseOffset: 1
+  m_BaseOffset: 0.27
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!54 &4747044120792608117

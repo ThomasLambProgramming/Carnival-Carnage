@@ -54,7 +54,7 @@ public class TeleportController : MonoBehaviour
     public void Update()
     {
         dashCDTimer += Time.deltaTime;
-
+        
         leftJoyStick.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 leftVelocity);
         //rightJoyStick.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 rightVelocity);
 

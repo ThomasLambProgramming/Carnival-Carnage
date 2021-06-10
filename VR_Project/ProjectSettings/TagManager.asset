@@ -8,6 +8,9 @@ TagManager:
   - Hammer
   - Ground
   - Invisible
+  - Balloon
+  - BalloonBody
+  - Prankster
   layers:
   - Default
   - TransparentFX
