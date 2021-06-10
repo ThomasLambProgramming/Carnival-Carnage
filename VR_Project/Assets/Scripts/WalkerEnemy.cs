@@ -10,7 +10,7 @@ public class WalkerEnemy : MonoBehaviour
     public float distanceToNewPath = 2f;
     public GameObject headObject = null;
     private Rigidbody headRb = null;
-
+    public bool kill = false;
     private BoxCollider mainCollider = null;
     private BoxCollider headCollider = null;
     // Start is called before the first frame update
@@ -30,6 +30,11 @@ public class WalkerEnemy : MonoBehaviour
         {
             if (Vector3.Magnitude(navmesh.destination - transform.position) < distanceToNewPath * distanceToNewPath)
                 navmesh.SetDestination(new Vector3(Random.Range(-18, 2), 1, Random.Range(-35, -7)));
+        }
+        if (kill)
+        {
+            HasBeenHit(new Vector3(0, 100, 0));
+            kill = false;
         }
 
     }

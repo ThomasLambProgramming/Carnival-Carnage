@@ -13,8 +13,18 @@ public class Pranksters : MonoBehaviour
     private float teleportTimer = 0;
     //this makes sure it doesnt teleport into ground or anything
     public GameObject[] telePortPoints;
-    public GameObject destructableVersion = null;
+    public GameObject headObject = null;
     private bool hasBeenHit = false;
+    private Rigidbody headRb = null;
+    private BoxCollider headCollider = null;
+    private BoxCollider mainCollider = null;
+    private void Start()
+    {
+        mainCollider = GetComponent<BoxCollider>();
+        headCollider = headObject.GetComponent<BoxCollider>();
+        headRb = headObject.GetComponent<Rigidbody>();
+    }
+
     void Update()
     {
         //if it has been hit we dont want it rotating or teleporting after
@@ -33,26 +43,19 @@ public class Pranksters : MonoBehaviour
             transform.Rotate(new Vector3(0, spinSpeed * Time.deltaTime, 0));
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    public void HasBeenHit(Vector3 forceToHit)
     {
-        if (collision.transform.CompareTag("Hammer"))
-        {
-            //get hammer velocity or probs just increase the inital velocity 
-            //as the hammer will already move it the way we want it too
-            hasBeenHit = true;
-        }
-        if (collision.transform.CompareTag("Enemy"))
-        {
-            //disableGameobject
-            gameObject.SetActive(false);
+        
+        hasBeenHit = true;
+        mainCollider.enabled = false;
+        headCollider.enabled = true;
+        //deparent it so it doesnt move with the object ontop of it flying in the air
+        headObject.transform.parent = null;
+        headRb.isKinematic = false;
+        headRb.AddForce(forceToHit);
+        Destroy(gameObject, 4f);
 
-            //AddScore / ticket thingy
-            
-            //enable shatter version and do all the force stuff required
-            destructableVersion.SetActive(true);
-        }
     }
-
 
 
 
