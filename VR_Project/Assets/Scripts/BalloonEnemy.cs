@@ -20,14 +20,14 @@ public class BalloonEnemy : MonoBehaviour
      * Particle effect for string snap, balloon pop and enemy hit
      */
 
-    void Start()
+    public void Start()
     {
         delay = Random.Range(-1.0f, 1.0f);
         yOffset = transform.position.y;
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if (move)
         transform.position = new Vector3(

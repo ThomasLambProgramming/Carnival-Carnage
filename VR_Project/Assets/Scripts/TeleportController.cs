@@ -2,7 +2,7 @@
 using UnityEngine.Events;
 using UnityEngine.XR;
 using System.Collections.Generic;
-
+using UnityEngine.SceneManagement;
 public class TeleportController : MonoBehaviour
 {
     //Object that has the teleporting controller script
@@ -54,7 +54,7 @@ public class TeleportController : MonoBehaviour
     public void Update()
     {
         dashCDTimer += Time.deltaTime;
-
+        
         leftJoyStick.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 leftVelocity);
         //rightJoyStick.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 rightVelocity);
 
@@ -63,6 +63,13 @@ public class TeleportController : MonoBehaviour
 
         leftJoyStick.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerPressed);
         //headSetObject.transform.Rotate(new Vector3(0, turnSpeed * Time.deltaTime * rightAxisValue.x, 0));
+
+        leftJoyStick.TryGetFeatureValue(CommonUsages.primary2DAxisClick, out bool resetScene);
+
+        if (resetScene)
+        {
+            SceneManager.LoadScene(0);
+        }
 
         //the reason we set the y to 0 is so the teleport is along the 2d axis so height does not change
         //as the headset will have rotation on it and can affect the y on transform forward and right

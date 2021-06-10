@@ -31,14 +31,6 @@ public class HammerCollisionEnemy : MonoBehaviour
     
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag("BalloonBody"))
-        {
-            collision.transform.parent.GetComponent<BalloonEnemy>().MainBodyHit();
-        }
-        if (collision.transform.CompareTag("Balloon"))
-        {
-            collision.transform.parent.GetComponent<BalloonEnemy>().BalloonHit();
-        }
         if (collision.transform.CompareTag("Enemy"))
         {
             Vector3 hammerDifference = transform.position - previousPosition;
@@ -52,12 +44,41 @@ public class HammerCollisionEnemy : MonoBehaviour
             if (grabScript.isSelected)
             {
                 forceToAdd = forceToAdd * meleeHitForce;
-                collision.transform.GetComponent<Rigidbody>().AddForce(forceToAdd);
+                collision.transform.GetComponent<WalkerEnemy>().HasBeenHit(forceToAdd);
             }
             else
             {
                 forceToAdd = forceToAdd * throwHitForce;
-                collision.transform.GetComponent<Rigidbody>().AddForce(forceToAdd);
+                collision.transform.GetComponent<WalkerEnemy>().HasBeenHit(forceToAdd);
+            }
+        }
+        else if (collision.transform.CompareTag("BalloonBody"))
+        {
+            collision.transform.parent.GetComponent<BalloonEnemy>().MainBodyHit();
+        }
+        else if (collision.transform.CompareTag("Balloon"))
+        {
+            collision.transform.parent.GetComponent<BalloonEnemy>().BalloonHit();
+        }
+        else if (collision.transform.CompareTag("Prankster"))
+        {
+            Vector3 hammerDifference = transform.position - previousPosition;
+            float amountMoved = hammerDifference.magnitude;
+            Vector3 forceDirection = hammerDifference.normalized;
+
+            Vector3 forceToAdd = forceDirection * amountMoved;
+            forceToAdd.y += yForceIncrease;
+
+
+            if (grabScript.isSelected)
+            {
+                forceToAdd = forceToAdd * meleeHitForce;
+                collision.transform.GetComponent<Pranksters>().HasBeenHit(forceToAdd);
+            }
+            else
+            {
+                forceToAdd = forceToAdd * throwHitForce;
+                collision.transform.GetComponent<Pranksters>().HasBeenHit(forceToAdd);
             }
         }
     }
