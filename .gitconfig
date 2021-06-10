@@ -1,0 +1,5 @@
+[user]
+	name = Oscar
+	email = oscarbuzzsmith@gmail.com
+[core]
+	longpaths = true
