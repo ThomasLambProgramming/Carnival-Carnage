@@ -25,6 +25,7 @@ public class TeleportController : MonoBehaviour
     private Vector3 moveDirection;
     bool isDashing = false;
     public XRRayInteractor rayInteractor = null;
+
     //timer thingy for the dash
     private float amountDashed = 0f;
 
@@ -71,7 +72,7 @@ public class TeleportController : MonoBehaviour
 
         if (recallHammer)
         {
-            
+            //rayInteractor.interactionManager.ForceSelect( , hammerObject.GetComponent<XRGrabInteractable>());
         }
 
         if (resetScene)
