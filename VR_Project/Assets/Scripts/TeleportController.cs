@@ -3,6 +3,8 @@ using UnityEngine.Events;
 using UnityEngine.XR;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR.Interaction.Toolkit;
+
 public class TeleportController : MonoBehaviour
 {
     //Object that has the teleporting controller script
@@ -10,7 +12,7 @@ public class TeleportController : MonoBehaviour
     //reference to the input action reference that contains the button mapping data for activation
     public float dashDistance = 1f;
     public float dashSpeed = 2f;
-
+    public GameObject hammerObject = null;
     //this is the minimum amount the player has to move the stick before a dash
     public float minLeftStickInput = 0.2f;
 
@@ -22,7 +24,7 @@ public class TeleportController : MonoBehaviour
     //this is to have a set dash movement over time so it doesnt change until the next input
     private Vector3 moveDirection;
     bool isDashing = false;
-
+    public XRRayInteractor rayInteractor = null;
     //timer thingy for the dash
     private float amountDashed = 0f;
 
@@ -65,6 +67,12 @@ public class TeleportController : MonoBehaviour
         //headSetObject.transform.Rotate(new Vector3(0, turnSpeed * Time.deltaTime * rightAxisValue.x, 0));
 
         leftJoyStick.TryGetFeatureValue(CommonUsages.primary2DAxisClick, out bool resetScene);
+        rightJoyStick.TryGetFeatureValue(CommonUsages.gripButton, out bool recallHammer);
+
+        if (recallHammer)
+        {
+            
+        }
 
         if (resetScene)
         {
