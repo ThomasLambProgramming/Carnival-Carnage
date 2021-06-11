@@ -9,8 +9,8 @@ public class Sound
 {
     public string m_name;
 
-    [HideInInspector]
     public AudioClip m_clip;
+    [HideInInspector]
     public AudioSource m_source;
 
     public bool m_playOnAwake;
@@ -18,7 +18,7 @@ public class Sound
 
     [Range(0f, 1f)]
     public float m_volume;
-    [Range(0f, 1f)]
+    [Range(-3f, 3f)]
     public float m_pitch;
     [Range(0f, 1f)]
     public float m_spatialBlend;
@@ -34,17 +34,17 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if (m_manager = null)
-        {
-            m_manager = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
+        //if (m_manager = null)
+        //{
+        //    m_manager = this;
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //    return;
+        //}
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         SetSoundSettings();
     }
 
@@ -66,7 +66,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySound (string a_name)
     {
-        Sound soundToPlay = Array.Find(m_sounds, sound => sound.m_name == name);
+        Sound soundToPlay = Array.Find(m_sounds, sound => sound.m_name == a_name);
 
         if (soundToPlay == null)
         {
@@ -75,5 +75,18 @@ public class AudioManager : MonoBehaviour
         }
 
         soundToPlay.m_source.Play();
+    }
+
+    public void StopPlaying (string a_name)
+    {
+        Sound soundToPlay = Array.Find(m_sounds, sound => sound.m_name == a_name);
+
+        if (soundToPlay == null)
+        {
+            Debug.LogWarning("No sound named " + a_name + " exists.");
+            return;
+        }
+
+        soundToPlay.m_source.Stop();
     }
 }
