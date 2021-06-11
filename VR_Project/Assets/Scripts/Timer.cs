@@ -22,8 +22,8 @@ public class Timer : MonoBehaviour
 
     private void SetTimer(float a_time)
     {
-        float minutes = (int)a_time / 60;
-        float seconds = a_time % 60;
+        float minutes = Mathf.FloorToInt(a_time / 60);
+        float seconds = Mathf.FloorToInt(a_time % 60);
 
         time = string.Format("{0:00}:{1:00}", minutes, seconds);
 
