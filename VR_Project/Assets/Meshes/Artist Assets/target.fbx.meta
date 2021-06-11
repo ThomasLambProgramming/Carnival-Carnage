@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a84f85d69e7fedd49b37261fa025083a
+guid: f9698aca13d0cbc40955e6b8dd60a514
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
@@ -7,7 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Barrel_04
+      name: lambert2
     second: {fileID: 2100000, guid: ecda249acf5d15741bf566b07da09fbf, type: 2}
   materials:
     materialImportMode: 1
