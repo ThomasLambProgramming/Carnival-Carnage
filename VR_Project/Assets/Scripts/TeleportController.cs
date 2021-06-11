@@ -13,9 +13,10 @@ public class TeleportController : MonoBehaviour
     public float dashDistance = 1f;
     public float dashSpeed = 2f;
     public GameObject hammerObject = null;
+
     //this is the minimum amount the player has to move the stick before a dash
     public float minLeftStickInput = 0.2f;
-
+    bool releasedGrip = true;
     //amount of time till a dash can be done again
     public float dashCooldown = 1f;
     private float dashCDTimer = 1;
@@ -28,7 +29,7 @@ public class TeleportController : MonoBehaviour
 
     //timer thingy for the dash
     private float amountDashed = 0f;
-
+    private HammerCollisionEnemy hammerScript = null;
     //public float turnSpeed = 40f;
 
     private InputDevice rightJoyStick;
@@ -52,6 +53,8 @@ public class TeleportController : MonoBehaviour
         {
             rightJoyStick = devices[0];
         }
+        hammerObject.GetComponent<Rigidbody>();
+        hammerScript = hammerObject.GetComponent<HammerCollisionEnemy>();
     }
 
     public void Update()
@@ -70,9 +73,15 @@ public class TeleportController : MonoBehaviour
         leftJoyStick.TryGetFeatureValue(CommonUsages.primary2DAxisClick, out bool resetScene);
         rightJoyStick.TryGetFeatureValue(CommonUsages.gripButton, out bool recallHammer);
 
-        if (recallHammer)
+        if (recallHammer && releasedGrip)
         {
-            //rayInteractor.interactionManager.ForceSelect( , hammerObject.GetComponent<XRGrabInteractable>());
+            hammerScript.IsSummoned();
+            releasedGrip = false;
+        }
+        else if (!recallHammer && releasedGrip == false)
+        {
+            releasedGrip = true;
+            hammerScript.StopSummon();
         }
 
         if (resetScene)
