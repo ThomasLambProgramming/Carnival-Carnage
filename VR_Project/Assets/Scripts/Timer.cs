@@ -11,12 +11,23 @@ public class Timer : MonoBehaviour
 
     public Text debug;
 
+    private void Start()
+    {
+        FindObjectOfType<AudioManager>().PlaySound("Timer");
+    }
+
     private void Update()
     {
         if (timeRemaining > 0 && !isFinished)
         {
             timeRemaining -= Time.deltaTime;
             SetTimer(timeRemaining);
+        }
+        else
+        {
+            time = "00:00";
+            FindObjectOfType<AudioManager>().StopPlaying("Timer");
+            FindObjectOfType<AudioManager>().StopPlaying("Timer");
         }
     }
 
