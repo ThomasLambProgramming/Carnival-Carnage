@@ -89,7 +89,7 @@ public class NodeManager : MonoBehaviour
             if (objectMesh == null)
                 continue;
 
-            if (currentObject.layer == 9)
+            if (currentObject.layer == 11)
             {
                 bool canAdd = true;
                 List<Vector3> objectVerts = new List<Vector3>();
@@ -115,7 +115,7 @@ public class NodeManager : MonoBehaviour
                 //makes sure it isnt added to the list of actual nodes
                 continue;
             }
-            if (currentObject.layer == 10)
+            if (currentObject.layer == 12)
             {
                 Vector3 newNormal = currentObject.transform.TransformDirection(new Vector3(0, 1, 0));
                 List<Vector3> objectVerts = new List<Vector3>();
