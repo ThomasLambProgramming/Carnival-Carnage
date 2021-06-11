@@ -70,18 +70,27 @@ public class HammerCollisionEnemy : MonoBehaviour
         //hammerRb.velocity = new Vector3(0,0,0);
         if (isBeingSummoned)
         {
-            //RaycastHit hit;
-            //if (Physics.Raycast(transform.position, hammerRb.velocity.normalized, out hit))
-            //{
-            //    if (hit.transform.CompareTag("GameController"))
-            //    {
-            //        hammerRb.velocity = (playerRightHand.transform.position - transform.position).normalized * maxReturnSpeed;
-            //    }
-            //}
+            var directionToHand = (playerRightHand.transform.position - transform.position).normalized;
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, directionToHand, out hit))
+            {
+                if (hit.transform.CompareTag("Obstacle"))
+                {
+                    path = FindPath();
+                    currentPathIndex = 0;
+                }
+                else
+                {
+                    hammerRb.velocity += directionToHand * maxReturnSpeed;
+                    isDonePath = true;
+                    path = null;
+                }
+            }
             //the grab interactor will then be able to grab it so we can stop the summoning
             if (Vector3.Magnitude(playerRightHand.transform.position - transform.position) < withInGrabDistance)
             {
                 StopSummon();
+                hammerRb.velocity = Vector3.zero;
             }
             else 
             {
@@ -105,18 +114,6 @@ public class HammerCollisionEnemy : MonoBehaviour
                         }
                     }
                 }
-            }
-            if (isDonePath)
-            {
-                Vector3 heading = transform.position + hammerRb.velocity;
-                float headingLength = heading.magnitude;
-                Vector3 directionToTarget = Vector3.Normalize(playerRightHand.transform.position - transform.position);
-                Vector3 vector2Target = directionToTarget * headingLength;
-                Vector3 targetForcePos = vector2Target + transform.position;
-                Vector3 forceDirection = targetForcePos - heading;
-                forceDirection = forceDirection.normalized;
-                forceDirection = forceDirection * returnspeed * Time.deltaTime;
-                hammerRb.velocity += forceDirection;
             }
             if (hammerRb.velocity.magnitude > maxReturnSpeed)
             {
