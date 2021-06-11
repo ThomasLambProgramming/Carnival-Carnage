@@ -20,12 +20,12 @@ public class TeleportController : MonoBehaviour
     //amount of time till a dash can be done again
     public float dashCooldown = 1f;
     private float dashCDTimer = 1;
-
+    public GameObject rightHandObject = null;
     public float dashRaySearchLimit = 2f;
     //this is to have a set dash movement over time so it doesnt change until the next input
     private Vector3 moveDirection;
     bool isDashing = false;
-    public XRRayInteractor rayInteractor = null;
+    private XRDirectInteractor directInteractor = null;
 
     //timer thingy for the dash
     private float amountDashed = 0f;
@@ -55,6 +55,7 @@ public class TeleportController : MonoBehaviour
         }
         hammerObject.GetComponent<Rigidbody>();
         hammerScript = hammerObject.GetComponent<HammerCollisionEnemy>();
+        directInteractor = rightHandObject.GetComponent<XRDirectInteractor>();
     }
 
     public void Update()
@@ -83,6 +84,12 @@ public class TeleportController : MonoBehaviour
             releasedGrip = true;
             hammerScript.StopSummon();
         }
+        //FIX THIS
+        if (directInteractor.selectTarget != null)
+        {
+            hammerScript.StopSummon();
+        }
+        
 
         if (resetScene)
         {
