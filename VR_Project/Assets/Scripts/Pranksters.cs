@@ -35,7 +35,7 @@ public class Pranksters : MonoBehaviour
             if (teleportTimer >= TeleportRate)
             {
                 //play particle effect
-                audioManager.PlaySound("Enemy - Prankster", transform.position);
+                audioManager.PlaySound("Enemy - Prankster", gameObject);
                 if (telePortPoints.Length > 0)
                 {
                     transform.position = telePortPoints[Random.Range(0, telePortPoints.Length - 1)].transform.position;

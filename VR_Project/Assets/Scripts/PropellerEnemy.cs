@@ -77,7 +77,7 @@ public class PropellerEnemy : MonoBehaviour
 
     public void Shatter()
     {
-        audioManager.PlaySound("Shatter", transform.position);
+        audioManager.PlaySound("Shatter", gameObject);
         canMove = false;
         defaultHead.SetActive(false);
         shatterVersion.transform.parent = null;

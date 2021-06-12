@@ -12,9 +12,7 @@ public class BalloonMainBody : MonoBehaviour
             gameObject.SetActive(false);
             destructibleVersion.transform.position = transform.position;
             destructibleVersion.SetActive(true);
-            audiomanager.PlaySound("Shatter", transform.position);
+            audiomanager.PlaySound("Shatter", gameObject);
         }
-
-        
     }
 }

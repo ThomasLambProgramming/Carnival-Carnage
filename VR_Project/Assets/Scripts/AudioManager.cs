@@ -34,7 +34,7 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        //if (m_manager = null)
+        //if (m_manager == null)
         //{
         //    m_manager = this;
         //}
@@ -77,7 +77,7 @@ public class AudioManager : MonoBehaviour
         soundToPlay.m_source.Play();
     }
 
-    public void PlaySound(string a_name, Vector3 position)
+    public void PlaySound(string a_name, GameObject a_source)
     {
         Sound soundToPlay = Array.Find(m_sounds, sound => sound.m_name == a_name);
 
@@ -86,7 +86,8 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("No sound named " + a_name + " exists.");
             return;
         }
-        AudioSource.PlayClipAtPoint(soundToPlay.m_clip, position);
+
+        AudioSource.PlayClipAtPoint(soundToPlay.m_clip, a_source.transform.position);
     }
 
     public void StopPlaying (string a_name)
@@ -100,5 +101,27 @@ public class AudioManager : MonoBehaviour
         }
 
         soundToPlay.m_source.Stop();
+    }
+
+    public void StopPlaying(string a_name, GameObject a_source)
+    {
+        AudioSource[] sources = a_source.GetComponents<AudioSource>();
+
+        if (sources == null)
+        {
+            Debug.LogWarning("No audio sources found.");
+            return;
+        }
+
+        foreach (AudioSource source in sources)
+        {
+            if (source.name == a_name)
+            {
+                source.Stop();
+                return;
+            }
+        }
+
+        Debug.LogWarning("No sound named " + a_name + " exists.");
     }
 }

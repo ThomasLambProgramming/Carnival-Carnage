@@ -20,7 +20,7 @@ public class PropellerShatter : MonoBehaviour
                 shatterVersion.SetActive(true);
                 Destroy(gameObject);
                 Destroy(shatterVersion, 3);
-                audioManager.PlaySound("Shatter", transform.position);
+                audioManager.PlaySound("Shatter", gameObject);
             }
         }
     }

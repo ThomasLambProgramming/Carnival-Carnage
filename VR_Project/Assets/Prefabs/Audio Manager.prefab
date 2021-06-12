@@ -48,10 +48,10 @@ MonoBehaviour:
     m_clip: {fileID: 8300000, guid: 2805d2d281778f7489e3a2b65a48200b, type: 3}
     m_source: {fileID: 0}
     m_playOnAwake: 0
-    m_loop: 0
-    m_volume: 1
+    m_loop: 1
+    m_volume: 0.549
     m_pitch: 1
-    m_spatialBlend: 0
+    m_spatialBlend: 1
   - m_name: Circus Theme Music 2
     m_clip: {fileID: 8300000, guid: 25f48cbc52a4534459a0be396ac62325, type: 3}
     m_source: {fileID: 0}
@@ -77,13 +77,13 @@ MonoBehaviour:
     m_pitch: 1
     m_spatialBlend: 0
   - m_name: Timer
-    m_clip: {fileID: 8300000, guid: 0e8a8dcf666d5c24081230e2836b799c, type: 3}
+    m_clip: {fileID: 8300000, guid: 4c34708fda174e84d874aca8cb9a35a4, type: 3}
     m_source: {fileID: 0}
     m_playOnAwake: 0
     m_loop: 1
-    m_volume: 1
-    m_pitch: 1
-    m_spatialBlend: 0
+    m_volume: 0.4
+    m_pitch: 0.6
+    m_spatialBlend: 1
   - m_name: Weapon Swing
     m_clip: {fileID: 8300000, guid: 8149e007ef3682544b4ef70c311b9198, type: 3}
     m_source: {fileID: 0}
