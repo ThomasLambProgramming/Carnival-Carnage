@@ -1454,6 +1454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shatterVersion: {fileID: 6327665805386904512}
+  audioManager: {fileID: 1600895261550612680, guid: 6b612a8033d01d44097b302fd8cd1896, type: 3}
 --- !u!1 &4148095340238520050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1866,6 +1867,7 @@ MonoBehaviour:
   yOffSet: 1
   canMove: 0
   rotateSpeed: 10
+  audioManager: {fileID: 1600895261550612680, guid: 6b612a8033d01d44097b302fd8cd1896, type: 3}
 --- !u!54 &4615201390725979949
 Rigidbody:
   m_ObjectHideFlags: 0

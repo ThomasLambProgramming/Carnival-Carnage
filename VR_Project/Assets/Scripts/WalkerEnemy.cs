@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class WalkerEnemy : MonoBehaviour
 {
+    public AudioManager audioSources = null;
     private Rigidbody rb = null;
     private NavMeshAgent navmesh = null;
     public bool makePath = true;
@@ -40,6 +41,8 @@ public class WalkerEnemy : MonoBehaviour
     }
     public void HasBeenHit(Vector3 forceToHit)
     {
+        //there isnt a hit sound soooo.....
+        //audioSources.PlaySound("Hit", transform.position);
         navmesh.enabled = false;
         mainCollider.enabled = false;
         headCollider.enabled = true;
@@ -48,6 +51,5 @@ public class WalkerEnemy : MonoBehaviour
         headRb.isKinematic = false;
         headRb.AddForce(forceToHit);
         Destroy(gameObject, 4f);
-
     }
 }

@@ -6,6 +6,8 @@ public class CrateDestory : MonoBehaviour
 {
     public float destroyTime = 3;
     public GameObject destructableVersion = null;
+
+    public AudioManager audioManager = null;
     // Start is called before the first frame update
     public void HammerHit()
     {
@@ -14,5 +16,6 @@ public class CrateDestory : MonoBehaviour
         gameObject.SetActive(false);
         Destroy(gameObject, destroyTime);
         Destroy(destructableVersion, destroyTime);
+        //audio.PlaySound("", transform.position);
     }
 }

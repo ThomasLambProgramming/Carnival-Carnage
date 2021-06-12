@@ -136,7 +136,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321783660897859790}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.002, y: 2.595, z: -9.855}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a1c266c74a73ce4fb871316efd6da32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 1600895261550612680, guid: 6b612a8033d01d44097b302fd8cd1896, type: 3}
   bounceAmount: 1
   bounceSpeed: 1
   ballonDefault: {fileID: 321783660937336608}
@@ -2159,6 +2160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destructibleVersion: {fileID: 807520431218827911}
+  audiomanager: {fileID: 1600895261550612680, guid: 6b612a8033d01d44097b302fd8cd1896, type: 3}
 --- !u!1 &7471498702264248614
 GameObject:
   m_ObjectHideFlags: 0

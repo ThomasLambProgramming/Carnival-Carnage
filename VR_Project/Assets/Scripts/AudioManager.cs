@@ -77,6 +77,18 @@ public class AudioManager : MonoBehaviour
         soundToPlay.m_source.Play();
     }
 
+    public void PlaySound(string a_name, Vector3 position)
+    {
+        Sound soundToPlay = Array.Find(m_sounds, sound => sound.m_name == a_name);
+
+        if (soundToPlay == null)
+        {
+            Debug.LogWarning("No sound named " + a_name + " exists.");
+            return;
+        }
+        AudioSource.PlayClipAtPoint(soundToPlay.m_clip, position);
+    }
+
     public void StopPlaying (string a_name)
     {
         Sound soundToPlay = Array.Find(m_sounds, sound => sound.m_name == a_name);

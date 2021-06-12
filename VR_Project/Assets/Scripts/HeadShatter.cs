@@ -6,6 +6,7 @@ public class HeadShatter : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject shatterVersion = null;
+    public AudioManager audioManager = null;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.CompareTag("Enemy") || 
@@ -18,6 +19,7 @@ public class HeadShatter : MonoBehaviour
             shatterVersion.transform.position = transform.position;
             shatterVersion.transform.rotation = transform.rotation;
             shatterVersion.SetActive(true);
+            audioManager.PlaySound("Shatter", transform.position);
             
         }
     }

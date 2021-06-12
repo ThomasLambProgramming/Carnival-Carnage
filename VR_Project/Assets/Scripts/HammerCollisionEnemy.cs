@@ -158,7 +158,8 @@ public class HammerCollisionEnemy : MonoBehaviour
         }
         else if (collision.transform.CompareTag("BalloonBody"))
         {
-            collision.transform.parent.GetComponent<BalloonEnemy>().MainBodyHit();
+            if (collision.transform.parent != null)
+                collision.transform.parent.GetComponent<BalloonEnemy>().MainBodyHit();
         }
         else if (collision.collider.transform.CompareTag("Hat"))
         {

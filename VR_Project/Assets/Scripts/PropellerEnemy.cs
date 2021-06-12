@@ -25,6 +25,8 @@ public class PropellerEnemy : MonoBehaviour
     public bool canMove = true;
     private Rigidbody rb = null;
     public float rotateSpeed = 10f;
+
+    public AudioManager audioManager = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -75,6 +77,7 @@ public class PropellerEnemy : MonoBehaviour
 
     public void Shatter()
     {
+        audioManager.PlaySound("Shatter", transform.position);
         canMove = false;
         defaultHead.SetActive(false);
         shatterVersion.transform.parent = null;

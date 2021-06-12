@@ -5,7 +5,7 @@ using UnityEngine;
 public class PropellerShatter : MonoBehaviour
 {
     public GameObject shatterVersion = null;
-
+    public AudioManager audioManager = null;
     private void OnCollisionEnter(Collision collision)
     {
         if (transform.parent == null)
@@ -20,6 +20,7 @@ public class PropellerShatter : MonoBehaviour
                 shatterVersion.SetActive(true);
                 Destroy(gameObject);
                 Destroy(shatterVersion, 3);
+                audioManager.PlaySound("Shatter", transform.position);
             }
         }
     }

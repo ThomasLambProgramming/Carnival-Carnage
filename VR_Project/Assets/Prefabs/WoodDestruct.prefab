@@ -1358,7 +1358,7 @@ GameObject:
   - component: {fileID: 3001448137479340352}
   - component: {fileID: 3001448137479340353}
   m_Layer: 0
-  m_Name: WoodenCrate
+  m_Name: WoodDestruct
   m_TagString: Crate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1455,6 +1455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyTime: 3
   destructableVersion: {fileID: 5182188869613531776}
+  audioManager: {fileID: 1600895261550612680, guid: 6b612a8033d01d44097b302fd8cd1896, type: 3}
 --- !u!1 &3129490073643890977
 GameObject:
   m_ObjectHideFlags: 0

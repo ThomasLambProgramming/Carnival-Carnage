@@ -18,6 +18,7 @@ public class Pranksters : MonoBehaviour
     private Rigidbody headRb = null;
     private BoxCollider headCollider = null;
     private BoxCollider mainCollider = null;
+    public AudioManager audioManager = null;
     private void Start()
     {
         mainCollider = GetComponent<BoxCollider>();
@@ -34,6 +35,7 @@ public class Pranksters : MonoBehaviour
             if (teleportTimer >= TeleportRate)
             {
                 //play particle effect
+                audioManager.PlaySound("Enemy - Prankster", transform.position);
                 if (telePortPoints.Length > 0)
                 {
                     transform.position = telePortPoints[Random.Range(0, telePortPoints.Length - 1)].transform.position;
