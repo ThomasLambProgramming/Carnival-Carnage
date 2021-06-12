@@ -84,11 +84,11 @@ public class TeleportController : MonoBehaviour
             releasedGrip = true;
             hammerScript.StopSummon();
         }
-        //FIX THIS
-        if (directInteractor.selectTarget != null)
-        {
-            hammerScript.StopSummon();
-        }
+        // //FIX THIS
+        // if (directInteractor.selectTarget != null)
+        // {
+        //     hammerScript.StopSummon();
+        // }
         
 
         if (resetScene)

@@ -25,7 +25,7 @@ public class HammerCollisionEnemy : MonoBehaviour
     public float returnspeed = 10f;
     private int currentPathIndex = 0;
     private bool isDonePath = false;
-    private bool isBeingSummoned = true;
+    private bool isBeingSummoned = false;
     private Vector3[] path;
     public float maxReturnSpeed = 50f;
     XRGrabInteractable grabScript = null;
@@ -115,6 +115,12 @@ public class HammerCollisionEnemy : MonoBehaviour
                     }
                 }
             }
+
+            if (isDonePath)
+            {
+                //this is just to stop the error in unity im going to fix this but just annoying me when trying 
+                //to set up the scene
+            }
             if (hammerRb.velocity.magnitude > maxReturnSpeed)
             {
                 hammerRb.velocity = hammerRb.velocity.normalized * maxReturnSpeed;
@@ -145,6 +151,10 @@ public class HammerCollisionEnemy : MonoBehaviour
                 forceToAdd *= throwHitForce;
                 collision.transform.GetComponent<WalkerEnemy>().HasBeenHit(forceToAdd);
             }
+        }
+        else if (collision.transform.CompareTag("Crate"))
+        {
+            collision.transform.GetComponent<CrateDestory>().HammerHit();
         }
         else if (collision.transform.CompareTag("BalloonBody"))
         {
