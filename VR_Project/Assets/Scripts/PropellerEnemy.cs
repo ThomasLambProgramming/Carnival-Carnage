@@ -22,7 +22,7 @@ public class PropellerEnemy : MonoBehaviour
     public float goNextDistance = 3;
     public float moveSpeed = 5;
     public float yOffSet = 1;
-    private bool canMove = true;
+    public bool canMove = true;
     private Rigidbody rb = null;
     public float rotateSpeed = 10f;
     // Start is called before the first frame update
@@ -81,6 +81,14 @@ public class PropellerEnemy : MonoBehaviour
         shatterVersion.SetActive(true);
         flyAway = true;
         Destroy(shatterVersion, destroyTime);
+        Destroy(gameObject, destroyTime);
+    }
+
+    public void HatHit()
+    {
+        Destroy(hatObject);
+        defaultHead.AddComponent<Rigidbody>();
+        defaultHead.transform.parent = null;
         Destroy(gameObject, destroyTime);
     }
      private Vector3[] FindPath()

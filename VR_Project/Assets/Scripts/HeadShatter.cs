@@ -13,9 +13,12 @@ public class HeadShatter : MonoBehaviour
             collision.transform.CompareTag("Obstacle"))
         {
             gameObject.SetActive(false);
+            if (shatterVersion.transform.parent != null)
+                shatterVersion.transform.parent = null;
             shatterVersion.transform.position = transform.position;
             shatterVersion.transform.rotation = transform.rotation;
             shatterVersion.SetActive(true);
+            
         }
     }
 }

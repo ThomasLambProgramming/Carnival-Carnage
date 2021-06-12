@@ -160,6 +160,15 @@ public class HammerCollisionEnemy : MonoBehaviour
         {
             collision.transform.parent.GetComponent<BalloonEnemy>().MainBodyHit();
         }
+        else if (collision.collider.transform.CompareTag("Hat"))
+        {
+            collision.collider.transform.parent.GetComponent<PropellerEnemy>().HatHit();
+        }
+        else if (collision.collider.transform.CompareTag("PropellerHead"))
+        {
+            if (collision.collider.transform.parent != null)
+                collision.collider.transform.parent.GetComponent<PropellerEnemy>().Shatter();
+        }
         else if (collision.transform.CompareTag("Balloon"))
         {
             collision.transform.parent.GetComponent<BalloonEnemy>().BalloonHit();
