@@ -1373,6 +1373,6 @@ MonoBehaviour:
   hammerObject: {fileID: 0}
   minLeftStickInput: 0.4
   dashCooldown: 0.4
+  rightHandObject: {fileID: 0}
   dashRaySearchLimit: 1
-  rayInteractor: {fileID: 0}
   headSetObject: {fileID: 740464432062256152}
