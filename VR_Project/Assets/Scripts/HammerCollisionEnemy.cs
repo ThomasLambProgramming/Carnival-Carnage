@@ -90,7 +90,6 @@ public class HammerCollisionEnemy : MonoBehaviour
             if (Vector3.Magnitude(playerRightHand.transform.position - transform.position) < withInGrabDistance)
             {
                 StopSummon();
-                hammerRb.velocity = Vector3.zero;
             }
             else 
             {
@@ -103,7 +102,7 @@ public class HammerCollisionEnemy : MonoBehaviour
                     Vector3 targetForcePos = vector2Target + transform.position;
                     Vector3 forceDirection = targetForcePos - heading;
                     forceDirection = forceDirection.normalized;
-                    forceDirection = forceDirection * returnspeed * Time.deltaTime;
+                    forceDirection = forceDirection * (maxReturnSpeed * Time.deltaTime);
                     hammerRb.velocity += forceDirection;
                     
                     if ((path[currentPathIndex] - transform.position).magnitude < goNextNodeDist)
