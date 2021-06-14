@@ -14,6 +14,8 @@ public class WalkerEnemy : MonoBehaviour
     public bool kill = false;
     private BoxCollider mainCollider = null;
     private BoxCollider headCollider = null;
+
+    public NodeContainer nodeData = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,10 +29,10 @@ public class WalkerEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (navmesh.enabled && makePath)
+        if (navmesh != null && navmesh.enabled && makePath)
         {
             if (Vector3.Magnitude(navmesh.destination - transform.position) < distanceToNewPath * distanceToNewPath)
-                navmesh.SetDestination(new Vector3(Random.Range(-18, 2), 1, Random.Range(-35, -7)));
+                navmesh.SetDestination(nodeData.NodeGraph[Random.Range(0, nodeData.NodeGraph.Length - 1)].m_position);
         }
         if (kill)
         {
