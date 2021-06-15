@@ -23,7 +23,6 @@ public class WalkerEnemy : MonoBehaviour
         headCollider = headObject.GetComponent<BoxCollider>();
         rb = GetComponent<Rigidbody>();
         navmesh = GetComponent<NavMeshAgent>();
-        headRb = headObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -50,8 +49,18 @@ public class WalkerEnemy : MonoBehaviour
         headCollider.enabled = true;
         //deparent it so it doesnt move with the object ontop of it flying in the air
         headObject.transform.parent = null;
-        headRb.isKinematic = false;
+
+        //The reason this has to be done is because the hammer can sometimes hit twice on a fall or melee
+        //so a check has to be done before adding just in case
+        //(the head doesnt have a rigidbody because it will overlap with the rigidbody on the main body so adding on hit was easier because at most
+        //it would be 2-3 enemies getting hit at once (and thats unlikely to begin with)
+        headRb = headObject.GetComponent<Rigidbody>();
+        if (headRb == null)
+            headRb = headObject.AddComponent<Rigidbody>();
+
         headRb.AddForce(forceToHit);
+
         Destroy(gameObject, 4f);
+        Destroy(headObject, 4f);
     }
 }

@@ -11,7 +11,7 @@ public class HammerCollisionEnemy : MonoBehaviour
     public float yForceIncrease = 4f;
     public float meleeHitForce = 200f;
     public float throwHitForce = 10f;
-
+    
     private Vector3 previousPosition;
     //give it a default so a null does not have to be done
     private Vector3 bufferPosition = new Vector3(0, 0, 0);
@@ -24,7 +24,7 @@ public class HammerCollisionEnemy : MonoBehaviour
     public float goNextNodeDist = 2f;
     public float returnspeed = 10f;
     private int currentPathIndex = 0;
-    private bool isDonePath = false;
+    bool usePath = false;
     private bool isBeingSummoned = false;
     private Vector3[] path;
     public float maxReturnSpeed = 50f;
@@ -51,10 +51,8 @@ public class HammerCollisionEnemy : MonoBehaviour
     public void IsSummoned()
     {
         isBeingSummoned = true;
-        path = FindPath();
         currentPathIndex = 0;
         hammerRb.useGravity = false;
-        isDonePath = false;
     }
     public void StopSummon()
     {
@@ -62,7 +60,7 @@ public class HammerCollisionEnemy : MonoBehaviour
         path = null;
         currentPathIndex = 0;
         hammerRb.useGravity = true;
-        isDonePath = true;
+        
     }
     
     public void Update()
@@ -78,21 +76,29 @@ public class HammerCollisionEnemy : MonoBehaviour
                 {
                     path = FindPath();
                     currentPathIndex = 0;
+                    usePath = true;
                 }
                 else
                 {
-                    hammerRb.velocity += directionToHand * maxReturnSpeed;
-                    isDonePath = true;
+                    if (Vector3.Dot(hammerRb.velocity.normalized, directionToHand) > 0.7f)
+                    {
+                        hammerRb.velocity = directionToHand * returnspeed;
+                    }
+                    if (hammerRb.velocity.magnitude > maxReturnSpeed)
+                    {
+                        hammerRb.velocity = hammerRb.velocity.normalized * maxReturnSpeed;
+                    }
+                    hammerRb.velocity += directionToHand * returnspeed * Time.deltaTime;
                     path = null;
+                    usePath = false;
                 }
             }
-            //the grab interactor will then be able to grab it so we can stop the summoning
-            if (Vector3.Magnitude(playerRightHand.transform.position - transform.position) < withInGrabDistance)
+            if (usePath)
             {
-                StopSummon();
-            }
-            else 
-            {
+                if (path == null)
+                {
+                    path = FindPath();
+                }
                 if (path != null)
                 {
                     Vector3 heading = transform.position + hammerRb.velocity;
@@ -102,7 +108,7 @@ public class HammerCollisionEnemy : MonoBehaviour
                     Vector3 targetForcePos = vector2Target + transform.position;
                     Vector3 forceDirection = targetForcePos - heading;
                     forceDirection = forceDirection.normalized;
-                    forceDirection = forceDirection * (maxReturnSpeed * Time.deltaTime);
+                    forceDirection = forceDirection * (returnspeed * Time.deltaTime);
                     hammerRb.velocity += forceDirection;
                     
                     if ((path[currentPathIndex] - transform.position).magnitude < goNextNodeDist)
@@ -113,12 +119,6 @@ public class HammerCollisionEnemy : MonoBehaviour
                         }
                     }
                 }
-            }
-
-            if (isDonePath)
-            {
-                //this is just to stop the error in unity im going to fix this but just annoying me when trying 
-                //to set up the scene
             }
             if (hammerRb.velocity.magnitude > maxReturnSpeed)
             {

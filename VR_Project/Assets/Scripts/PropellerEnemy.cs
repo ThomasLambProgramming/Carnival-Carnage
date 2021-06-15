@@ -25,7 +25,7 @@ public class PropellerEnemy : MonoBehaviour
     public bool canMove = true;
     private Rigidbody rb = null;
     public float rotateSpeed = 10f;
-
+    
     public AudioManager audioManager = null;
     // Start is called before the first frame update
     void Start()
@@ -36,7 +36,9 @@ public class PropellerEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        propellerFan.transform.Rotate(new Vector3(0, fanSpinSpeed * Time.deltaTime, 0));
+        if (propellerFan != null)
+            propellerFan.transform.Rotate(new Vector3(0, fanSpinSpeed * Time.deltaTime, 0));
+        
         if (flyAway)
         {
             Vector3 hatPos = hatObject.transform.position;
@@ -45,23 +47,26 @@ public class PropellerEnemy : MonoBehaviour
         }
 
         if (shatterHead)
+        {
             Shatter();
+            shatterHead = false;
+        }
 
         if (path == null)
         {
             path = FindPath();
         }
 
-        
+
     }
 
     private void FixedUpdate()
     {
-        if (canMove)
+        if (canMove && path != null)
         {
             Vector3 moveDirection = (path[currentIndex] - transform.position).normalized;
             rb.velocity = moveDirection * moveSpeed;
-            transform.rotation = Quaternion.RotateTowards(transform.rotation,Quaternion.LookRotation(moveDirection),rotateSpeed);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(moveDirection), rotateSpeed);
             if (Vector3.Magnitude(path[currentIndex] - transform.position) < goNextDistance)
             {
                 if (currentIndex < path.Length - 1)
@@ -94,7 +99,7 @@ public class PropellerEnemy : MonoBehaviour
         defaultHead.transform.parent = null;
         Destroy(gameObject, destroyTime);
     }
-     private Vector3[] FindPath()
+    private Vector3[] FindPath()
     {
         if (pathData.NodeGraph == null)
         {
@@ -107,7 +112,7 @@ public class PropellerEnemy : MonoBehaviour
         PathFindJob pathfind = new PathFindJob();
         pathfind.NodeData = pathData.NodeGraph;
 
-        int[] StartEndIndex = {0, 0};
+        int[] StartEndIndex = { 0, 0 };
 
         StartEndIndex[0] = FindClosestNode(transform.position);
         StartEndIndex[1] = Random.Range(0, pathData.NodeGraph.Length - 1);
@@ -147,7 +152,7 @@ public class PropellerEnemy : MonoBehaviour
             newPos.y = yOffSet;
             reversedPath[i] = newPos;
         }
-        
+
         return reversedPath;
     }
 

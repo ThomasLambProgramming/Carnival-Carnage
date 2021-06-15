@@ -47,6 +47,7 @@ public class BalloonEnemy : MonoBehaviour
         mainBodyDefault.AddComponent<Rigidbody>();
         mainBodyDefault.transform.parent = null;
         move = false;
+        Destroy(gameObject, 4);
     }
     public void MainBodyHit()
     {

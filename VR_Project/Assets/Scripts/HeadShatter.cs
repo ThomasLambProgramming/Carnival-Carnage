@@ -20,7 +20,7 @@ public class HeadShatter : MonoBehaviour
             shatterVersion.transform.rotation = transform.rotation;
             shatterVersion.SetActive(true);
             audioManager.PlaySound("Shatter", gameObject);
-            
+            Destroy(shatterVersion, 3);
         }
     }
 }
