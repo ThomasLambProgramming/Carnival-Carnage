@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     [Header("Enemy Stats")]
     public int enemiesLeft = 0;
     public TextMeshProUGUI enemiesText;
+    public GameObject bonusTime;
 
     #endregion
 
@@ -114,7 +115,7 @@ public class GameManager : MonoBehaviour
 
     #region Enemy Stat Functions
 
-    public void UpdateEnemies()
+    private void UpdateEnemies()
     {
         enemiesLeft = FindObjectsOfType<BalloonEnemy>().Length +
                       FindObjectsOfType<WalkerEnemy>().Length +
@@ -126,6 +127,13 @@ public class GameManager : MonoBehaviour
         {
             isFinished = true;
         }
+    }
+
+    public void AddTime(float a_seconds)
+    {
+        timeRemaining += a_seconds;
+
+        
     }
 
     #endregion
