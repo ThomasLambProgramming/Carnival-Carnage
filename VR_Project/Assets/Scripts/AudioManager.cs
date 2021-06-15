@@ -44,24 +44,41 @@ public class AudioManager : MonoBehaviour
         //    return;
         //}
 
-        //DontDestroyOnLoad(gameObject);
-        SetSoundSettings();
+        DontDestroyOnLoad(gameObject);
+        SetManagerSounds();
     }
 
-    private void SetSoundSettings()
+    private void SetManagerSounds()
     {
         foreach (Sound s in m_sounds)
         {
             s.m_source = gameObject.AddComponent<AudioSource>();
-            s.m_source.clip = s.m_clip;
-
-            s.m_source.playOnAwake = s.m_playOnAwake;
-            s.m_source.loop = s.m_loop;
-
-            s.m_source.volume = s.m_volume;
-            s.m_source.pitch = s.m_pitch;
-            s.m_source.spatialBlend = s.m_spatialBlend;
+            SetSoundSettings(s);
         }
+    }
+
+    private void SetSoundSettings(Sound a_sound)
+    {
+        a_sound.m_source.clip = a_sound.m_clip;
+
+        a_sound.m_source.playOnAwake = a_sound.m_playOnAwake;
+        a_sound.m_source.loop = a_sound.m_loop;
+
+        a_sound.m_source.volume = a_sound.m_volume;
+        a_sound.m_source.pitch = a_sound.m_pitch;
+        a_sound.m_source.spatialBlend = a_sound.m_spatialBlend;
+    }
+
+    private void SetSoundSettings(AudioSource a_source, Sound a_sound)
+    {
+        a_source.clip = a_sound.m_clip;
+
+        a_source.playOnAwake = a_sound.m_playOnAwake;
+        a_source.loop = a_sound.m_loop;
+
+        a_source.volume = a_sound.m_volume;
+        a_source.pitch = a_sound.m_pitch;
+        a_source.spatialBlend = a_sound.m_spatialBlend;
     }
 
     public void PlaySound (string a_name)
@@ -87,7 +104,11 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        AudioSource.PlayClipAtPoint(soundToPlay.m_clip, a_source.transform.position);
+        GameObject soundObject = new GameObject(a_name);
+        soundObject.transform.position = a_source.transform.position;
+        AudioSource source = soundObject.AddComponent<AudioSource>();
+        SetSoundSettings(source, soundToPlay);
+        source.Play();
     }
 
     public void StopPlaying (string a_name)
@@ -105,7 +126,7 @@ public class AudioManager : MonoBehaviour
 
     public void StopPlaying(string a_name, GameObject a_source)
     {
-        AudioSource[] sources = a_source.GetComponents<AudioSource>();
+        AudioSource[] sources = FindObjectsOfType<AudioSource>();
 
         if (sources == null)
         {
@@ -115,7 +136,7 @@ public class AudioManager : MonoBehaviour
 
         foreach (AudioSource source in sources)
         {
-            if (source.name == a_name)
+            if (source.gameObject.name == a_name)
             {
                 source.Stop();
                 return;

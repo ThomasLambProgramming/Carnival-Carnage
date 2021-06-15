@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,7 +31,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        UpdateTimer();
+        if (!isFinished)
+        {
+            UpdateTimer();
+        }
     }
 
     #region Game State Functions
@@ -42,14 +46,30 @@ public class GameManager : MonoBehaviour
         UpdateEnemies();
     }
 
-    private void isGameOver()
+    public void GoToMainMenu()
     {
-        if (enemiesLeft == 0)
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ChangeLevel(string a_name)
+    {
+        if (SceneManager.GetSceneByName(a_name) == null)
         {
-            isFinished = true;
+            Debug.LogWarning("No scene named " + a_name + " exists.");
+            return;
+        }
+        else
+        {
+            SceneManager.LoadScene(a_name);
         }
     }
 
+    public void ExitGame()
+    {
+        isFinished = true;
+        Application.Quit();
+    }
+    
     #endregion
 
     #region Timer Functions
@@ -69,9 +89,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            timeRemaining = 0;
             isFinished = true;
-            FindObjectOfType<AudioManager>().StopPlaying("Timer");
+            FindObjectOfType<AudioManager>().StopPlaying("Timer", timerText.gameObject);
         }
     }
 
@@ -84,6 +103,7 @@ public class GameManager : MonoBehaviour
         {
             minutes = 0;
             seconds = 0;
+            timeRemaining = 0;
         }
 
         time = string.Format("{0:00}:{1:00}", minutes, seconds);
@@ -101,6 +121,11 @@ public class GameManager : MonoBehaviour
                       FindObjectsOfType<Pranksters>().Length;
 
         enemiesText.text = enemiesLeft.ToString();
+
+        if (enemiesLeft == 0)
+        {
+            isFinished = true;
+        }
     }
 
     #endregion
