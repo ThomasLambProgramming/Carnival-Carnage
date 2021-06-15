@@ -136,7 +136,7 @@ public class AudioManager : MonoBehaviour
 
         foreach (AudioSource source in sources)
         {
-            if (source.gameObject.name == a_name)
+            if (source.gameObject.name == a_name && source.name == a_source.name)
             {
                 source.Stop();
                 return;
