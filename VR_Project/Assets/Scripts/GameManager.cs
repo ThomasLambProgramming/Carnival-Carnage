@@ -18,8 +18,13 @@ public class GameManager : MonoBehaviour
     public float timeRemaining = 120;
     public TextMeshProUGUI timerText;
 
+    [Header("Player Settings")]
+    public GameObject player;
+
     [Header("Enemy Stats")]
     public int enemiesLeft = 0;
+    public float extraTime = 0;
+    public float guiTime = 2;
     public TextMeshProUGUI enemiesText;
     public GameObject bonusTime;
 
@@ -43,7 +48,6 @@ public class GameManager : MonoBehaviour
     private void InitialiseGame()
     {
         FindObjectOfType<AudioManager>().PlaySound("Circus Theme Music 1");
-        InitialiseTimer();
         UpdateEnemies();
     }
 
@@ -75,23 +79,17 @@ public class GameManager : MonoBehaviour
 
     #region Timer Functions
 
-    private void InitialiseTimer()
-    {
-        // Plays timer coundown on start
-        FindObjectOfType<AudioManager>().PlaySound("Timer", timerText.gameObject);
-    }
-
     private void UpdateTimer()
     {
         if (timeRemaining > 0 && !isFinished)
         {
-            timeRemaining -= Time.deltaTime;
+            timeRemaining -= Time.deltaTime + extraTime;
             SetTimer(timeRemaining);
         }
         else
         {
             isFinished = true;
-            FindObjectOfType<AudioManager>().StopPlaying("Timer", timerText.gameObject);
+            FindObjectOfType<AudioManager>().StopPlaying("Timer");
         }
     }
 
@@ -105,6 +103,15 @@ public class GameManager : MonoBehaviour
             minutes = 0;
             seconds = 0;
             timeRemaining = 0;
+        }
+
+        if (a_time <= 10)
+        {
+            FindObjectOfType<AudioManager>().PlaySound("Timer");
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().StopPlaying("Timer");
         }
 
         time = string.Format("{0:00}:{1:00}", minutes, seconds);
@@ -129,11 +136,31 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddTime(float a_seconds)
+    public void AddTime(GameObject a_source, float a_seconds)
     {
-        timeRemaining += a_seconds;
+        extraTime += a_seconds;
 
-        
+        // Instantiates bonus time UI, sets value to given time
+        GameObject newBonus = Instantiate(bonusTime, a_source.transform);
+
+        // Rotates canvas to follow direction player is looking
+        newBonus.transform.rotation = Quaternion.LookRotation(newBonus.transform.position - Camera.main.transform.position);
+
+        // Updates the text
+        newBonus.GetComponentInChildren<TextMeshProUGUI>().text = string.Format("+{0}s", a_seconds);
+
+        StartCoroutine(GUIDisplayBonusTime(newBonus));
+    }
+
+    IEnumerator GUIDisplayBonusTime(GameObject a_text)
+    {
+        //a_text.GetComponent<Animation>().Play();
+
+        // Waits for a given amount of time
+        yield return new WaitForSeconds(guiTime);
+
+        // Destroy bonus time UI
+        Destroy(a_text);
     }
 
     #endregion

@@ -43,6 +43,7 @@ public class BalloonEnemy : MonoBehaviour
         //decouple the main body and add gravity or whatever
         //explode the balloon
         ballonDefault.SetActive(false);
+        FindObjectOfType<GameManager>().AddTime(gameObject, 10);
         audioManager.PlaySound("Balloon Pop", ballonDefault);
         mainBodyDefault.AddComponent<Rigidbody>();
         mainBodyDefault.transform.parent = null;
