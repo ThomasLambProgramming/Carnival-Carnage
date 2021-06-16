@@ -52,9 +52,9 @@ public struct PathFindJob : IJob
         //check that can be performed to see if the point can be reached after the path (eg the closest may be at the
         //start of a mountain but there are no nodes and the end point is the peak)
         Node startNode1 = NodeData[startEndPos[0]];
-        Debug.Log(startNode1.m_position);
+        
         Node endNode1 = NodeData[startEndPos[1]];
-        Debug.Log(endNode1.m_position);
+        
 
 
         //giving it null as it is the starting node
@@ -109,6 +109,7 @@ public struct PathFindJob : IJob
                     }
                 }
                 //UPDATE THIS TO RECALULATE THE CONNECTION COST IT COULD BE LOWER REEEE
+                
                 if (isOpen)
                     continue;
 

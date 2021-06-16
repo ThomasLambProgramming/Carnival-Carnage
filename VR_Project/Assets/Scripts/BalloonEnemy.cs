@@ -5,10 +5,12 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class BalloonEnemy : MonoBehaviour
 {
+    public AudioManager audioManager = null;
     public float bounceAmount = 0.6f;
     public float bounceSpeed = 0.2f;
     private float yOffset = 0f;
     bool move = true;
+    bool isDestroyed = false;
     private float delay = 0f;
     public GameObject ballonDefault = null;
     public GameObject mainBodyDefault = null;
@@ -39,18 +41,33 @@ public class BalloonEnemy : MonoBehaviour
 
     public void BalloonHit()
     {
+        if (!isDestroyed)
+        {
+            FindObjectOfType<GameManager>().AddTime(gameObject, 3);
+            isDestroyed = true;
+        }
+
         //decouple the main body and add gravity or whatever
         //explode the balloon
         ballonDefault.SetActive(false);
+        audioManager.PlaySound("Balloon Pop", ballonDefault);
         mainBodyDefault.AddComponent<Rigidbody>();
         mainBodyDefault.transform.parent = null;
         move = false;
+        Destroy(gameObject, 4);
     }
     public void MainBodyHit()
     {
         //for now this parent null makes it so only when its attached to balloon will it shatter
         if (mainBodyDefault.transform.parent != null)
         {
+            if (!isDestroyed)
+            {
+                FindObjectOfType<GameManager>().AddTime(gameObject, 3);
+                isDestroyed = true;
+            }
+
+            audioManager.PlaySound("Shatter", gameObject);
             mainBodyDefault.SetActive(false);
             mainBodyShatter.SetActive(true);
             ballonDefault.SetActive(false);

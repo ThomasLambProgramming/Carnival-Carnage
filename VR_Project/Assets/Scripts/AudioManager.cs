@@ -34,7 +34,7 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        //if (m_manager = null)
+        //if (m_manager == null)
         //{
         //    m_manager = this;
         //}
@@ -44,24 +44,41 @@ public class AudioManager : MonoBehaviour
         //    return;
         //}
 
-        //DontDestroyOnLoad(gameObject);
-        SetSoundSettings();
+        DontDestroyOnLoad(gameObject);
+        SetManagerSounds();
     }
 
-    private void SetSoundSettings()
+    private void SetManagerSounds()
     {
         foreach (Sound s in m_sounds)
         {
             s.m_source = gameObject.AddComponent<AudioSource>();
-            s.m_source.clip = s.m_clip;
-
-            s.m_source.playOnAwake = s.m_playOnAwake;
-            s.m_source.loop = s.m_loop;
-
-            s.m_source.volume = s.m_volume;
-            s.m_source.pitch = s.m_pitch;
-            s.m_source.spatialBlend = s.m_spatialBlend;
+            SetSoundSettings(s);
         }
+    }
+
+    private void SetSoundSettings(Sound a_sound)
+    {
+        a_sound.m_source.clip = a_sound.m_clip;
+
+        a_sound.m_source.playOnAwake = a_sound.m_playOnAwake;
+        a_sound.m_source.loop = a_sound.m_loop;
+
+        a_sound.m_source.volume = a_sound.m_volume;
+        a_sound.m_source.pitch = a_sound.m_pitch;
+        a_sound.m_source.spatialBlend = a_sound.m_spatialBlend;
+    }
+
+    private void SetSoundSettings(AudioSource a_source, Sound a_sound)
+    {
+        a_source.clip = a_sound.m_clip;
+
+        a_source.playOnAwake = a_sound.m_playOnAwake;
+        a_source.loop = a_sound.m_loop;
+
+        a_source.volume = a_sound.m_volume;
+        a_source.pitch = a_sound.m_pitch;
+        a_source.spatialBlend = a_sound.m_spatialBlend;
     }
 
     public void PlaySound (string a_name)
@@ -77,6 +94,23 @@ public class AudioManager : MonoBehaviour
         soundToPlay.m_source.Play();
     }
 
+    public void PlaySound(string a_name, GameObject a_source)
+    {
+        Sound soundToPlay = Array.Find(m_sounds, sound => sound.m_name == a_name);
+
+        if (soundToPlay == null)
+        {
+            Debug.LogWarning("No sound named " + a_name + " exists.");
+            return;
+        }
+
+        GameObject soundObject = new GameObject(a_name);
+        soundObject.transform.position = a_source.transform.position;
+        AudioSource source = soundObject.AddComponent<AudioSource>();
+        SetSoundSettings(source, soundToPlay);
+        source.Play();
+    }
+
     public void StopPlaying (string a_name)
     {
         Sound soundToPlay = Array.Find(m_sounds, sound => sound.m_name == a_name);
@@ -88,5 +122,41 @@ public class AudioManager : MonoBehaviour
         }
 
         soundToPlay.m_source.Stop();
+    }
+
+    public void StopPlaying(string a_name, GameObject a_source)
+    {
+        AudioSource[] sources = FindObjectsOfType<AudioSource>();
+
+        if (sources == null)
+        {
+            Debug.LogWarning("No audio sources found.");
+            return;
+        }
+
+        foreach (AudioSource source in sources)
+        {
+            if (source.gameObject.name == a_name && source.name == a_source.name)
+            {
+                source.Stop();
+                return;
+            }
+        }
+
+        Debug.LogWarning("No sound named " + a_name + " exists.");
+    }
+
+    public bool isPlaying(string a_name)
+    {
+        Sound soundToPlay = Array.Find(m_sounds, sound => sound.m_name == a_name);
+
+        if (soundToPlay == null)
+        {
+            Debug.LogWarning("No sound named " + a_name + " exists.");
+            return false;
+        }
+
+        bool isPlaying = soundToPlay.m_source.isPlaying;
+        return isPlaying;
     }
 }

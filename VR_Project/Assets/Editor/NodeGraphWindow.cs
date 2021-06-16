@@ -54,7 +54,19 @@ public class NodeGraphWindow : EditorWindow
         }
         if (GUILayout.Button("Show Links"))
         {
-            NodeManager.DrawNodes();
+            if (nodeContainer.NodeGraph == null)
+                return;
+
+            foreach (var node in nodeContainer.NodeGraph)
+            {
+                for (int i = 0; i < node.connections.Length - 1; i++)
+                {
+                    //if the connection isnt null then draw a line of it this whole function is self explaining
+                    if (node.connections[i] != null)
+                        if(node.connections[i].to != -1)
+                            Debug.DrawLine(node.m_position, nodeContainer.NodeGraph[node.connections[i].to].m_position);
+                }
+            }
         }
     }
     private void LoadFile()

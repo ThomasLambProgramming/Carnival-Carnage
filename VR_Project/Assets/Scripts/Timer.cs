@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
     public bool isFinished = false;
     public float timeRemaining = 120;
 
-    public Text debug;
+    public TextMeshProUGUI timerText;
 
     private void Start()
     {
@@ -25,7 +25,7 @@ public class Timer : MonoBehaviour
         }
         else
         {
-            time = "00:00";
+            timeRemaining = 0;
             FindObjectOfType<AudioManager>().StopPlaying("Timer");
             FindObjectOfType<AudioManager>().StopPlaying("Timer");
         }
@@ -36,8 +36,13 @@ public class Timer : MonoBehaviour
         float minutes = Mathf.FloorToInt(a_time / 60);
         float seconds = Mathf.FloorToInt(a_time % 60);
 
-        time = string.Format("{0:00}:{1:00}", minutes, seconds);
+        if (minutes < 0 && seconds < 0)
+        {
+            minutes = 0;
+            seconds = 0;
+        }
 
-        debug.text = time;
+        time = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timerText.text = time;
     }
 }

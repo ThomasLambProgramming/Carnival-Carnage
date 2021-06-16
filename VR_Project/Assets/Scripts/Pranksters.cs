@@ -18,6 +18,7 @@ public class Pranksters : MonoBehaviour
     private Rigidbody headRb = null;
     private BoxCollider headCollider = null;
     private BoxCollider mainCollider = null;
+    public AudioManager audioManager = null;
     private void Start()
     {
         mainCollider = GetComponent<BoxCollider>();
@@ -34,6 +35,7 @@ public class Pranksters : MonoBehaviour
             if (teleportTimer >= TeleportRate)
             {
                 //play particle effect
+                audioManager.PlaySound("Enemy - Prankster", gameObject);
                 if (telePortPoints.Length > 0)
                 {
                     transform.position = telePortPoints[Random.Range(0, telePortPoints.Length - 1)].transform.position;
@@ -43,9 +45,10 @@ public class Pranksters : MonoBehaviour
             transform.Rotate(new Vector3(0, spinSpeed * Time.deltaTime, 0));
         }
     }
+
     public void HasBeenHit(Vector3 forceToHit)
     {
-        
+        FindObjectOfType<GameManager>().AddTime(gameObject, 3);
         hasBeenHit = true;
         mainCollider.enabled = false;
         headCollider.enabled = true;
@@ -56,8 +59,4 @@ public class Pranksters : MonoBehaviour
         Destroy(gameObject, 4f);
 
     }
-
-
-
-
 }

@@ -61,6 +61,9 @@ public class NodeManager : MonoBehaviour
     {
         //Note. I dont like how unity doesnt have a return all children
         //(or at least i couldn't see one)
+        if (walkableObject == null)
+            return;
+
         GameObject[] foundObjects;
         if (walkableObject.transform.childCount == 0)
             foundObjects = new[] {walkableObject};

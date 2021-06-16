@@ -13,10 +13,10 @@ public class TeleportController : MonoBehaviour
     public float dashDistance = 1f;
     public float dashSpeed = 2f;
     public GameObject hammerObject = null;
-
+    public SphereCollider handCollider = null;
     //this is the minimum amount the player has to move the stick before a dash
     public float minLeftStickInput = 0.2f;
-    bool releasedGrip = true;
+
     //amount of time till a dash can be done again
     public float dashCooldown = 1f;
     private float dashCDTimer = 1;
@@ -74,21 +74,21 @@ public class TeleportController : MonoBehaviour
         leftJoyStick.TryGetFeatureValue(CommonUsages.primary2DAxisClick, out bool resetScene);
         rightJoyStick.TryGetFeatureValue(CommonUsages.gripButton, out bool recallHammer);
 
-        if (recallHammer && releasedGrip)
+        if (recallHammer)
         {
+            //handCollider.enabled = true;
+           // directInteractor.allowSelect = true;
             hammerScript.IsSummoned();
-            releasedGrip = false;
         }
-        else if (!recallHammer && releasedGrip == false)
+        else
         {
-            releasedGrip = true;
+            //directInteractor.allowSelect = false;
+            // handCollider.enabled = false;
             hammerScript.StopSummon();
         }
-        //FIX THIS
-        if (directInteractor.selectTarget != null)
-        {
-            hammerScript.StopSummon();
-        }
+        
+        
+        
         
 
         if (resetScene)
