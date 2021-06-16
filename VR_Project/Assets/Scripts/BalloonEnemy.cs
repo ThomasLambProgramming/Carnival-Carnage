@@ -42,8 +42,8 @@ public class BalloonEnemy : MonoBehaviour
     {
         //decouple the main body and add gravity or whatever
         //explode the balloon
+        FindObjectOfType<GameManager>().AddTime(gameObject, 3);
         ballonDefault.SetActive(false);
-        FindObjectOfType<GameManager>().AddTime(gameObject, 10);
         audioManager.PlaySound("Balloon Pop", ballonDefault);
         mainBodyDefault.AddComponent<Rigidbody>();
         mainBodyDefault.transform.parent = null;
@@ -55,6 +55,7 @@ public class BalloonEnemy : MonoBehaviour
         //for now this parent null makes it so only when its attached to balloon will it shatter
         if (mainBodyDefault.transform.parent != null)
         {
+            FindObjectOfType<GameManager>().AddTime(gameObject, 3);
             audioManager.PlaySound("Shatter", gameObject);
             mainBodyDefault.SetActive(false);
             mainBodyShatter.SetActive(true);

@@ -145,4 +145,18 @@ public class AudioManager : MonoBehaviour
 
         Debug.LogWarning("No sound named " + a_name + " exists.");
     }
+
+    public bool isPlaying(string a_name)
+    {
+        Sound soundToPlay = Array.Find(m_sounds, sound => sound.m_name == a_name);
+
+        if (soundToPlay == null)
+        {
+            Debug.LogWarning("No sound named " + a_name + " exists.");
+            return false;
+        }
+
+        bool isPlaying = soundToPlay.m_source.isPlaying;
+        return isPlaying;
+    }
 }

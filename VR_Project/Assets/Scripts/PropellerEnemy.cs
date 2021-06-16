@@ -94,6 +94,7 @@ public class PropellerEnemy : MonoBehaviour
 
     public void HatHit()
     {
+        FindObjectOfType<GameManager>().AddTime(gameObject, 3);
         Destroy(hatObject);
         defaultHead.AddComponent<Rigidbody>();
         defaultHead.transform.parent = null;

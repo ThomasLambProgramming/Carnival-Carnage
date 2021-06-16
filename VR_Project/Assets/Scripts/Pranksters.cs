@@ -45,9 +45,10 @@ public class Pranksters : MonoBehaviour
             transform.Rotate(new Vector3(0, spinSpeed * Time.deltaTime, 0));
         }
     }
+
     public void HasBeenHit(Vector3 forceToHit)
     {
-        
+        FindObjectOfType<GameManager>().AddTime(gameObject, 3);
         hasBeenHit = true;
         mainCollider.enabled = false;
         headCollider.enabled = true;
@@ -58,8 +59,4 @@ public class Pranksters : MonoBehaviour
         Destroy(gameObject, 4f);
 
     }
-
-
-
-
 }

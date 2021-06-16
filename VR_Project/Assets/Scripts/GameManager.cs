@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Player Settings")]
     public GameObject player;
+    private XRGrabInteractable grabScript = null;
 
     [Header("Enemy Stats")]
     public int enemiesLeft = 0;
@@ -32,7 +36,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        grabScript = FindObjectOfType<XRGrabInteractable>().GetComponent<XRGrabInteractable>();
+
         InitialiseGame();
+        FindAllEnemies();
     }
 
     private void Update()
@@ -48,7 +55,6 @@ public class GameManager : MonoBehaviour
     private void InitialiseGame()
     {
         FindObjectOfType<AudioManager>().PlaySound("Circus Theme Music 1");
-        UpdateEnemies();
     }
 
     public void GoToMainMenu()
@@ -106,11 +112,11 @@ public class GameManager : MonoBehaviour
             timeRemaining = 0;
         }
 
-        if (a_time <= 10)
+        if (a_time <= 10 && !FindObjectOfType<AudioManager>().isPlaying("Timer"))
         {
             FindObjectOfType<AudioManager>().PlaySound("Timer");
         }
-        else
+        else if (a_time > 10)
         {
             FindObjectOfType<AudioManager>().StopPlaying("Timer");
         }
@@ -123,11 +129,12 @@ public class GameManager : MonoBehaviour
 
     #region Enemy Stat Functions
 
-    private void UpdateEnemies()
+    private void FindAllEnemies()
     {
-        enemiesLeft = FindObjectsOfType<BalloonEnemy>().Length +
-                      FindObjectsOfType<WalkerEnemy>().Length +
-                      FindObjectsOfType<Pranksters>().Length;
+        enemiesLeft = FindObjectsOfType(typeof(BalloonEnemy), false).Length +
+                      FindObjectsOfType(typeof(WalkerEnemy), false).Length +
+                      FindObjectsOfType(typeof(Pranksters), false).Length +
+                      FindObjectsOfType(typeof(PropellerEnemy), false).Length;
 
         enemiesText.text = enemiesLeft.ToString();
 
@@ -139,7 +146,19 @@ public class GameManager : MonoBehaviour
 
     public void AddTime(GameObject a_source, float a_seconds)
     {
-        extraTime += a_seconds;
+        // If melee attack +5s, else (hammer throw) +3s
+        if (grabScript.isSelected == true)
+        {
+            extraTime += a_seconds + 2;
+        }
+        else
+        {
+            extraTime += a_seconds;
+        }
+
+        // Since this function is used when an enemy is killed, enemiesLeft needs to be updated
+        enemiesLeft--;
+        enemiesText.text = enemiesLeft.ToString();
 
         // Instantiates bonus time UI, sets value to given time
         GameObject newBonus = Instantiate(bonusTime, a_source.transform);
@@ -148,7 +167,7 @@ public class GameManager : MonoBehaviour
         newBonus.transform.rotation = Quaternion.LookRotation(newBonus.transform.position - Camera.main.transform.position);
 
         // Updates the text
-        newBonus.GetComponentInChildren<TextMeshProUGUI>().text = string.Format("+{0}s", a_seconds);
+        newBonus.GetComponentInChildren<TextMeshProUGUI>().text = string.Format("+{0}s", extraTime);
 
         StartCoroutine(GUIDisplayBonusTime(newBonus));
     }

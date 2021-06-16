@@ -42,6 +42,7 @@ public class WalkerEnemy : MonoBehaviour
     }
     public void HasBeenHit(Vector3 forceToHit)
     {
+        FindObjectOfType<GameManager>().AddTime(gameObject, 3);
         //there isnt a hit sound soooo.....
         //audioSources.PlaySound("Hit", transform.position);
         navmesh.enabled = false;

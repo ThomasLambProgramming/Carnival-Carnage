@@ -30,6 +30,7 @@ public class HammerCollisionEnemy : MonoBehaviour
     public float maxReturnSpeed = 50f;
     XRGrabInteractable grabScript = null;
     private Rigidbody hammerRb = null;
+
     public void Start()
     {
         hammerRb = GetComponent<Rigidbody>();
