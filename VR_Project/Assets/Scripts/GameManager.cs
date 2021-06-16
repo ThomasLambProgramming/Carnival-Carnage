@@ -83,7 +83,8 @@ public class GameManager : MonoBehaviour
     {
         if (timeRemaining > 0 && !isFinished)
         {
-            timeRemaining -= Time.deltaTime + extraTime;
+            timeRemaining -= Time.deltaTime - extraTime;
+            extraTime = 0;
             SetTimer(timeRemaining);
         }
         else
