@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour
         grabScript = FindObjectOfType<XRGrabInteractable>().GetComponent<XRGrabInteractable>();
 
         InitialiseGame();
-        FindAllEnemies();
     }
 
     private void Update()
@@ -47,6 +46,7 @@ public class GameManager : MonoBehaviour
         if (!isFinished)
         {
             UpdateTimer();
+            UpdateEnemies();
         }
     }
 
@@ -129,7 +129,7 @@ public class GameManager : MonoBehaviour
 
     #region Enemy Stat Functions
 
-    private void FindAllEnemies()
+    private void UpdateEnemies()
     {
         enemiesLeft = FindObjectsOfType(typeof(BalloonEnemy), false).Length +
                       FindObjectsOfType(typeof(WalkerEnemy), false).Length +
@@ -164,7 +164,7 @@ public class GameManager : MonoBehaviour
         GameObject newBonus = Instantiate(bonusTime, a_source.transform);
 
         // Rotates canvas to follow direction player is looking
-        newBonus.transform.rotation = Quaternion.LookRotation(newBonus.transform.position - Camera.main.transform.position);
+        newBonus.transform.rotation = Quaternion.LookRotation(newBonus.transform.position - new Vector3(Camera.main.transform.position.x, newBonus.transform.position.y, Camera.main.transform.position.z));
 
         // Updates the text
         newBonus.GetComponentInChildren<TextMeshProUGUI>().text = string.Format("+{0}s", extraTime);

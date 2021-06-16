@@ -23,6 +23,7 @@ public class PropellerEnemy : MonoBehaviour
     public float moveSpeed = 5;
     public float yOffSet = 1;
     public bool canMove = true;
+    private bool isDestroyed = false;
     private Rigidbody rb = null;
     public float rotateSpeed = 10f;
     
@@ -82,6 +83,12 @@ public class PropellerEnemy : MonoBehaviour
 
     public void Shatter()
     {
+        if (!isDestroyed)
+        {
+            FindObjectOfType<GameManager>().AddTime(gameObject, 3);
+            isDestroyed = true;
+        }
+
         audioManager.PlaySound("Shatter", gameObject);
         canMove = false;
         defaultHead.SetActive(false);
@@ -94,7 +101,12 @@ public class PropellerEnemy : MonoBehaviour
 
     public void HatHit()
     {
-        FindObjectOfType<GameManager>().AddTime(gameObject, 3);
+        if (!isDestroyed)
+        {
+            FindObjectOfType<GameManager>().AddTime(gameObject, 3);
+            isDestroyed = true;
+        }
+
         Destroy(hatObject);
         defaultHead.AddComponent<Rigidbody>();
         defaultHead.transform.parent = null;
