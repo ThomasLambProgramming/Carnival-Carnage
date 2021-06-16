@@ -22,6 +22,6 @@ public class Score_Board : MonoBehaviour
 
     void Update()
     {
-        TimerText.text = Timer.time;
+        //TimerText.text = Timer.time;
     }
 }
