@@ -110,14 +110,18 @@ public class GameManager : MonoBehaviour
         TextMeshProUGUI finalTimeText = UICanvas.transform.Find("TimeLeft").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI ticketsText = UICanvas.transform.Find("TicketsCollected").GetComponent<TextMeshProUGUI>();
 
+        FindObjectOfType<AudioManager>().StopPlaying("Circus Theme Music 1");
+
         // If enemies remain, player loses. Otherwise the player wins.
         if (enemiesLeft > 0)
         {
             winLoseText.text = "You Lose!";
+            FindObjectOfType<AudioManager>().PlaySound("Lose Music");
         }
         else
         {
             winLoseText.text = "You Win!";
+            FindObjectOfType<AudioManager>().PlaySound("Win Music");
         }
 
         // Converts time remaining into time format
