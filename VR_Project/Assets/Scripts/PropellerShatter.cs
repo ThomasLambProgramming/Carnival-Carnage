@@ -6,6 +6,7 @@ public class PropellerShatter : MonoBehaviour
 {
     public GameObject shatterVersion = null;
     public AudioManager audioManager = null;
+    public ParticleSystem onDeathParticle;
     private void OnCollisionEnter(Collision collision)
     {
         if (transform.parent == null)
@@ -18,6 +19,7 @@ public class PropellerShatter : MonoBehaviour
                 if (shatterVersion.transform.parent != null)
                     shatterVersion.transform.parent = null;
                 shatterVersion.SetActive(true);
+                onDeathParticle.Play();
                 Destroy(gameObject);
                 Destroy(shatterVersion, 3);
                 audioManager.PlaySound("Shatter", gameObject);
