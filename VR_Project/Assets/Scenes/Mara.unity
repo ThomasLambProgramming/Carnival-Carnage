@@ -2563,6 +2563,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1926756904}
     m_Modifications:
+    - target: {fileID: 486773249758544979, guid: e28a09be82dedd84790ef79ee4ffb410, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.66
+      objectReference: {fileID: 0}
     - target: {fileID: 740464431681281485, guid: e28a09be82dedd84790ef79ee4ffb410, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -4643,18 +4647,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1600895261550612680, guid: 6b612a8033d01d44097b302fd8cd1896, type: 3}
-      propertyPath: m_sounds.Array.data[3].m_loop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1600895261550612680, guid: 6b612a8033d01d44097b302fd8cd1896, type: 3}
-      propertyPath: m_sounds.Array.data[2].m_volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1600895261550612680, guid: 6b612a8033d01d44097b302fd8cd1896, type: 3}
-      propertyPath: m_sounds.Array.data[3].m_volume
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1600895261550612681, guid: 6b612a8033d01d44097b302fd8cd1896, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5164,7 +5156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8044012782312366178, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.36
+      value: -0.22
       objectReference: {fileID: 0}
     - target: {fileID: 8044012782312366178, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
       propertyPath: m_LocalPosition.x

@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public bool isFinished = false;
     public bool hasWon = false;
     private bool calulated = false;
+    private bool playedEndSound = false;
+
     public int growthRate = 1; // Decides how fast the scores will increase
     public int ticketsCollected = 0;
     private int endTickets = 0;
@@ -34,7 +36,7 @@ public class GameManager : MonoBehaviour
     [Header("Enemy Stats")]
     public int enemiesLeft = 0;
     public float extraTime = 0;
-    public float guiTime = 2;
+    private float guiTime = 2;
     public TextMeshProUGUI enemiesText;
     public GameObject bonusTime;
 
@@ -116,12 +118,22 @@ public class GameManager : MonoBehaviour
         if (enemiesLeft > 0)
         {
             winLoseText.text = "You Lose!";
-            FindObjectOfType<AudioManager>().PlaySound("Lose Music");
+            winLoseText.color = GetColorFromString("D95151");
+            if (!playedEndSound)
+            {
+                FindObjectOfType<AudioManager>().PlaySound("Lose Music");
+            }
+            playedEndSound = true;
         }
         else
         {
             winLoseText.text = "You Win!";
-            FindObjectOfType<AudioManager>().PlaySound("Win Music");
+            winLoseText.color = GetColorFromString("71FF34");
+            if (!playedEndSound)
+            {
+                FindObjectOfType<AudioManager>().PlaySound("Win Music");
+            }
+            playedEndSound = true;
         }
 
         // Converts time remaining into time format
@@ -199,7 +211,7 @@ public class GameManager : MonoBehaviour
             seconds = 0;
         }
 
-        if (a_time <= 10 && !FindObjectOfType<AudioManager>().isPlaying("Timer"))
+        if (a_time <= 10 && !FindObjectOfType<AudioManager>().isPlaying("Timer") && !isFinished)
         {
             FindObjectOfType<AudioManager>().PlaySound("Timer");
         }
@@ -268,6 +280,31 @@ public class GameManager : MonoBehaviour
 
         // Destroy bonus time UI
         Destroy(a_text);
+    }
+
+    #endregion
+
+    #region Other Functions
+
+    private float HexToFloatNormalised(string a_hex)
+    {
+        int dec = System.Convert.ToInt32(a_hex, 16);
+        return dec / 255f;
+    }
+
+    private Color GetColorFromString(string a_hexString)
+    {
+        float red = HexToFloatNormalised(a_hexString.Substring(0, 2));
+        float green = HexToFloatNormalised(a_hexString.Substring(2, 2));
+        float blue = HexToFloatNormalised(a_hexString.Substring(4, 2));
+        float alpha = 1f;
+
+        if (a_hexString.Length >= 8)
+        {
+            alpha = HexToFloatNormalised(a_hexString.Substring(6, 2));
+        }
+
+        return new Color(red, green, blue, alpha);
     }
 
     #endregion
