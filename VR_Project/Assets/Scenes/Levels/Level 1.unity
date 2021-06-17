@@ -3276,7 +3276,7 @@ PrefabInstance:
     - target: {fileID: 5711656682868017105, guid: a69d2a7cbe23a6945b357b96d8aecba1, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1993057954}
     - target: {fileID: 5711656682868017105, guid: a69d2a7cbe23a6945b357b96d8aecba1, type: 3}
       propertyPath: timerText
       value: 
@@ -4850,6 +4850,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
+--- !u!1 &1017668222 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1800693496284557827, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
+  m_PrefabInstance: {fileID: 1017668221}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1090360028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9679,6 +9684,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WalkerEnemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: nodeData
+      value: 
+      objectReference: {fileID: 11400000, guid: 81bffe8826e7ab0418a6433e1a0be169, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!4 &1991162453 stripped
@@ -9748,12 +9757,17 @@ PrefabInstance:
     - target: {fileID: 740464432444819818, guid: e28a09be82dedd84790ef79ee4ffb410, type: 3}
       propertyPath: hammerObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1017668222}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e28a09be82dedd84790ef79ee4ffb410, type: 3}
 --- !u!4 &1993057953 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 740464432171284946, guid: e28a09be82dedd84790ef79ee4ffb410, type: 3}
+  m_PrefabInstance: {fileID: 1993057952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1993057954 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 740464432062256152, guid: e28a09be82dedd84790ef79ee4ffb410, type: 3}
   m_PrefabInstance: {fileID: 1993057952}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2012123625
