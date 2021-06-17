@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 4f9e060f5b852884882ff3e324ea2e08
+guid: c5f6255c453e7824781cde64b9e439af
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
   externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: carnival_texture
-    second: {fileID: 2100000, guid: ecda249acf5d15741bf566b07da09fbf, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
