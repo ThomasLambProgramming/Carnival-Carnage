@@ -203,12 +203,14 @@ public class NodeManager : MonoBehaviour
         {
             foreach (var unwalkPoint in m_unwalkablePoints)
             {
-                Vector2 nodepoint = new Vector2(nodeAlpha.position.x, nodeAlpha.position.z);
-                Vector2 unwalk = new Vector2(unwalkPoint.x, unwalkPoint.z);
-
-                if (Vector2.Distance(nodepoint, unwalk) < 0.7f)
-                    if (Mathf.Abs(nodeAlpha.position.y - unwalkPoint.y) < m_ySpaceLimit)
+                //Vector2 nodepoint = new Vector2(nodeAlpha.position.x, nodeAlpha.position.z);
+                //Vector2 unwalk = new Vector2(unwalkPoint.x, unwalkPoint.z);
+            
+                if (Vector3.Distance(nodeAlpha.position, unwalkPoint) < 0.7f)
                         nodesToDelete.Add(nodeAlpha);
+
+                //this one line caused ALOT of issues
+                    //if (Mathf.Abs(nodeAlpha.position.y - unwalkPoint.y) < m_ySpaceLimit)
             }
         }
         foreach (var deletionNode in nodesToDelete)
@@ -330,7 +332,7 @@ public class NodeManager : MonoBehaviour
                         Vector3 direction = Vector3.Normalize(m_nodeGraph[b].m_position - m_nodeGraph[a].m_position);
                         float distanceToUnwalk = Vector3.Distance(m_nodeGraph[a].m_position, position);
                         Vector3 positionOfCheck = m_nodeGraph[a].m_position + direction * distanceToUnwalk;
-                        if (Vector3.Distance(positionOfCheck, position) < 1f)
+                        if (Vector3.Distance(positionOfCheck, position) < 2f)
                         {
                             isPassingThrough = true;
                             break;
