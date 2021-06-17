@@ -3975,7 +3975,7 @@ MonoBehaviour:
   headObject: {fileID: 3219556147848637303}
   kill: 0
   onDeathParticle: {fileID: 6438896284040278862}
-  nodeData: {fileID: 11400000, guid: b78734d91c86ddd46bebba45c691d775, type: 2}
+  nodeData: {fileID: 11400000, guid: 81bffe8826e7ab0418a6433e1a0be169, type: 2}
 --- !u!195 &2722777137373855828
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4297,7 +4297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4f9e060f5b852884882ff3e324ea2e08, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f9e060f5b852884882ff3e324ea2e08, type: 3}
