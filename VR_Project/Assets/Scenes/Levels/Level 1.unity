@@ -397,7 +397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8206111024790103659, guid: c2e454089493fae419972401f53422af, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8206111024790103659, guid: c2e454089493fae419972401f53422af, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3554,7 +3554,7 @@ Transform:
   m_Children:
   - {fileID: 1993057953}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &734963667
 PrefabInstance:
@@ -4948,11 +4948,6 @@ PrefabInstance:
       objectReference: {fileID: 1016610505}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
---- !u!1 &1017668222 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1800693496284557827, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
-  m_PrefabInstance: {fileID: 1017668221}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1047644052 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 71146155995963441, guid: e28a09be82dedd84790ef79ee4ffb410, type: 3}
@@ -5750,7 +5745,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &1249240063
 PrefabInstance:
@@ -9864,7 +9859,7 @@ PrefabInstance:
     - target: {fileID: 740464432444819818, guid: e28a09be82dedd84790ef79ee4ffb410, type: 3}
       propertyPath: hammerObject
       value: 
-      objectReference: {fileID: 1017668222}
+      objectReference: {fileID: 0}
     - target: {fileID: 740464432444819818, guid: e28a09be82dedd84790ef79ee4ffb410, type: 3}
       propertyPath: dashSpeed
       value: 50

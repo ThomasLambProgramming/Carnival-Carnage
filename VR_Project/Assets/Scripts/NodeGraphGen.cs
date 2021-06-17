@@ -6,6 +6,7 @@ using UnityEngine.Analytics;
 using System.Runtime.InteropServices;
 using System;
 using System.IO;
+
 [Serializable]
 public class Node
 {
@@ -183,13 +184,13 @@ public class NodeManager : MonoBehaviour
                 }
             }
         }
-        EditorUtility.SetDirty(nodeScriptableObject);
+        //EditorUtility.SetDirty(nodeScriptableObject);
         nodeScriptableObject.NodeGraph = new Node[m_nodeGraph.Length];
         for (int i = 0; i < m_nodeGraph.Length; i++)
         {
             nodeScriptableObject.NodeGraph[i] = m_nodeGraph[i];
         }
-        AssetDatabase.SaveAssets();
+        //AssetDatabase.SaveAssets();
     }
 
     private static void UnWalkable(ref List<NodeCheck> nodes)
