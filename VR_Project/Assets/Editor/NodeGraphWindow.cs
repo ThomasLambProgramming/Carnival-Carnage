@@ -10,8 +10,8 @@ public class NodeGraphWindow : EditorWindow
 
     
     
-    private static GameObject walkableObjects = null;
-    private static NodeContainer nodeContainer = null;
+    [SerializeField] private static GameObject walkableObjects = null;
+    [SerializeField] private static NodeContainer nodeContainer = null;
 
     private int m_layerMask = 0 << 1;
     

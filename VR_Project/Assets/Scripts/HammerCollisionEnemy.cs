@@ -19,7 +19,7 @@ public class HammerCollisionEnemy : MonoBehaviour
     public int frameSkipsOnUpdate = 2;
     private int amountSkipped = 0;
     public GameObject playerRightHand = null;
-
+    public float summonTime = 0.5f;
     public float withInGrabDistance = 1f;
     public float goNextNodeDist = 2f;
     public float returnspeed = 10f;
@@ -30,12 +30,35 @@ public class HammerCollisionEnemy : MonoBehaviour
     public float maxReturnSpeed = 50f;
     XRGrabInteractable grabScript = null;
     private Rigidbody hammerRb = null;
-
+    private float summonTimer = 0;
     public void Start()
     {
         hammerRb = GetComponent<Rigidbody>();
         grabScript = GetComponent<XRGrabInteractable>();
     }
+    
+    //recalling script
+    public void IsSummoned()
+    {
+        isBeingSummoned = true;
+
+    }
+    public void StopSummon()
+    {
+        isBeingSummoned = false;
+        summonTimer = 0;
+        usePath = false;
+        path = null;
+        currentPathIndex = 0;
+    }
+    public bool IsBeingHeld()
+    {
+        if (grabScript.isSelected)
+            return true;
+
+        return false;
+    }
+
     public void FixedUpdate()
     {
         amountSkipped++;
@@ -46,32 +69,18 @@ public class HammerCollisionEnemy : MonoBehaviour
             bufferPosition = hammerPart.transform.position;
             amountSkipped = 0;
         }
-
-    }
-    //recalling script
-    public void IsSummoned()
-    {
-        isBeingSummoned = true;
-        currentPathIndex = 0;
-        hammerRb.useGravity = false;
-    }
-    public void StopSummon()
-    {
-        isBeingSummoned = false;
-        path = null;
-        currentPathIndex = 0;
-        hammerRb.useGravity = true;
-        
-    }
-    
-    public void Update()
-    {
-        //hammerRb.velocity = new Vector3(0,0,0);
-        if (isBeingSummoned)
+        if (grabScript.isSelected)
+        {
+            isBeingSummoned = false;
+            hammerRb.velocity = Vector3.zero;
+            summonTimer = 0;
+        }
+        summonTimer += Time.deltaTime;
+        if (isBeingSummoned && summonTimer > summonTime)
         {
             var directionToHand = (playerRightHand.transform.position - transform.position).normalized;
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, directionToHand, out hit))
+            if (Physics.Raycast(transform.position, directionToHand, out hit) && !IsBeingHeld())
             {
                 if (hit.transform.CompareTag("Obstacle"))
                 {
@@ -99,6 +108,7 @@ public class HammerCollisionEnemy : MonoBehaviour
                 if (path == null)
                 {
                     path = FindPath();
+                    currentPathIndex = 0;
                 }
                 if (path != null)
                 {
@@ -111,7 +121,7 @@ public class HammerCollisionEnemy : MonoBehaviour
                     forceDirection = forceDirection.normalized;
                     forceDirection = forceDirection * (returnspeed * Time.deltaTime);
                     hammerRb.velocity += forceDirection;
-                    
+                  
                     if ((path[currentPathIndex] - transform.position).magnitude < goNextNodeDist)
                     {
                         if (currentPathIndex < path.Length - 1)

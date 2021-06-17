@@ -183,15 +183,7 @@ public class NodeManager : MonoBehaviour
                 }
             }
         }
-        NodeContainer[] temparray = Resources.FindObjectsOfTypeAll<NodeContainer>();
-        if (temparray.Length != 0)
-        {
-            if (temparray[0] != null)
-                nodeScriptableObject = temparray[0];
-        }
-        else
-            return;
-
+        EditorUtility.SetDirty(nodeScriptableObject);
         nodeScriptableObject.NodeGraph = new Node[m_nodeGraph.Length];
         for (int i = 0; i < m_nodeGraph.Length; i++)
         {
