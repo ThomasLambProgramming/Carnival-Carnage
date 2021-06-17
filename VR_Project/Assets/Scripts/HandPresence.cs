@@ -9,7 +9,6 @@ public class HandPresence : MonoBehaviour
     public InputDeviceCharacteristics controllerCharacteristics;
     public List<GameObject> controllerPrefabs;
     public GameObject handModelPrefab;
-
     private InputDevice targetDevice;
     private GameObject spawnedController;
     private GameObject spawnedHandModel;
@@ -40,7 +39,7 @@ public class HandPresence : MonoBehaviour
                 spawnedController = Instantiate(controllerPrefabs[0], transform);
             }
         }
-
+        
         spawnedHandModel = Instantiate(handModelPrefab, transform);
         handAnimator = spawnedHandModel.GetComponent<Animator>();
     }
@@ -69,9 +68,14 @@ public class HandPresence : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Application.platform != RuntimePlatform.Android)
+        {
+            return;
+        }
         if (!targetDevice.isValid)
         {
             TryInitialise();
+            
         }
         else
         {
