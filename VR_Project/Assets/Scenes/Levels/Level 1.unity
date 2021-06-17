@@ -9865,6 +9865,14 @@ PrefabInstance:
       propertyPath: hammerObject
       value: 
       objectReference: {fileID: 1017668222}
+    - target: {fileID: 740464432444819818, guid: e28a09be82dedd84790ef79ee4ffb410, type: 3}
+      propertyPath: dashSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 740464432444819818, guid: e28a09be82dedd84790ef79ee4ffb410, type: 3}
+      propertyPath: dashCooldown
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e28a09be82dedd84790ef79ee4ffb410, type: 3}
 --- !u!4 &1993057953 stripped

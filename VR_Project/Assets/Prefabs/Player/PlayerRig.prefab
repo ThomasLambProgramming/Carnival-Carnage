@@ -23,12 +23,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71146155995963441}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.56, z: 2.85}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.14, z: 2.8500004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 740464432171284946}
-  m_RootOrder: 3
+  m_Father: {fileID: 740464431428893588}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &740464430844407561
 GameObject:
@@ -59,7 +59,7 @@ Transform:
   m_Children:
   - {fileID: 740464432211861581}
   m_Father: {fileID: 740464431428893588}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &740464431044652895
 GameObject:
@@ -146,6 +146,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 486773249758544979}
   - {fileID: 740464432062256149}
   - {fileID: 740464432289035587}
   - {fileID: 740464430844407560}
@@ -709,7 +710,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 740464431428893588}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &740464432062256154
 Camera:
@@ -869,7 +870,6 @@ Transform:
   - {fileID: 740464431785822379}
   - {fileID: 740464431957624022}
   - {fileID: 740464431044652889}
-  - {fileID: 486773249758544979}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1119,7 +1119,7 @@ Transform:
   m_Children:
   - {fileID: 740464431681281488}
   m_Father: {fileID: 740464431428893588}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &740464432444819816
 GameObject:
@@ -1150,7 +1150,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 740464431428893588}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &740464432444819818
 MonoBehaviour:
