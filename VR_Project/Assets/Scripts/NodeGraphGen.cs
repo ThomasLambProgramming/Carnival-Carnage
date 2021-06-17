@@ -32,7 +32,7 @@ public class NodeManager : MonoBehaviour
 {
     public static NodeContainer nodeScriptableObject = null;
     public static GameObject walkableObject = null;
-    
+
 
     //Static variables for use by the whole system
     public static float m_nodeDistance = 5;
@@ -43,10 +43,10 @@ public class NodeManager : MonoBehaviour
     public static Node[] m_nodeGraph = null;
 
     public static void ChangeValues(
-        float a_nodeDistance, 
-        int a_connectionAmount, 
-        float a_yLimit, 
-        NodeContainer nodeContainer, 
+        float a_nodeDistance,
+        int a_connectionAmount,
+        float a_yLimit,
+        NodeContainer nodeContainer,
         GameObject a_walkableObject)
     {
         m_nodeDistance = a_nodeDistance;
@@ -64,22 +64,36 @@ public class NodeManager : MonoBehaviour
         if (walkableObject == null)
             return;
 
-        GameObject[] foundObjects;
-        if (walkableObject.transform.childCount == 0)
-            foundObjects = new[] {walkableObject};
-        
-        else if (walkableObject.GetComponent<MeshFilter>())
+        //I have to do this for checking all children purposes, because some art assets
+        //could have 60 children in children so i needed a form of looping
+        List<GameObject> foundObjectsList = new List<GameObject>();
+        List<GameObject> objectsToSearch = new List<GameObject>();
+
+        objectsToSearch.Add(walkableObject);
+        foundObjectsList.Add(walkableObject);
+
+
+        while (objectsToSearch.Count > 0)
         {
-            foundObjects = new GameObject[walkableObject.transform.childCount + 1];
-            for (int i = 0; i < walkableObject.transform.childCount; i++)
-                foundObjects[i + 1] = walkableObject.transform.GetChild(i).gameObject;
+            //should have used a que but its too late now
+            GameObject currentObject = objectsToSearch[0];
+            objectsToSearch.RemoveAt(0);
+
+            for (int i = 0; i < currentObject.transform.childCount; i++)
+            {
+                GameObject child = currentObject.transform.GetChild(i).gameObject;
+                objectsToSearch.Add(child);
+                foundObjectsList.Add(child);
+            }
         }
-        else
+        Debug.Log(foundObjectsList.Count);
+        GameObject[] foundObjects = new GameObject[foundObjectsList.Count];
+        for (int i = 0; i < foundObjectsList.Count; i++)
         {
-            foundObjects = new GameObject[walkableObject.transform.childCount];
-            for (int i = 0; i < walkableObject.transform.childCount; i++)
-                foundObjects[i] = walkableObject.transform.GetChild(i).gameObject;
+            foundObjects[i] = foundObjectsList[i];
         }
+
+        //turn foundobjects into a array to check through
 
         List<NodeCheck> nodes = new List<NodeCheck>();
 
@@ -154,7 +168,7 @@ public class NodeManager : MonoBehaviour
         UnWalkable(ref nodes);
         //links all nodes together
         LinkNodes();
-        foreach(var node in m_nodeGraph)
+        foreach (var node in m_nodeGraph)
         {
             for (int i = 0; i < m_nodeConnectionAmount; i++)
             {
@@ -176,7 +190,7 @@ public class NodeManager : MonoBehaviour
             return;
 
         nodeScriptableObject.NodeGraph = new Node[m_nodeGraph.Length];
-        for(int i = 0; i < m_nodeGraph.Length; i++)
+        for (int i = 0; i < m_nodeGraph.Length; i++)
         {
             nodeScriptableObject.NodeGraph[i] = m_nodeGraph[i];
         }
@@ -303,16 +317,16 @@ public class NodeManager : MonoBehaviour
                         {
                             zMax = m_nodeGraph[a].m_position.z;
                             zMin = m_nodeGraph[b].m_position.z;
-                        }                                    
-                        else                                 
-                        {                                    
+                        }
+                        else
+                        {
                             zMax = m_nodeGraph[b].m_position.z;
                             zMin = m_nodeGraph[a].m_position.z;
                         }
 
                         if (position.x > xMax || position.x < xMin || position.z < zMin || position.z > zMax)
                             continue;
-                       
+
                         Vector3 direction = Vector3.Normalize(m_nodeGraph[b].m_position - m_nodeGraph[a].m_position);
                         float distanceToUnwalk = Vector3.Distance(m_nodeGraph[a].m_position, position);
                         Vector3 positionOfCheck = m_nodeGraph[a].m_position + direction * distanceToUnwalk;
@@ -347,7 +361,7 @@ public class NodeManager : MonoBehaviour
                             indexA = i;
                         }
                     }
-                       
+
                     //we know the distance is too great
                     if (distBetweenNodes < aMaxDist || nullFound)
                     {
@@ -393,7 +407,7 @@ public class NodeManager : MonoBehaviour
             {
                 //if the connection isnt null then draw a line of it this whole function is self explaining
                 if (node.connections[i] != null)
-                    if(node.connections[i].to != -1)
+                    if (node.connections[i].to != -1)
                         Debug.DrawLine(node.m_position, nodeScriptableObject.NodeGraph[node.connections[i].to].m_position);
             }
         }

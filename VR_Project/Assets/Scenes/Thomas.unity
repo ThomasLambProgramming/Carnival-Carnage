@@ -20670,8 +20670,12 @@ MonoBehaviour:
   ticketsCollected: 0
   timeRemaining: 20
   timerText: {fileID: 1190479857}
+  player: {fileID: 0}
   enemiesLeft: 0
+  extraTime: 0
+  guiTime: 2
   enemiesText: {fileID: 1516277723}
+  bonusTime: {fileID: 0}
 --- !u!4 &2003025333
 Transform:
   m_ObjectHideFlags: 0
