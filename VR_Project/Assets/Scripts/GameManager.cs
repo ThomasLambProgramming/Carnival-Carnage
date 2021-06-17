@@ -14,7 +14,13 @@ public class GameManager : MonoBehaviour
     [Header("Game Settings")]
     public bool isFinished = false;
     public bool hasWon = false;
+    private bool calulated = false;
+    public int growthRate = 1; // Decides how fast the scores will increase
     public int ticketsCollected = 0;
+    private int endTickets = 0;
+    public GameObject endGameUISpawn;
+    public GameObject endGameUI;
+    private GameObject menu;
 
     [Header("Timer Settings")]
     public static string time;
@@ -39,6 +45,7 @@ public class GameManager : MonoBehaviour
         grabScript = FindObjectOfType<XRGrabInteractable>().GetComponent<XRGrabInteractable>();
 
         InitialiseGame();
+        UpdateEnemies();
     }
 
     private void Update()
@@ -46,7 +53,10 @@ public class GameManager : MonoBehaviour
         if (!isFinished)
         {
             UpdateTimer();
-            UpdateEnemies();
+        }
+        else
+        {
+            CompleteLevelUI();
         }
     }
 
@@ -80,6 +90,80 @@ public class GameManager : MonoBehaviour
         isFinished = true;
         Application.Quit();
     }
+
+    private void CompleteLevelUI()
+    {
+        // Obtain UI elements
+        if (menu == null)
+        {
+            menu = Instantiate(endGameUI, endGameUISpawn.transform);
+        }
+
+        GameObject UICanvas = menu.GetComponentInChildren<Canvas>().gameObject;
+
+        if (UICanvas == null)
+        {
+            return;
+        }
+
+        TextMeshProUGUI winLoseText = UICanvas.transform.Find("WinOrLose").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI finalTimeText = UICanvas.transform.Find("TimeLeft").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI ticketsText = UICanvas.transform.Find("TicketsCollected").GetComponent<TextMeshProUGUI>();
+
+        // If enemies remain, player loses. Otherwise the player wins.
+        if (enemiesLeft > 0)
+        {
+            winLoseText.text = "You Lose!";
+        }
+        else
+        {
+            winLoseText.text = "You Win!";
+        }
+
+        // Converts time remaining into time format
+        float minutes = Mathf.FloorToInt(timeRemaining / 60);
+        float seconds = Mathf.FloorToInt(timeRemaining % 60);
+
+        // If time less than zero, set value to 0
+        if (minutes < 0 && seconds < 0)
+        {
+            minutes = 0;
+            seconds = 0;
+        }
+
+        // Format time and update UI element to display time
+        string time = string.Format("{0:00}:{1:00}", minutes, seconds);
+        finalTimeText.text = time;
+
+        // Calculate the tickets gained
+        if (!calulated)
+        {
+            ticketsCollected = CalculateTickets();
+
+            StartCoroutine(TicketUpdater(ticketsText));
+            calulated = true;
+        }
+    }
+
+    private int CalculateTickets()
+    {
+        int tickets = (int)timeRemaining;
+        return tickets;
+    }
+
+    IEnumerator TicketUpdater(TextMeshProUGUI a_ticketText)
+    {
+        while(true)
+        {
+            if (endTickets != ticketsCollected && ticketsCollected > endTickets)
+            {
+                endTickets += growthRate;
+                a_ticketText.text = endTickets.ToString();
+            }
+
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
     
     #endregion
 
@@ -109,7 +193,6 @@ public class GameManager : MonoBehaviour
         {
             minutes = 0;
             seconds = 0;
-            timeRemaining = 0;
         }
 
         if (a_time <= 10 && !FindObjectOfType<AudioManager>().isPlaying("Timer"))
@@ -137,11 +220,6 @@ public class GameManager : MonoBehaviour
                       FindObjectsOfType(typeof(PropellerEnemy), false).Length;
 
         enemiesText.text = enemiesLeft.ToString();
-
-        if (enemiesLeft == 0)
-        {
-            isFinished = true;
-        }
     }
 
     public void AddTime(GameObject a_source, float a_seconds)
@@ -159,6 +237,11 @@ public class GameManager : MonoBehaviour
         // Since this function is used when an enemy is killed, enemiesLeft needs to be updated
         enemiesLeft--;
         enemiesText.text = enemiesLeft.ToString();
+
+        if (enemiesLeft == 0)
+        {
+            isFinished = true;
+        }
 
         // Instantiates bonus time UI, sets value to given time
         GameObject newBonus = Instantiate(bonusTime, a_source.transform);
