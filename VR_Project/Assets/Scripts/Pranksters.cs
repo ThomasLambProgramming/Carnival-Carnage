@@ -19,6 +19,10 @@ public class Pranksters : MonoBehaviour
     private BoxCollider headCollider = null;
     private BoxCollider mainCollider = null;
     public AudioManager audioManager = null;
+
+    private bool chargeParticleHappened = false;
+    public ParticleSystem pranksterchargeParticle;
+    public ParticleSystem pranksterExplosionParticle;
     private void Start()
     {
         mainCollider = GetComponent<BoxCollider>();
@@ -32,15 +36,26 @@ public class Pranksters : MonoBehaviour
         if (!hasBeenHit)
         {
             teleportTimer += Time.deltaTime;
+            //play particle 1 second before teh teleport occurs
+            if (((TeleportRate - teleportTimer) <= 1) && chargeParticleHappened == false)
+            {
+                pranksterchargeParticle.Play();
+                chargeParticleHappened = true;
+            }
+
             if (teleportTimer >= TeleportRate)
             {
+                
                 //play particle effect
                 audioManager.PlaySound("Enemy - Prankster", gameObject);
                 if (telePortPoints.Length > 0)
                 {
                     transform.position = telePortPoints[Random.Range(0, telePortPoints.Length - 1)].transform.position;
+                    //play second explosion particle
+                    pranksterExplosionParticle.Play();
                 }
                 teleportTimer = 0;
+                chargeParticleHappened = false;
             }
             transform.Rotate(new Vector3(0, spinSpeed * Time.deltaTime, 0));
         }

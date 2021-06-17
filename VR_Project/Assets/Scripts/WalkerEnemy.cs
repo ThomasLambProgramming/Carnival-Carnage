@@ -15,6 +15,8 @@ public class WalkerEnemy : MonoBehaviour
     private BoxCollider mainCollider = null;
     private BoxCollider headCollider = null;
 
+    //public ParticleSystem onDeathParticle;
+
     public NodeContainer nodeData = null;
     // Start is called before the first frame update
     void Start()
@@ -45,6 +47,10 @@ public class WalkerEnemy : MonoBehaviour
         FindObjectOfType<GameManager>().AddTime(gameObject, 3);
         //there isnt a hit sound soooo.....
         //audioSources.PlaySound("Hit", transform.position);
+
+        //aaron edits
+        //onDeathParticle.Play();
+        //edits end
         navmesh.enabled = false;
         mainCollider.enabled = false;
         headCollider.enabled = true;
