@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9226a2031239b4d4eb985133d2e0c0ad
+guid: b64c20ab1f1946b4da62e81b8171d0e6
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
@@ -7,7 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: clown_head_variation_2_theMaterial
+      name: theMat
     second: {fileID: 2100000, guid: ecda249acf5d15741bf566b07da09fbf, type: 2}
   materials:
     materialImportMode: 1

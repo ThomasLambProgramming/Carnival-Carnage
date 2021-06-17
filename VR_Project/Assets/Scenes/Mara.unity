@@ -2563,6 +2563,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1926756904}
     m_Modifications:
+    - target: {fileID: 486773249758544979, guid: e28a09be82dedd84790ef79ee4ffb410, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.66
+      objectReference: {fileID: 0}
     - target: {fileID: 740464431681281485, guid: e28a09be82dedd84790ef79ee4ffb410, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -3760,6 +3764,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fca2692cc9722c6419fb45a51e7852e5, type: 3}
   m_PrefabInstance: {fileID: 1387257579}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1453536324 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 71146155995963441, guid: e28a09be82dedd84790ef79ee4ffb410, type: 3}
+  m_PrefabInstance: {fileID: 1065311380}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1467059696
 PrefabInstance:
@@ -5147,7 +5156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8044012782312366178, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.637
+      value: -0.22
       objectReference: {fileID: 0}
     - target: {fileID: 8044012782312366178, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5155,7 +5164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8044012782312366178, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.67
+      value: 4.209
       objectReference: {fileID: 0}
     - target: {fileID: 9069905438800759649, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
       propertyPath: meleeHitForce
@@ -5490,6 +5499,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 718774582}
+    - target: {fileID: 5711656682868017105, guid: a69d2a7cbe23a6945b357b96d8aecba1, type: 3}
+      propertyPath: endGameUISpawn
+      value: 
+      objectReference: {fileID: 1453536324}
+    - target: {fileID: 5711656682868017105, guid: a69d2a7cbe23a6945b357b96d8aecba1, type: 3}
+      propertyPath: endGameUI
+      value: 
+      objectReference: {fileID: 8206111024790103658, guid: c2e454089493fae419972401f53422af, type: 3}
     - target: {fileID: 5711656682868017110, guid: a69d2a7cbe23a6945b357b96d8aecba1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
