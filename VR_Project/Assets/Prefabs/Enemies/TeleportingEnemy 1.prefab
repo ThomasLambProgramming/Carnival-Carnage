@@ -969,6 +969,7 @@ Transform:
   - {fileID: 7822694779434975905}
   - {fileID: 7822694779851765026}
   - {fileID: 7822694780872833341}
+  - {fileID: 6422093808867606646}
   m_Father: {fileID: 2265568941143800690}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2831,6 +2832,68 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 4525347213574236500, guid: 231543b99aa16f44ab76a8785bffcca0, type: 3}
   m_PrefabInstance: {fileID: 162742083162585234}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6368306966612921552
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7822694779474456898}
+    m_Modifications:
+    - target: {fileID: 107832649125579942, guid: 6cc111eff2769154fb6604ab93127ee7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 107832649125579942, guid: 6cc111eff2769154fb6604ab93127ee7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 107832649125579942, guid: 6cc111eff2769154fb6604ab93127ee7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 107832649125579942, guid: 6cc111eff2769154fb6604ab93127ee7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 107832649125579942, guid: 6cc111eff2769154fb6604ab93127ee7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 107832649125579942, guid: 6cc111eff2769154fb6604ab93127ee7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 107832649125579942, guid: 6cc111eff2769154fb6604ab93127ee7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 107832649125579942, guid: 6cc111eff2769154fb6604ab93127ee7, type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 107832649125579942, guid: 6cc111eff2769154fb6604ab93127ee7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 107832649125579942, guid: 6cc111eff2769154fb6604ab93127ee7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 107832649125579942, guid: 6cc111eff2769154fb6604ab93127ee7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192872483002324638, guid: 6cc111eff2769154fb6604ab93127ee7, type: 3}
+      propertyPath: m_Name
+      value: Confetti Explosion
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6cc111eff2769154fb6604ab93127ee7, type: 3}
+--- !u!4 &6422093808867606646 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 107832649125579942, guid: 6cc111eff2769154fb6604ab93127ee7, type: 3}
+  m_PrefabInstance: {fileID: 6368306966612921552}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8207805173604465809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2888,13 +2951,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dec0326288b417c4cb6b1164cfedb0e5, type: 3}
---- !u!4 &2694978697599178768 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6089297194834879617, guid: dec0326288b417c4cb6b1164cfedb0e5, type: 3}
-  m_PrefabInstance: {fileID: 8207805173604465809}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &6407617411987943335 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 2957621716171920182, guid: dec0326288b417c4cb6b1164cfedb0e5, type: 3}
+  m_PrefabInstance: {fileID: 8207805173604465809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2694978697599178768 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6089297194834879617, guid: dec0326288b417c4cb6b1164cfedb0e5, type: 3}
   m_PrefabInstance: {fileID: 8207805173604465809}
   m_PrefabAsset: {fileID: 0}
