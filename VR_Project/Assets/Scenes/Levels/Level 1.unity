@@ -397,7 +397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8206111024790103659, guid: c2e454089493fae419972401f53422af, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.16
       objectReference: {fileID: 0}
     - target: {fileID: 8206111024790103659, guid: c2e454089493fae419972401f53422af, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8135,7 +8135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6862676295299794120, guid: a72d915fb56c90446859a9d9996ac623, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.949
       objectReference: {fileID: 0}
     - target: {fileID: 6862676295299794120, guid: a72d915fb56c90446859a9d9996ac623, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9872,6 +9872,10 @@ PrefabInstance:
     - target: {fileID: 740464432444819818, guid: e28a09be82dedd84790ef79ee4ffb410, type: 3}
       propertyPath: dashCooldown
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 740464432444819818, guid: e28a09be82dedd84790ef79ee4ffb410, type: 3}
+      propertyPath: dashDistance
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e28a09be82dedd84790ef79ee4ffb410, type: 3}
