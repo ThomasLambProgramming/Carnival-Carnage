@@ -5,6 +5,7 @@ public class BalloonMainBody : MonoBehaviour
 {
     public GameObject destructibleVersion = null;
     public AudioManager audiomanager = null;
+    public ParticleSystem onDeathParticle;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.CompareTag("Ground") || collision.gameObject.layer == 11)
@@ -13,6 +14,7 @@ public class BalloonMainBody : MonoBehaviour
             destructibleVersion.transform.position = transform.position;
             destructibleVersion.SetActive(true);
             audiomanager.PlaySound("Shatter", gameObject);
+            onDeathParticle.Play();
         }
     }
 }
