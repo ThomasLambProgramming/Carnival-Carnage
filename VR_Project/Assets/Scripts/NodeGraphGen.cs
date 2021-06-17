@@ -189,6 +189,7 @@ public class NodeManager : MonoBehaviour
         {
             nodeScriptableObject.NodeGraph[i] = m_nodeGraph[i];
         }
+        AssetDatabase.SaveAssets();
     }
 
     private static void UnWalkable(ref List<NodeCheck> nodes)

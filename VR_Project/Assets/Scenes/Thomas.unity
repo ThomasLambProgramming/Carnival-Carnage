@@ -18951,13 +18951,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFinished: 0
   hasWon: 0
+  growthRate: 1
   ticketsCollected: 0
+  endGameUISpawn: {fileID: 0}
+  endGameUI: {fileID: 0}
   timeRemaining: 20
   timerText: {fileID: 1190479857}
   player: {fileID: 0}
   enemiesLeft: 0
   extraTime: 0
-  guiTime: 2
   enemiesText: {fileID: 1516277723}
   bonusTime: {fileID: 6862676295299794167, guid: a72d915fb56c90446859a9d9996ac623, type: 3}
 --- !u!4 &2003025333
