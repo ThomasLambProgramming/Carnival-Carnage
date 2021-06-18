@@ -95,7 +95,7 @@ public class TeleportController : MonoBehaviour
 
         if (resetScene)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         //the reason we set the y to 0 is so the teleport is along the 2d axis so height does not change
