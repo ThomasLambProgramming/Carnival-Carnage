@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.UI;
 using System.IO;
 
 public class GameManager : MonoBehaviour
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
     public bool isFinished = false;
     public bool hasWon = false;
     private bool calulated = false;
+    private bool initialised = false;
     private bool playedEndSound = false;
 
     public int growthRate = 1; // Decides how fast the scores will increase
@@ -32,7 +34,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timerText;
 
     [Header("Player Settings")]
-    public GameObject player;
+    public GameObject rightGameplayController;
+    public GameObject rightRayController;
     private XRGrabInteractable grabScript = null;
 
     [Header("Enemy Stats")]
@@ -71,30 +74,6 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<AudioManager>().PlaySound("Circus Theme Music 1");
     }
 
-    public void GoToMainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-
-    public void ChangeLevel(string a_name)
-    {
-        if (SceneManager.GetSceneByName(a_name) == null)
-        {
-            Debug.LogWarning("No scene named " + a_name + " exists.");
-            return;
-        }
-        else
-        {
-            SceneManager.LoadScene(a_name);
-        }
-    }
-
-    public void ExitGame()
-    {
-        isFinished = true;
-        Application.Quit();
-    }
-
     private void CompleteLevelUI()
     {
         // Obtain UI elements
@@ -110,9 +89,14 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        UICanvas.GetComponent<Canvas>().worldCamera = Camera.main;
+
         TextMeshProUGUI winLoseText = UICanvas.transform.Find("WinOrLose").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI finalTimeText = UICanvas.transform.Find("TimeLeft").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI ticketsText = UICanvas.transform.Find("TicketsCollected").GetComponent<TextMeshProUGUI>();
+
+        rightRayController.SetActive(true);
+        rightGameplayController.SetActive(false);
 
         FindObjectOfType<AudioManager>().StopPlaying("Circus Theme Music 1");
 

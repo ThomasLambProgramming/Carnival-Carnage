@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Thomas.unity
     guid: 74540555b77ef9b4b9186d5bbeba0c35
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Mara.unity
     guid: d9aababa9b00455458a913d8b61500c3
   - enabled: 0

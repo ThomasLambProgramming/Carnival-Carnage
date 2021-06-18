@@ -107,6 +107,8 @@ public class AudioManager : MonoBehaviour
         GameObject soundObject = new GameObject(a_name);
         soundObject.transform.position = a_source.transform.position;
         AudioSource source = soundObject.AddComponent<AudioSource>();
+        //they were not deleting in scene and were stacking up
+        Destroy(soundObject, 5f);
         SetSoundSettings(source, soundToPlay);
         source.Play();
     }
