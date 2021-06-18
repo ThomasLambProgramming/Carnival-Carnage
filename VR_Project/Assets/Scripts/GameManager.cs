@@ -74,30 +74,6 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<AudioManager>().PlaySound("Circus Theme Music 1");
     }
 
-    public void GoToMainMenu()
-    {
-        SceneManager.LoadScene("Menu");
-    }
-
-    public void ChangeLevel(string a_name)
-    {
-        if (SceneManager.GetSceneByName(a_name) == null)
-        {
-            Debug.LogWarning("No scene named " + a_name + " exists.");
-            return;
-        }
-        else
-        {
-            SceneManager.LoadScene(a_name);
-        }
-    }
-
-    public void ExitGame()
-    {
-        isFinished = true;
-        Application.Quit();
-    }
-
     private void CompleteLevelUI()
     {
         // Obtain UI elements
@@ -118,11 +94,6 @@ public class GameManager : MonoBehaviour
         TextMeshProUGUI winLoseText = UICanvas.transform.Find("WinOrLose").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI finalTimeText = UICanvas.transform.Find("TimeLeft").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI ticketsText = UICanvas.transform.Find("TicketsCollected").GetComponent<TextMeshProUGUI>();
-
-        Button replayButton = UICanvas.transform.Find("ReplayButton").GetComponent<Button>();
-        replayButton.onClick.AddListener(delegate { ChangeLevel(SceneManager.GetActiveScene().name); });
-        Button exitButton = UICanvas.transform.Find("ExitToMenuButton").GetComponent<Button>();
-        replayButton.onClick.AddListener(GoToMainMenu);
 
         rightRayController.SetActive(true);
         rightGameplayController.SetActive(false);
@@ -184,7 +155,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator TicketUpdater(TextMeshProUGUI a_ticketText)
     {
-        while(true)
+        while (true)
         {
             if (endTickets != ticketsCollected && ticketsCollected > endTickets)
             {
@@ -210,7 +181,7 @@ public class GameManager : MonoBehaviour
         //if there is a file then we can add
         if (heldTickets != -1)
             ticket.ticketAmount += heldTickets;
-        
+
         StreamWriter stream = new StreamWriter(filePath);
         string json = JsonUtility.ToJson(ticket, true);
         stream.Write(json);
@@ -237,7 +208,7 @@ public class GameManager : MonoBehaviour
         stream.Close();
         return tickets.ticketAmount;
     }
-    
+
     #endregion
 
     #region Timer Functions
@@ -363,6 +334,47 @@ public class GameManager : MonoBehaviour
 
         return new Color(red, green, blue, alpha);
     }
+
+    #region Hammer Management
+
+
+    //public class Hammer
+    //{
+    //    public GameObject HammerObject;
+    //    public int TicketCost = 1;
+    //    public bool Unlocked = false;
+    //}
+    //[SerializeField]
+    //public List<Hammer> Hammers = new List<Hammer>();
+
+    //private int EquippedHammer = 0;
+
+    //public void BuyOrEquip(int HammerNumber)
+    //{
+    //    if (Hammers[EquippedHammer].Unlocked)
+    //        EquippedHammer = HammerNumber;
+
+    //    else
+    //    {
+    //        int TotalTickets = ReadTicketFile();
+
+    //        if (TotalTickets >= Hammers[EquippedHammer].TicketCost)
+    //        {
+    //            OverwriteTicketAmount(TotalTickets - Hammers[EquippedHammer].TicketCost);
+    //            Hammers[EquippedHammer].Unlocked = true;
+    //            EquippedHammer = HammerNumber;
+    //        }
+    //    }
+    //}
+
+    //public GameObject GetEquippedHammer()
+    //{
+    //    return Hammers[EquippedHammer].HammerObject;
+    //}
+
+
+    #endregion
+
 
     #endregion
 }

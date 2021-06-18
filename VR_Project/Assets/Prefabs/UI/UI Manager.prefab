@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5711656682868017111
+--- !u!1 &8235961046055852788
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5711656682868017110}
-  - component: {fileID: 5711656682868017105}
+  - component: {fileID: 8235961046055852791}
+  - component: {fileID: 8235961046055852790}
   m_Layer: 0
-  m_Name: Game Manager
+  m_Name: UI Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5711656682868017110
+--- !u!4 &8235961046055852791
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5711656682868017111}
+  m_GameObject: {fileID: 8235961046055852788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,30 +31,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5711656682868017105
+--- !u!114 &8235961046055852790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5711656682868017111}
+  m_GameObject: {fileID: 8235961046055852788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cbb79ad2840c8a40817c6a7094ca115, type: 3}
+  m_Script: {fileID: 11500000, guid: aaaf528be4e6e9e479c3fe833d3ab1c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFinished: 0
-  hasWon: 0
-  growthRate: 1
-  ticketsCollected: 0
-  endGameUISpawn: {fileID: 0}
-  endGameUI: {fileID: 0}
-  timeRemaining: 20
-  timerText: {fileID: 0}
-  rightGameplayController: {fileID: 0}
-  rightRayController: {fileID: 0}
-  enemiesLeft: 0
-  extraTime: 0
-  enemiesText: {fileID: 0}
-  bonusTime: {fileID: 0}
-  Hammers: 00000000
