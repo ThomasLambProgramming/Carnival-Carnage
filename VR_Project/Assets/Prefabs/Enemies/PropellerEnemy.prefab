@@ -529,8 +529,8 @@ GameObject:
   - component: {fileID: 3742945235287624287}
   - component: {fileID: 314767403038819834}
   - component: {fileID: 2574563654918779184}
-  - component: {fileID: 4087663659231154403}
   - component: {fileID: 4087663659231154402}
+  - component: {fileID: 807582006}
   m_Layer: 0
   m_Name: ClownHead
   m_TagString: PropellerHead
@@ -601,19 +601,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4087663659231154403
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4087663659231154405}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.52097416, y: 0.5725609, z: 0.56752545}
-  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!114 &4087663659231154402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -629,6 +616,19 @@ MonoBehaviour:
   shatterVersion: {fileID: 1412373835001596723}
   audioManager: {fileID: 1600895261550612680, guid: 6b612a8033d01d44097b302fd8cd1896, type: 3}
   onDeathParticle: {fileID: 243156732184155092}
+--- !u!135 &807582006
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4087663659231154405}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.28628045
+  m_Center: {x: 0, y: 0.28628045, z: 0.009979576}
 --- !u!1 &4148095340238520050
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,7 +638,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3664573370666509384}
-  - component: {fileID: 4148095340238520051}
+  - component: {fileID: 807582005}
   m_Layer: 0
   m_Name: Hat
   m_TagString: Hat
@@ -663,8 +663,8 @@ Transform:
   m_Father: {fileID: 5459080904710811421}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4148095340238520051
-BoxCollider:
+--- !u!136 &807582005
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -673,9 +673,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.61, y: 0.72, z: 0.68}
-  m_Center: {x: 0, y: 0.33, z: -0.17}
+  m_Radius: 0.45
+  m_Height: 1.01
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.33, z: -0.21}
 --- !u!54 &2456910131897603149
 Rigidbody:
   m_ObjectHideFlags: 0
