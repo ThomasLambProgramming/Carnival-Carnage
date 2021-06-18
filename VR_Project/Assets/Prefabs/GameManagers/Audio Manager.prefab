@@ -141,7 +141,7 @@ MonoBehaviour:
     m_pitch: 1
     m_spatialBlend: 0
   - m_name: Enemy - Prankster Escapes
-    m_clip: {fileID: 8300000, guid: cc9503319100e414dad9ba71ffdd5af4, type: 3}
+    m_clip: {fileID: 8300000, guid: ee9b76264b5ea514b9212ba304b52635, type: 3}
     m_source: {fileID: 0}
     m_playOnAwake: 0
     m_loop: 0
