@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4089042189710134707, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1415642594}
     - target: {fileID: 6714910762413472616, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.24
@@ -182,6 +186,10 @@ PrefabInstance:
       propertyPath: nodeData
       value: 
       objectReference: {fileID: 11400000, guid: 6fa006ae6631edd4a87201c6cf96de95, type: 2}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioSources
+      value: 
+      objectReference: {fileID: 1415642594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!1001 &8570364
@@ -774,6 +782,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4089042189710134707, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1415642594}
     - target: {fileID: 6714910762413472616, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.06
@@ -826,6 +838,10 @@ PrefabInstance:
       propertyPath: nodeData
       value: 
       objectReference: {fileID: 11400000, guid: 6fa006ae6631edd4a87201c6cf96de95, type: 2}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioSources
+      value: 
+      objectReference: {fileID: 1415642594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!1001 &35172175
@@ -1488,6 +1504,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4089042189710134707, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1415642594}
     - target: {fileID: 6714910762413472616, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.24
@@ -1540,6 +1560,10 @@ PrefabInstance:
       propertyPath: nodeData
       value: 
       objectReference: {fileID: 11400000, guid: 6fa006ae6631edd4a87201c6cf96de95, type: 2}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioSources
+      value: 
+      objectReference: {fileID: 1415642594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!1001 &106750294
@@ -3627,6 +3651,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4089042189710134707, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1415642594}
     - target: {fileID: 6714910762413472616, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.69
@@ -3679,6 +3707,10 @@ PrefabInstance:
       propertyPath: nodeData
       value: 
       objectReference: {fileID: 11400000, guid: 6fa006ae6631edd4a87201c6cf96de95, type: 2}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioSources
+      value: 
+      objectReference: {fileID: 1415642594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!1001 &287497594
@@ -3780,6 +3812,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4089042189710134707, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1415642594}
     - target: {fileID: 6714910762413472616, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.24
@@ -3832,6 +3868,10 @@ PrefabInstance:
       propertyPath: nodeData
       value: 
       objectReference: {fileID: 11400000, guid: 6fa006ae6631edd4a87201c6cf96de95, type: 2}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioSources
+      value: 
+      objectReference: {fileID: 1415642594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!1001 &296159358
@@ -3841,6 +3881,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4089042189710134707, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1415642594}
     - target: {fileID: 6714910762413472616, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.06
@@ -3893,6 +3937,10 @@ PrefabInstance:
       propertyPath: nodeData
       value: 
       objectReference: {fileID: 11400000, guid: 6fa006ae6631edd4a87201c6cf96de95, type: 2}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioSources
+      value: 
+      objectReference: {fileID: 1415642594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!1001 &297295783
@@ -4662,6 +4710,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4089042189710134707, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1415642594}
     - target: {fileID: 6714910762413472616, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.39
@@ -4714,6 +4766,10 @@ PrefabInstance:
       propertyPath: nodeData
       value: 
       objectReference: {fileID: 11400000, guid: 6fa006ae6631edd4a87201c6cf96de95, type: 2}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioSources
+      value: 
+      objectReference: {fileID: 1415642594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!1001 &382346116
@@ -8551,6 +8607,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4089042189710134707, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1415642594}
     - target: {fileID: 6714910762413472616, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.39
@@ -8603,6 +8663,10 @@ PrefabInstance:
       propertyPath: nodeData
       value: 
       objectReference: {fileID: 11400000, guid: 6fa006ae6631edd4a87201c6cf96de95, type: 2}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioSources
+      value: 
+      objectReference: {fileID: 1415642594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!1001 &689297281
@@ -9072,6 +9136,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4089042189710134707, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1415642594}
     - target: {fileID: 6714910762413472616, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.39
@@ -9124,6 +9192,10 @@ PrefabInstance:
       propertyPath: nodeData
       value: 
       objectReference: {fileID: 11400000, guid: 6fa006ae6631edd4a87201c6cf96de95, type: 2}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioSources
+      value: 
+      objectReference: {fileID: 1415642594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!1001 &711315506
@@ -9593,6 +9665,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4089042189710134707, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1415642594}
     - target: {fileID: 6714910762413472616, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.24
@@ -9645,6 +9721,10 @@ PrefabInstance:
       propertyPath: nodeData
       value: 
       objectReference: {fileID: 11400000, guid: 6fa006ae6631edd4a87201c6cf96de95, type: 2}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioSources
+      value: 
+      objectReference: {fileID: 1415642594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!1001 &784106291
@@ -10595,6 +10675,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4089042189710134707, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1415642594}
     - target: {fileID: 6714910762413472616, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.670483
@@ -10647,6 +10731,10 @@ PrefabInstance:
       propertyPath: nodeData
       value: 
       objectReference: {fileID: 11400000, guid: 6fa006ae6631edd4a87201c6cf96de95, type: 2}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioSources
+      value: 
+      objectReference: {fileID: 1415642594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!1001 &847670820
@@ -12542,6 +12630,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4089042189710134707, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1415642594}
     - target: {fileID: 6714910762413472616, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.06
@@ -12594,6 +12686,10 @@ PrefabInstance:
       propertyPath: nodeData
       value: 
       objectReference: {fileID: 11400000, guid: 6fa006ae6631edd4a87201c6cf96de95, type: 2}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioSources
+      value: 
+      objectReference: {fileID: 1415642594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!1001 &1025365406
@@ -13530,6 +13626,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4089042189710134707, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1415642594}
     - target: {fileID: 6714910762413472616, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.39
@@ -13582,6 +13682,10 @@ PrefabInstance:
       propertyPath: nodeData
       value: 
       objectReference: {fileID: 11400000, guid: 6fa006ae6631edd4a87201c6cf96de95, type: 2}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioSources
+      value: 
+      objectReference: {fileID: 1415642594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!4 &1107794529 stripped
@@ -15355,6 +15459,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4089042189710134707, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1415642594}
     - target: {fileID: 6714910762413472616, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.56
@@ -15407,6 +15515,10 @@ PrefabInstance:
       propertyPath: nodeData
       value: 
       objectReference: {fileID: 11400000, guid: 6fa006ae6631edd4a87201c6cf96de95, type: 2}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioSources
+      value: 
+      objectReference: {fileID: 1415642594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!1001 &1213243682
@@ -15784,6 +15896,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4089042189710134707, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1415642594}
     - target: {fileID: 6714910762413472616, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.39
@@ -15836,6 +15952,10 @@ PrefabInstance:
       propertyPath: nodeData
       value: 
       objectReference: {fileID: 11400000, guid: 6fa006ae6631edd4a87201c6cf96de95, type: 2}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioSources
+      value: 
+      objectReference: {fileID: 1415642594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!1001 &1276776607
@@ -16904,6 +17024,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4089042189710134707, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1415642594}
     - target: {fileID: 6714910762413472616, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.420483
@@ -16956,6 +17080,10 @@ PrefabInstance:
       propertyPath: nodeData
       value: 
       objectReference: {fileID: 11400000, guid: 6fa006ae6631edd4a87201c6cf96de95, type: 2}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioSources
+      value: 
+      objectReference: {fileID: 1415642594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!1001 &1378927078
@@ -17575,6 +17703,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b612a8033d01d44097b302fd8cd1896, type: 3}
+--- !u!114 &1415642594 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1600895261550612680, guid: 6b612a8033d01d44097b302fd8cd1896, type: 3}
+  m_PrefabInstance: {fileID: 1415642593}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c8fff2abeb0dd4bad4aa0900bb8c99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1449909058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21109,6 +21248,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4089042189710134707, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1415642594}
     - target: {fileID: 6714910762413472616, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.24
@@ -21161,6 +21304,10 @@ PrefabInstance:
       propertyPath: nodeData
       value: 
       objectReference: {fileID: 11400000, guid: 6fa006ae6631edd4a87201c6cf96de95, type: 2}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioSources
+      value: 
+      objectReference: {fileID: 1415642594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!1001 &1684123358
@@ -21910,6 +22057,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4089042189710134707, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1415642594}
     - target: {fileID: 6714910762413472616, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.06
@@ -21962,6 +22113,10 @@ PrefabInstance:
       propertyPath: nodeData
       value: 
       objectReference: {fileID: 11400000, guid: 6fa006ae6631edd4a87201c6cf96de95, type: 2}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioSources
+      value: 
+      objectReference: {fileID: 1415642594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!1001 &1739101609
@@ -23540,6 +23695,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4089042189710134707, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1415642594}
     - target: {fileID: 6714910762413472616, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.06
@@ -23592,6 +23751,10 @@ PrefabInstance:
       propertyPath: nodeData
       value: 
       objectReference: {fileID: 11400000, guid: 6fa006ae6631edd4a87201c6cf96de95, type: 2}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: audioSources
+      value: 
+      objectReference: {fileID: 1415642594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!1001 &1848778856
