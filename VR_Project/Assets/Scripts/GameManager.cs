@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public bool isFinished = false;
     public bool hasWon = false;
     private bool calulated = false;
-    private bool initialised = false;
+    //private bool initialised = false;
     private bool playedEndSound = false;
 
     public int growthRate = 1; // Decides how fast the scores will increase

@@ -24,7 +24,7 @@ public class BalloonEnemy : MonoBehaviour
 
     public void Start()
     {
-        delay = Random.Range(0.3f, 1.0f);
+        delay = Random.Range(-1.0f, 1.0f);
         yOffset = transform.position.y;
     }
 

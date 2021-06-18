@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yOffset: 1
-  pathData: {fileID: 11400000, guid: 2066dd396550589428fa10f0d450b960, type: 2}
+  pathData: {fileID: 11400000, guid: 09f43b88bce60c74cafb3729a4579339, type: 2}
   yForceIncrease: 0.2
   meleeHitForce: 400
   throwHitForce: 20
@@ -189,6 +189,8 @@ MonoBehaviour:
   goNextNodeDist: 4
   returnspeed: 60
   maxReturnSpeed: 30
+  maxSpeed: 18
+  summon: 0
 --- !u!65 &2127337625306797439
 BoxCollider:
   m_ObjectHideFlags: 0

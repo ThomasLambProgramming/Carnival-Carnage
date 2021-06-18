@@ -32,7 +32,9 @@ public class HammerCollisionEnemy : MonoBehaviour
     public float maxReturnSpeed = 50f;
     XRGrabInteractable grabScript = null;
     private Rigidbody hammerRb = null;
+    public float maxSpeed = 20f;
     private float summonTimer = 0;
+    public bool summon = false;
     public void Start()
     {
         hammerRb = GetComponent<Rigidbody>();
@@ -85,14 +87,27 @@ public class HammerCollisionEnemy : MonoBehaviour
             hammerRb.velocity = Vector3.zero;
             summonTimer = 0;
         }
+
+        if (!isBeingSummoned)
+        {
+            //this is to allow for the hammer to return at great speeds but if the player 
+            //cancels or throws it cant hit those same speeds (the recall when cancelled to late would go crazy)
+            if (hammerRb.velocity.magnitude > maxSpeed)
+            {
+                hammerRb.velocity = hammerRb.velocity.normalized * maxSpeed;
+            }
+        }
         summonTimer += Time.deltaTime;
-        if (isBeingSummoned && summonTimer > summonTime)
+        //summon is a debugging option because aie is fun with their no software to allow for unity editor debugging
+        if (isBeingSummoned && summonTimer > summonTime || summon)
         {
             Vector3 rightHandPos = playerRightHand.transform.position;
             rightHandPos.y = yOffset;
             var directionToHand = (rightHandPos - transform.position).normalized;
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, directionToHand, out hit) && !IsBeingHeld())
+            //small note, why does unitys find layer return the actual number of the layer when it requires the bit
+            //2147482879 is for the 8th and 9th floor so it ignores all grab objects and the ground 2147482879
+            if (Physics.Raycast(transform.position, directionToHand, out hit, Mathf.Infinity, ~(3 << 8)) && !IsBeingHeld())
             {
                 if (hit.transform.CompareTag("Obstacle"))
                 {

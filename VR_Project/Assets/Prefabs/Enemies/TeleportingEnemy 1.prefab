@@ -199,6 +199,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   headObject: {fileID: 4609125343048177883}
   audioManager: {fileID: 0}
   pranksterchargeParticle: {fileID: 6407617411987943335}
@@ -571,7 +572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shatterVersion: {fileID: 2711772020471909121}
-  audioManager: {fileID: 0}
+  audioManager: {fileID: 1600895261550612680, guid: 6b612a8033d01d44097b302fd8cd1896, type: 3}
   onDeathParticle: {fileID: 1136185014515264729}
 --- !u!65 &4609125343048177880
 BoxCollider:

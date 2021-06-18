@@ -8,7 +8,7 @@ public class TicketBooth : MonoBehaviour
     public GameObject Set1;
     public GameObject Set2;
     public AudioSource shutterSound;
-    private bool played = false;
+    //private bool played = false;
 
     // Start is called before the first frame update
     void Start()
