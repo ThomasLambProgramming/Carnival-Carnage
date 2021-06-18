@@ -933,7 +933,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 322278521}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ColliderHolders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2420,7 +2420,7 @@ GameObject:
   - component: {fileID: 692908066}
   - component: {fileID: 692908065}
   - component: {fileID: 692908064}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3430,6 +3430,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4003712087666323872, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
+      propertyPath: m_ThrowVelocityScale
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4581986259887877720, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.41
@@ -3547,7 +3551,7 @@ GameObject:
   - component: {fileID: 1049436189}
   - component: {fileID: 1049436191}
   - component: {fileID: 1049436190}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: boxcolliderholder2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4987,7 +4991,7 @@ GameObject:
   - component: {fileID: 1409753935}
   - component: {fileID: 1409753934}
   - component: {fileID: 1409753933}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6441,7 +6445,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1727558794}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6892,7 +6896,7 @@ GameObject:
   - component: {fileID: 1880090524}
   - component: {fileID: 1880090526}
   - component: {fileID: 1880090525}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: boxcolliderholder2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7048,7 +7052,7 @@ GameObject:
   - component: {fileID: 1949716905}
   - component: {fileID: 1949716904}
   - component: {fileID: 1949716903}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: boxcolliderholder1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
