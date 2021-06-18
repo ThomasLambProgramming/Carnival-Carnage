@@ -184,13 +184,12 @@ public class NodeManager : MonoBehaviour
                 }
             }
         }
-        //EditorUtility.SetDirty(nodeScriptableObject);
+        
         nodeScriptableObject.NodeGraph = new Node[m_nodeGraph.Length];
         for (int i = 0; i < m_nodeGraph.Length; i++)
         {
             nodeScriptableObject.NodeGraph[i] = m_nodeGraph[i];
         }
-        //AssetDatabase.SaveAssets();
     }
 
     private static void UnWalkable(ref List<NodeCheck> nodes)
