@@ -3286,6 +3286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WalkerEnemy (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: nodeData
+      value: 
+      objectReference: {fileID: 11400000, guid: 00a97f1230af5504c86d7577c16544f7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!4 &490018249 stripped
@@ -4684,6 +4688,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WalkerEnemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: nodeData
+      value: 
+      objectReference: {fileID: 11400000, guid: 00a97f1230af5504c86d7577c16544f7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!4 &674125873 stripped
@@ -6690,7 +6698,7 @@ PrefabInstance:
     - target: {fileID: 8693721395999534111, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
       propertyPath: pathData
       value: 
-      objectReference: {fileID: 11400000, guid: 81bffe8826e7ab0418a6433e1a0be169, type: 2}
+      objectReference: {fileID: 11400000, guid: 00a97f1230af5504c86d7577c16544f7, type: 2}
     - target: {fileID: 9069905438800759649, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
       propertyPath: playerRightHand
       value: 
@@ -9384,23 +9392,23 @@ PrefabInstance:
     - target: {fileID: 2265568941143800691, guid: 76a3229466231fb48bcef821bdc846fe, type: 3}
       propertyPath: telePortPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 943225675}
+      objectReference: {fileID: 40382653}
     - target: {fileID: 2265568941143800691, guid: 76a3229466231fb48bcef821bdc846fe, type: 3}
       propertyPath: telePortPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1661649565}
+      objectReference: {fileID: 1184032797}
     - target: {fileID: 2265568941143800691, guid: 76a3229466231fb48bcef821bdc846fe, type: 3}
       propertyPath: telePortPoints.Array.data[2]
       value: 
-      objectReference: {fileID: 1570066628}
+      objectReference: {fileID: 1969396125}
     - target: {fileID: 2265568941143800691, guid: 76a3229466231fb48bcef821bdc846fe, type: 3}
       propertyPath: telePortPoints.Array.data[3]
       value: 
-      objectReference: {fileID: 998684653}
+      objectReference: {fileID: 1697603141}
     - target: {fileID: 2265568941143800691, guid: 76a3229466231fb48bcef821bdc846fe, type: 3}
       propertyPath: telePortPoints.Array.data[4]
       value: 
-      objectReference: {fileID: 998684653}
+      objectReference: {fileID: 1697603141}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76a3229466231fb48bcef821bdc846fe, type: 3}
 --- !u!4 &1326128937 stripped
@@ -10248,6 +10256,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WalkerEnemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: nodeData
+      value: 
+      objectReference: {fileID: 11400000, guid: 00a97f1230af5504c86d7577c16544f7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!4 &1445335686 stripped
@@ -10662,6 +10674,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WalkerEnemy (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: nodeData
+      value: 
+      objectReference: {fileID: 11400000, guid: 00a97f1230af5504c86d7577c16544f7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!4 &1501995074 stripped
@@ -14835,6 +14851,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WalkerEnemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: nodeData
+      value: 
+      objectReference: {fileID: 11400000, guid: 00a97f1230af5504c86d7577c16544f7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!4 &2076212147 stripped
