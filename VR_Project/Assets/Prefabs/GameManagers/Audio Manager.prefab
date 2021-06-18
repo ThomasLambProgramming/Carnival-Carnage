@@ -100,7 +100,7 @@ MonoBehaviour:
     m_volume: 1
     m_pitch: 1
     m_spatialBlend: 0
-  - m_name: Enemy - Prankster
+  - m_name: Enemy - Prankster Laughs
     m_clip: {fileID: 8300000, guid: 7b0218cd85f6ff245b15fc0677801d82, type: 3}
     m_source: {fileID: 0}
     m_playOnAwake: 0
@@ -125,6 +125,30 @@ MonoBehaviour:
     m_pitch: 1
     m_spatialBlend: 0
   - m_name: Shatter
+    m_clip: {fileID: 8300000, guid: caec76118490680478a463638a3f0f07, type: 3}
+    m_source: {fileID: 0}
+    m_playOnAwake: 0
+    m_loop: 0
+    m_volume: 1
+    m_pitch: 1
+    m_spatialBlend: 0
+  - m_name: Enemy - Prankster Charge Up
+    m_clip: {fileID: 8300000, guid: caec76118490680478a463638a3f0f07, type: 3}
+    m_source: {fileID: 0}
+    m_playOnAwake: 0
+    m_loop: 0
+    m_volume: 1
+    m_pitch: 1
+    m_spatialBlend: 0
+  - m_name: Enemy - Prankster Escapes
+    m_clip: {fileID: 8300000, guid: caec76118490680478a463638a3f0f07, type: 3}
+    m_source: {fileID: 0}
+    m_playOnAwake: 0
+    m_loop: 0
+    m_volume: 1
+    m_pitch: 1
+    m_spatialBlend: 0
+  - m_name: Enemy - Prankster Escapes
     m_clip: {fileID: 8300000, guid: caec76118490680478a463638a3f0f07, type: 3}
     m_source: {fileID: 0}
     m_playOnAwake: 0
