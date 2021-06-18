@@ -39,6 +39,7 @@ public class Pranksters : MonoBehaviour
             //play particle 1 second before teh teleport occurs
             if (((TeleportRate - teleportTimer) <= 1) && chargeParticleHappened == false)
             {
+                audioManager.PlaySound("PranksterCharge", gameObject);
                 pranksterchargeParticle.Play();
                 chargeParticleHappened = true;
             }
@@ -51,7 +52,8 @@ public class Pranksters : MonoBehaviour
                 if (telePortPoints.Length > 0)
                 {
                     transform.position = telePortPoints[Random.Range(0, telePortPoints.Length - 1)].transform.position;
-                    //play second explosion particle
+                    //play second explosion particle and sound
+                    audioManager.PlaySound("Prankster arrives", gameObject);
                     pranksterExplosionParticle.Play();
                 }
                 teleportTimer = 0;
