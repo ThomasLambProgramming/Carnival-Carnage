@@ -6,12 +6,14 @@ using Unity.Collections;
 
 public class HammerCollisionEnemy : MonoBehaviour
 {
-
+    public float yOffset = 1f;
     public NodeContainer pathData = null;
     public float yForceIncrease = 4f;
     public float meleeHitForce = 200f;
     public float throwHitForce = 10f;
-    
+    public float reSummonDistance = 5f;
+    //private Vector3 SummonPosition;
+    //bool firstSummon = true;
     private Vector3 previousPosition;
     //give it a default so a null does not have to be done
     private Vector3 bufferPosition = new Vector3(0, 0, 0);
@@ -36,12 +38,16 @@ public class HammerCollisionEnemy : MonoBehaviour
         hammerRb = GetComponent<Rigidbody>();
         grabScript = GetComponent<XRGrabInteractable>();
     }
-    
+
     //recalling script
     public void IsSummoned()
     {
         isBeingSummoned = true;
-
+        //if (firstSummon)
+        //{
+        //    SummonPosition = playerRightHand.transform.position;
+        //    firstSummon = false;
+        //}
     }
     public void StopSummon()
     {
@@ -50,16 +56,20 @@ public class HammerCollisionEnemy : MonoBehaviour
         usePath = false;
         path = null;
         currentPathIndex = 0;
+        //firstSummon = true;
     }
     public bool IsBeingHeld()
     {
         if (grabScript.isSelected)
+        {
+            //firstSummon = true;
             return true;
+        }
 
         return false;
     }
 
-    public void FixedUpdate()
+    public void Update()
     {
         amountSkipped++;
         if (amountSkipped >= frameSkipsOnUpdate)
@@ -78,27 +88,29 @@ public class HammerCollisionEnemy : MonoBehaviour
         summonTimer += Time.deltaTime;
         if (isBeingSummoned && summonTimer > summonTime)
         {
-            var directionToHand = (playerRightHand.transform.position - transform.position).normalized;
+            Vector3 rightHandPos = playerRightHand.transform.position;
+            rightHandPos.y = yOffset;
+            var directionToHand = (rightHandPos - transform.position).normalized;
             RaycastHit hit;
             if (Physics.Raycast(transform.position, directionToHand, out hit) && !IsBeingHeld())
             {
                 if (hit.transform.CompareTag("Obstacle"))
                 {
-                    path = FindPath();
+                    if (path == null)
+                        path = FindPath();
+
+                    //else if (Vector3.Distance(SummonPosition, playerRightHand.transform.position) > reSummonDistance)
+                    //{
+                    //    path = FindPath();
+                    //    firstSummon = true;
+                    //}
                     currentPathIndex = 0;
                     usePath = true;
                 }
-                else
+                else if (hit.transform.CompareTag("Hand"))
                 {
-                    if (Vector3.Dot(hammerRb.velocity.normalized, directionToHand) > 0.7f)
-                    {
-                        hammerRb.velocity = directionToHand * returnspeed;
-                    }
-                    hammerRb.velocity += directionToHand * returnspeed * Time.deltaTime;
-                    if (hammerRb.velocity.magnitude > maxReturnSpeed)
-                    {
-                        hammerRb.velocity = hammerRb.velocity.normalized * maxReturnSpeed;
-                    }
+                    hammerRb.velocity = hammerRb.velocity / 1.5f;
+                    hammerRb.velocity += directionToHand * (maxReturnSpeed / 2);
                     path = null;
                     usePath = false;
                 }
@@ -112,19 +124,12 @@ public class HammerCollisionEnemy : MonoBehaviour
                 }
                 if (path != null)
                 {
-                    Vector3 heading = transform.position + hammerRb.velocity;
-                    float headingLength = heading.magnitude;
-                    Vector3 directionToTarget = Vector3.Normalize(path[currentPathIndex] - transform.position);
-                    Vector3 vector2Target = directionToTarget * headingLength;
-                    Vector3 targetForcePos = vector2Target + transform.position;
-                    Vector3 forceDirection = targetForcePos - heading;
-                    forceDirection = forceDirection.normalized;
-                    forceDirection = forceDirection * (returnspeed * Time.deltaTime);
-                    hammerRb.velocity += forceDirection;
-                    if (hammerRb.velocity.magnitude > maxReturnSpeed)
-                    {
-                        hammerRb.velocity = hammerRb.velocity.normalized * maxReturnSpeed;
-                    }
+                    Vector3 indexPosition = path[currentPathIndex];
+                    indexPosition.y = 1;
+                    Vector3 forceDirection = (indexPosition - transform.position).normalized;
+                    forceDirection = forceDirection * maxReturnSpeed;
+                    hammerRb.velocity = forceDirection;
+
                     if ((path[currentPathIndex] - transform.position).magnitude < goNextNodeDist)
                     {
                         if (currentPathIndex < path.Length - 1)

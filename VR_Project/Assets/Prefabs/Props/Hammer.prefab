@@ -159,7 +159,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 4
+  m_ThrowVelocityScale: 8
   m_ThrowAngularVelocityScale: 2
   m_GravityOnDetach: 1
   m_RetainTransformParent: 1
@@ -175,16 +175,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37afdeb586ba1a4d9258074256b652e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathData: {fileID: 0}
+  yOffset: 1
+  pathData: {fileID: 11400000, guid: 2066dd396550589428fa10f0d450b960, type: 2}
   yForceIncrease: 0.2
   meleeHitForce: 400
   throwHitForce: 20
+  reSummonDistance: 5
   hammerPart: {fileID: 2127337625306797437}
   frameSkipsOnUpdate: 2
   playerRightHand: {fileID: 0}
   summonTime: 0.5
   withInGrabDistance: 1
-  goNextNodeDist: 2
+  goNextNodeDist: 4
   returnspeed: 60
   maxReturnSpeed: 30
 --- !u!65 &2127337625306797439
