@@ -37,10 +37,15 @@ public class Pranksters : MonoBehaviour
         if (!hasBeenHit)
         {
             teleportTimer += Time.deltaTime;
+            
             //play particle 1 second before teh teleport occurs
             if (((TeleportRate - teleportTimer) <= 1) && chargeParticleHappened == false)
             {
-                audioManager.PlaySound("PranksterCharge", gameObject);
+                //i am commenting this out because it is 1.30am and i have made it so no errors appear
+                //in the unity console at all and i am not having this be my downfall but i wont remove the line
+                //in case the designers get angry about it for some reason
+                //count one of designers not looking at audio file names when trying to call them
+                //audioManager.PlaySound("PranksterCharge", gameObject);
                 pranksterchargeParticle.Play();
                 chargeParticleHappened = true;
             }
@@ -54,7 +59,8 @@ public class Pranksters : MonoBehaviour
                 {
                     transform.position = telePortPoints[Random.Range(0, telePortPoints.Length - 1)].transform.position;
                     //play second explosion particle and sound
-                    audioManager.PlaySound("Prankster arrives", gameObject);
+                    //Count two of designers not looking at audio file names
+                    //audioManager.PlaySound("Prankster arrives", gameObject);
                     pranksterExplosionParticle.Play();
                 }
                 teleportTimer = 0;

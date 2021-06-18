@@ -151,6 +151,11 @@ public class HammerCollisionEnemy : MonoBehaviour
                         {
                             currentPathIndex++;
                         }
+                        else if (currentPathIndex >= path.Length - 1)
+                        {
+                            currentPathIndex = 0;
+                            path = null;
+                        }
                     }
                 }
             }

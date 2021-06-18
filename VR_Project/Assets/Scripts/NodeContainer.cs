@@ -7,5 +7,3 @@ public class NodeContainer : ScriptableObject
 {
     [SerializeField] public Node[] NodeGraph = null;
 }
-
-
