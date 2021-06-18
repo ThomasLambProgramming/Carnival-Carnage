@@ -11382,7 +11382,7 @@ PrefabInstance:
     - target: {fileID: 1600895261550612680, guid: 6b612a8033d01d44097b302fd8cd1896, type: 3}
       propertyPath: m_sounds.Array.data[11].m_clip
       value: 
-      objectReference: {fileID: 8300000, guid: cc9503319100e414dad9ba71ffdd5af4, type: 3}
+      objectReference: {fileID: 8300000, guid: ee9b76264b5ea514b9212ba304b52635, type: 3}
     - target: {fileID: 1600895261550612680, guid: 6b612a8033d01d44097b302fd8cd1896, type: 3}
       propertyPath: m_sounds.Array.data[11].m_volume
       value: 1
@@ -14450,7 +14450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8473771034235741423, guid: 900ebbc725e73284eba7a07faf6d9e0e, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8473771034235741423, guid: 900ebbc725e73284eba7a07faf6d9e0e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -26687,6 +26687,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 207268949, guid: e2f3059b85f6acb4a940dc844bec38ba, type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 207268949, guid: e2f3059b85f6acb4a940dc844bec38ba, type: 3}
+      propertyPath: m_UseCustomVertexStreams
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 207268949, guid: e2f3059b85f6acb4a940dc844bec38ba, type: 3}
+      propertyPath: m_VertexStreams.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 207268949, guid: e2f3059b85f6acb4a940dc844bec38ba, type: 3}
+      propertyPath: m_VertexStreams.Array.data[2]
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4831182256054495534, guid: e2f3059b85f6acb4a940dc844bec38ba, type: 3}
       propertyPath: m_Name
       value: WandHammer
