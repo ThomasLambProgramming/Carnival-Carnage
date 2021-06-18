@@ -74,30 +74,6 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<AudioManager>().PlaySound("Circus Theme Music 1");
     }
 
-    public void GoToMainMenu()
-    {
-        SceneManager.LoadScene("Menu");
-    }
-
-    public void ChangeLevel(string a_name)
-    {
-        if (SceneManager.GetSceneByName(a_name) == null)
-        {
-            Debug.LogWarning("No scene named " + a_name + " exists.");
-            return;
-        }
-        else
-        {
-            SceneManager.LoadScene(a_name);
-        }
-    }
-
-    public void ExitGame()
-    {
-        isFinished = true;
-        Application.Quit();
-    }
-
     private void CompleteLevelUI()
     {
         // Obtain UI elements
@@ -118,11 +94,6 @@ public class GameManager : MonoBehaviour
         TextMeshProUGUI winLoseText = UICanvas.transform.Find("WinOrLose").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI finalTimeText = UICanvas.transform.Find("TimeLeft").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI ticketsText = UICanvas.transform.Find("TicketsCollected").GetComponent<TextMeshProUGUI>();
-
-        Button replayButton = UICanvas.transform.Find("ReplayButton").GetComponent<Button>();
-        replayButton.onClick.AddListener(delegate { ChangeLevel(SceneManager.GetActiveScene().name); });
-        Button exitButton = UICanvas.transform.Find("ExitToMenuButton").GetComponent<Button>();
-        replayButton.onClick.AddListener(GoToMainMenu);
 
         rightRayController.SetActive(true);
         rightGameplayController.SetActive(false);
