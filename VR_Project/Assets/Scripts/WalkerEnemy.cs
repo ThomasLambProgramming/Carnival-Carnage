@@ -8,6 +8,7 @@ public class WalkerEnemy : MonoBehaviour
     private Rigidbody rb = null;
     private NavMeshAgent navmesh = null;
     public bool makePath = true;
+    private bool isDestroyed = false;
     public float distanceToNewPath = 2f;
     public GameObject headObject = null;
     private Rigidbody headRb = null;
@@ -44,7 +45,12 @@ public class WalkerEnemy : MonoBehaviour
     }
     public void HasBeenHit(Vector3 forceToHit)
     {
-        FindObjectOfType<GameManager>().AddTime(gameObject, 3);
+        if (!isDestroyed)
+        {
+            FindObjectOfType<GameManager>().AddTime(gameObject, 3);
+            isDestroyed = true;
+        }
+
         //there isnt a hit sound soooo.....
         //audioSources.PlaySound("Hit", transform.position);
 
