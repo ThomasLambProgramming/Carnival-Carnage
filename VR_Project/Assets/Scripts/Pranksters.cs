@@ -15,6 +15,7 @@ public class Pranksters : MonoBehaviour
     public GameObject[] telePortPoints;
     public GameObject headObject = null;
     private bool hasBeenHit = false;
+    private bool isDestroyed = false;
     private Rigidbody headRb = null;
     private BoxCollider headCollider = null;
     private BoxCollider mainCollider = null;
@@ -65,7 +66,12 @@ public class Pranksters : MonoBehaviour
 
     public void HasBeenHit(Vector3 forceToHit)
     {
-        FindObjectOfType<GameManager>().AddTime(gameObject, 3);
+        if (!isDestroyed)
+        {
+            FindObjectOfType<GameManager>().AddTime(gameObject, 3);
+            isDestroyed = true;
+        }
+
         hasBeenHit = true;
         mainCollider.enabled = false;
         headCollider.enabled = true;
