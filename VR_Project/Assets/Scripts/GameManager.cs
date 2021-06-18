@@ -45,12 +45,15 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI enemiesText;
     public GameObject bonusTime;
     private string filePath = "";
+    //private string hammer_filePath = "";
     #endregion
 
     private void Start()
     {
         grabScript = FindObjectOfType<XRGrabInteractable>().GetComponent<XRGrabInteractable>();
         filePath = Application.dataPath + "TicketAmount.json";
+        //hammer_filePath = Application.dataPath + "EquippedHammer.json";
+        //SetStartHammer();
         InitialiseGame();
         UpdateEnemies();
     }
@@ -344,10 +347,14 @@ public class GameManager : MonoBehaviour
     //    public int TicketCost = 1;
     //    public bool Unlocked = false;
     //}
+
     //[SerializeField]
+    //public List<GameObject> HammerObjects = new List<GameObject>();
+
     //public List<Hammer> Hammers = new List<Hammer>();
 
     //private int EquippedHammer = 0;
+
 
     //public void BuyOrEquip(int HammerNumber)
     //{
@@ -365,6 +372,46 @@ public class GameManager : MonoBehaviour
     //            EquippedHammer = HammerNumber;
     //        }
     //    }
+    //    OverwriteEqippedHammer(EquippedHammer);
+    //}
+
+
+    //public void SetStartHammer()
+    //{
+    //    try
+    //    {
+    //        GameObject HammerParent = GameObject.Find("Hammer (1)");
+    //        Transform OriginalHammer = HammerParent.transform.Find("Hammerbase1");
+    //        GameObject NewHammer = Instantiate(HammerObjects[EquippedHammer]);
+    //        NewHammer.transform.parent = OriginalHammer.parent;
+    //        NewHammer.transform.position = OriginalHammer.position;
+    //        NewHammer.transform.rotation = OriginalHammer.rotation;
+    //        NewHammer.transform.localScale = OriginalHammer.localScale;
+    //    }
+    //    catch { }
+    //}
+
+
+    ////OVERWRITES THE TICKET AMOUNT 
+    //public void OverwriteEqippedHammer(int CurrentEquippedHammer)
+    //{
+    //    int EquippedHammer = CurrentEquippedHammer;
+    //    StreamWriter stream = new StreamWriter(hammer_filePath);
+    //    string json = JsonUtility.ToJson(EquippedHammer, true);
+    //    stream.Write(json);
+    //    stream.Close();
+    //}
+    ////RETURNS THE AMOUNT IN THE FILE
+    //public int ReadEquippedHammer()
+    //{
+    //    if (!File.Exists(hammer_filePath))
+    //        return -1;
+
+    //    StreamReader stream = new StreamReader(hammer_filePath);
+    //    string jsonData = stream.ReadToEnd();
+    //    int EquippedHammer = JsonUtility.FromJson<int>(jsonData);
+    //    stream.Close();
+    //    return EquippedHammer;
     //}
 
     //public GameObject GetEquippedHammer()
