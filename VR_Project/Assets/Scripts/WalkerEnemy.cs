@@ -36,6 +36,8 @@ public class WalkerEnemy : MonoBehaviour
             if (Vector3.Magnitude(navmesh.destination - transform.position) < distanceToNewPath * distanceToNewPath)
                 navmesh.SetDestination(nodeData.NodeGraph[Random.Range(0, nodeData.NodeGraph.Length - 1)].m_position);
         }
+        rb.velocity = Vector3.zero;
+        
         if (kill)
         {
             HasBeenHit(new Vector3(0, 100, 0));
@@ -53,15 +55,16 @@ public class WalkerEnemy : MonoBehaviour
 
         //there isnt a hit sound soooo.....
         //audioSources.PlaySound("Hit", transform.position);
-
+        
         //aaron edits
         //onDeathParticle.Play();
         //edits end
         navmesh.enabled = false;
         mainCollider.enabled = false;
         headCollider.enabled = true;
+        
         //deparent it so it doesnt move with the object ontop of it flying in the air
-        headObject.transform.parent = null;
+        //headObject.transform.parent = null;
 
         //The reason this has to be done is because the hammer can sometimes hit twice on a fall or melee
         //so a check has to be done before adding just in case
@@ -70,7 +73,7 @@ public class WalkerEnemy : MonoBehaviour
         headRb = headObject.GetComponent<Rigidbody>();
         if (headRb == null)
             headRb = headObject.AddComponent<Rigidbody>();
-
+        headRb.velocity = Vector3.zero;
         headRb.AddForce(forceToHit);
 
         Destroy(gameObject, 4f);
