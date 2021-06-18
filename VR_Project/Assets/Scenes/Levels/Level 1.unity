@@ -250,6 +250,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62581440}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &127981761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2127337625306797437, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
+  m_PrefabInstance: {fileID: 1017668221}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &129708248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3463,6 +3468,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 866889403}
+    - target: {fileID: 4003712087666323872, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 866889403}
     - target: {fileID: 4581986259887877720, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.41
@@ -3551,6 +3560,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8693721395999534111, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
+      propertyPath: playerRightHand
+      value: 
+      objectReference: {fileID: 1016610505}
+    - target: {fileID: 8693721395999534111, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
+      propertyPath: pathData
+      value: 
+      objectReference: {fileID: 11400000, guid: 81bffe8826e7ab0418a6433e1a0be169, type: 2}
     - target: {fileID: 9069905438800759649, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
       propertyPath: playerRightHand
       value: 
@@ -7390,7 +7407,7 @@ PrefabInstance:
     - target: {fileID: 740464432444819818, guid: e28a09be82dedd84790ef79ee4ffb410, type: 3}
       propertyPath: hammerObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 127981761}
     - target: {fileID: 740464432444819818, guid: e28a09be82dedd84790ef79ee4ffb410, type: 3}
       propertyPath: dashSpeed
       value: 50
