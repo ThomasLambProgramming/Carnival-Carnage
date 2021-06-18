@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &891053956141491764
 RectTransform:
@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.069, y: 0.629}
   m_SizeDelta: {x: 4, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1625928704430540434
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 'Tickets:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd379e684bff09940a82729b98197111, type: 2}
   m_sharedMaterial: {fileID: -1647299066071386717, guid: cd379e684bff09940a82729b98197111, type: 2}
@@ -125,8 +125,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 8445060086372700460}
   m_Layer: 0
   m_Name: TotalTickets
-  m_TagString: Untagged
+  m_TagString: Tickets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -203,7 +203,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.35}
   m_SizeDelta: {x: 4, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8445060086372700461
@@ -425,6 +425,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 92387fa0c73b96a4a8395a3384975361, type: 3}
       propertyPath: m_Name
       value: OBJ_Scoreboard
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 92387fa0c73b96a4a8395a3384975361, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92387fa0c73b96a4a8395a3384975361, type: 3}

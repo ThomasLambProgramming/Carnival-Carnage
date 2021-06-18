@@ -18,6 +18,7 @@ TagManager:
   - Hat
   - PropellerHead
   - Hand
+  - Tickets
   layers:
   - Default
   - TransparentFX

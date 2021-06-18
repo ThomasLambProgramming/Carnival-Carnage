@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator TicketUpdater(TextMeshProUGUI a_ticketText)
     {
-        while(true)
+        while (true)
         {
             if (endTickets != ticketsCollected && ticketsCollected > endTickets)
             {
@@ -181,7 +181,7 @@ public class GameManager : MonoBehaviour
         //if there is a file then we can add
         if (heldTickets != -1)
             ticket.ticketAmount += heldTickets;
-        
+
         StreamWriter stream = new StreamWriter(filePath);
         string json = JsonUtility.ToJson(ticket, true);
         stream.Write(json);
@@ -208,7 +208,7 @@ public class GameManager : MonoBehaviour
         stream.Close();
         return tickets.ticketAmount;
     }
-    
+
     #endregion
 
     #region Timer Functions
@@ -334,6 +334,47 @@ public class GameManager : MonoBehaviour
 
         return new Color(red, green, blue, alpha);
     }
+
+    #region Hammer Management
+
+
+    //public class Hammer
+    //{
+    //    public GameObject HammerObject;
+    //    public int TicketCost = 1;
+    //    public bool Unlocked = false;
+    //}
+    //[SerializeField]
+    //public List<Hammer> Hammers = new List<Hammer>();
+
+    //private int EquippedHammer = 0;
+
+    //public void BuyOrEquip(int HammerNumber)
+    //{
+    //    if (Hammers[EquippedHammer].Unlocked)
+    //        EquippedHammer = HammerNumber;
+
+    //    else
+    //    {
+    //        int TotalTickets = ReadTicketFile();
+
+    //        if (TotalTickets >= Hammers[EquippedHammer].TicketCost)
+    //        {
+    //            OverwriteTicketAmount(TotalTickets - Hammers[EquippedHammer].TicketCost);
+    //            Hammers[EquippedHammer].Unlocked = true;
+    //            EquippedHammer = HammerNumber;
+    //        }
+    //    }
+    //}
+
+    //public GameObject GetEquippedHammer()
+    //{
+    //    return Hammers[EquippedHammer].HammerObject;
+    //}
+
+
+    #endregion
+
 
     #endregion
 }
