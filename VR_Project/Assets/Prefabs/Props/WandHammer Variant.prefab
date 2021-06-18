@@ -284,7 +284,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.05
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -999,55 +999,46 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.36544004
-          value: 1
-          inSlope: 1.1240722
-          outSlope: 1.1240722
+          time: 0.35097718
+          value: 0.8801435
+          inSlope: 0.351223
+          outSlope: 0.351223
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.18055704
+        - serializedVersion: 3
+          time: 0.5658421
+          value: 0.18816614
+          inSlope: -0.12877199
+          outSlope: -0.12877199
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.55682147
-          value: 0.121622086
-          inSlope: 1.7463828
-          outSlope: 1.7463828
+          time: 0.71605897
+          value: 0.94622964
+          inSlope: -0.23725627
+          outSlope: -0.23725627
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0.7503735
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.6814527
-          value: 1
-          inSlope: 3.4775922
-          outSlope: 3.4775922
+          time: 0.8495891
+          value: 0.3575246
+          inSlope: -0.3115849
+          outSlope: -0.3115849
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 0.8420304
-          value: 0.25675762
-          inSlope: -0.14824347
-          outSlope: -0.14824347
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.49810264
-        - serializedVersion: 3
-          time: 0.95902646
-          value: 0.9833096
-          inSlope: -1.3630457
-          outSlope: -1.3630457
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 1
+          outWeight: 0.75015146
         - serializedVersion: 3
           time: 1
-          value: 0
-          inSlope: 1
-          outSlope: 1
+          value: 0.013513565
+          inSlope: 1.1240722
+          outSlope: 1.1240722
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
@@ -1374,8 +1365,8 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 65535
-        atime2: 0
+        atime1: 58789
+        atime2: 65535
         atime3: 0
         atime4: 0
         atime5: 0
@@ -1383,7 +1374,7 @@ ParticleSystem:
         atime7: 0
         m_Mode: 0
         m_NumColorKeys: 3
-        m_NumAlphaKeys: 2
+        m_NumAlphaKeys: 3
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1415,9 +1406,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 0
-    mode: 0
-    timeMode: 0
+    enabled: 1
+    mode: 1
+    timeMode: 2
     fps: 30
     frameOverTime:
       serializedVersion: 2
@@ -1532,9 +1523,9 @@ ParticleSystem:
     rowIndex: 0
     cycles: 1
     uvChannelMask: -1
-    rowMode: 1
+    rowMode: 0
     sprites:
-    - sprite: {fileID: 0}
+    - sprite: {fileID: 21300000, guid: cd13cafdaec3a034fbddd587b3d1da15, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -4820,7 +4811,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+  - {fileID: 2100000, guid: db0a5558d5332d0458c895377dd122d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4923,7 +4914,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: b51fec2d6a85f03489c93dfe28308b40, type: 2}
     - target: {fileID: 919132149155446097, guid: 5c9710c47a3572b4aa7e01289e5ab668, type: 3}
       propertyPath: m_Name
-      value: WandHammer
+      value: WandHammer Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c9710c47a3572b4aa7e01289e5ab668, type: 3}
