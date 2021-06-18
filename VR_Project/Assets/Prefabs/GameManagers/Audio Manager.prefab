@@ -133,7 +133,7 @@ MonoBehaviour:
     m_pitch: 1
     m_spatialBlend: 0
   - m_name: Enemy - Prankster Charge Up
-    m_clip: {fileID: 8300000, guid: caec76118490680478a463638a3f0f07, type: 3}
+    m_clip: {fileID: 8300000, guid: 3eb18a0ac2a6c8742aa04beee8c4d097, type: 3}
     m_source: {fileID: 0}
     m_playOnAwake: 0
     m_loop: 0
@@ -141,15 +141,7 @@ MonoBehaviour:
     m_pitch: 1
     m_spatialBlend: 0
   - m_name: Enemy - Prankster Escapes
-    m_clip: {fileID: 8300000, guid: caec76118490680478a463638a3f0f07, type: 3}
-    m_source: {fileID: 0}
-    m_playOnAwake: 0
-    m_loop: 0
-    m_volume: 1
-    m_pitch: 1
-    m_spatialBlend: 0
-  - m_name: Enemy - Prankster Escapes
-    m_clip: {fileID: 8300000, guid: caec76118490680478a463638a3f0f07, type: 3}
+    m_clip: {fileID: 8300000, guid: cc9503319100e414dad9ba71ffdd5af4, type: 3}
     m_source: {fileID: 0}
     m_playOnAwake: 0
     m_loop: 0
