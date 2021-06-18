@@ -6,9 +6,11 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
+
     #region Properties
 
     [Header("Game Settings")]
@@ -39,13 +41,13 @@ public class GameManager : MonoBehaviour
     private float guiTime = 2;
     public TextMeshProUGUI enemiesText;
     public GameObject bonusTime;
-
+    private string filePath = "";
     #endregion
 
     private void Start()
     {
         grabScript = FindObjectOfType<XRGrabInteractable>().GetComponent<XRGrabInteractable>();
-
+        filePath = Application.dataPath + "TicketAmount.json";
         InitialiseGame();
         UpdateEnemies();
     }
@@ -179,6 +181,48 @@ public class GameManager : MonoBehaviour
 
             yield return new WaitForSeconds(0.1f);
         }
+    }
+
+    private class TicketObject
+    {
+        public int ticketAmount = 0;
+        public TicketObject(int a_ticketAmount) => ticketAmount = a_ticketAmount;
+    }
+    //ADDS ONTO THE FILE TICKET AMOUNT
+    public void WriteTicketToFile(int ticketAmount)
+    {
+        TicketObject ticket = new TicketObject(ticketAmount);
+
+        int heldTickets = ReadTicketFile();
+        //if there is a file then we can add
+        if (heldTickets != -1)
+            ticket.ticketAmount += heldTickets;
+        
+        StreamWriter stream = new StreamWriter(filePath);
+        string json = JsonUtility.ToJson(ticket, true);
+        stream.Write(json);
+        stream.Close();
+    }
+    //OVERWRITES THE TICKET AMOUNT 
+    public void OverwriteTicketAmount(int ticketAmount)
+    {
+        TicketObject ticket = new TicketObject(ticketAmount);
+        StreamWriter stream = new StreamWriter(filePath);
+        string json = JsonUtility.ToJson(ticket, true);
+        stream.Write(json);
+        stream.Close();
+    }
+    //RETURNS THE AMOUNT IN THE FILE
+    public int ReadTicketFile()
+    {
+        if (!File.Exists(filePath))
+            return -1;
+
+        StreamReader stream = new StreamReader(filePath);
+        string jsonData = stream.ReadToEnd();
+        TicketObject tickets = JsonUtility.FromJson<TicketObject>(jsonData);
+        stream.Close();
+        return tickets.ticketAmount;
     }
     
     #endregion
