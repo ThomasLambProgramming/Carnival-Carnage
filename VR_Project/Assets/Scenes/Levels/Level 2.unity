@@ -1873,6 +1873,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hammer
       objectReference: {fileID: 0}
+    - target: {fileID: 4003712087666323872, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 1094613359}
     - target: {fileID: 7699634175459428124, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.4
@@ -1927,6 +1931,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 09f43b88bce60c74cafb3729a4579339, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
+--- !u!1 &271203638 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2127337625306797437, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
+  m_PrefabInstance: {fileID: 271203637}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &286414390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7977,7 +7986,7 @@ PrefabInstance:
     - target: {fileID: 4828877475823969028, guid: 9f0e4564babb00543a6ab0f38bc58dbc, type: 3}
       propertyPath: hammerObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 271203638}
     - target: {fileID: 4828877475823969028, guid: 9f0e4564babb00543a6ab0f38bc58dbc, type: 3}
       propertyPath: dashSpeed
       value: 50
@@ -8050,6 +8059,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5312546675698829919, guid: 9f0e4564babb00543a6ab0f38bc58dbc, type: 3}
   m_PrefabInstance: {fileID: 1094613356}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1094613359 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4828877475243771184, guid: 9f0e4564babb00543a6ab0f38bc58dbc, type: 3}
+  m_PrefabInstance: {fileID: 1094613356}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4e6cca11330d4088d729ab4fc9d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1110522093
 PrefabInstance:
   m_ObjectHideFlags: 0
