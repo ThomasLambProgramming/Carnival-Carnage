@@ -1796,6 +1796,10 @@ PrefabInstance:
       propertyPath: canMove
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: yOffSet
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4615201390725979951, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_Name
       value: PropellerEnemy (4)
@@ -1806,7 +1810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459080904710811421, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.578
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 5459080904710811421, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1866,6 +1870,10 @@ PrefabInstance:
       propertyPath: canMove
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: yOffSet
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4615201390725979951, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_Name
       value: PropellerEnemy (7)
@@ -1876,7 +1884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459080904710811421, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.776
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 5459080904710811421, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1935,6 +1943,10 @@ PrefabInstance:
     - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: canMove
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: yOffSet
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4615201390725979951, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_Name
@@ -3508,6 +3520,10 @@ PrefabInstance:
       propertyPath: canMove
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: yOffSet
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4615201390725979951, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_Name
       value: PropellerEnemy (2)
@@ -3518,7 +3534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459080904710811421, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.578
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 5459080904710811421, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4406,6 +4422,10 @@ PrefabInstance:
       propertyPath: canMove
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: yOffSet
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4615201390725979951, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_Name
       value: PropellerEnemy (1)
@@ -4416,7 +4436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459080904710811421, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.578
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 5459080904710811421, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10351,6 +10371,10 @@ PrefabInstance:
       propertyPath: canMove
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: yOffSet
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4615201390725979951, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_Name
       value: PropellerEnemy (6)
@@ -10361,7 +10385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459080904710811421, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.578
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 5459080904710811421, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11691,6 +11715,10 @@ PrefabInstance:
       propertyPath: canMove
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: yOffSet
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4615201390725979951, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_Name
       value: PropellerEnemy (3)
@@ -11701,7 +11729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459080904710811421, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.578
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 5459080904710811421, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13186,6 +13214,10 @@ PrefabInstance:
       propertyPath: canMove
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: yOffSet
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4615201390725979951, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_Name
       value: PropellerEnemy (5)
@@ -13196,7 +13228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459080904710811421, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.578
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 5459080904710811421, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_LocalPosition.z
