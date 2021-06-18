@@ -1788,6 +1788,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: pathData
+      value: 
+      objectReference: {fileID: 11400000, guid: 09f43b88bce60c74cafb3729a4579339, type: 2}
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4615201390725979951, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_Name
       value: PropellerEnemy (4)
@@ -1850,6 +1858,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: pathData
+      value: 
+      objectReference: {fileID: 11400000, guid: 09f43b88bce60c74cafb3729a4579339, type: 2}
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4615201390725979951, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_Name
       value: PropellerEnemy (7)
@@ -1912,6 +1928,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: pathData
+      value: 
+      objectReference: {fileID: 11400000, guid: 09f43b88bce60c74cafb3729a4579339, type: 2}
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4615201390725979951, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_Name
       value: PropellerEnemy
@@ -3086,6 +3110,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WalkerEnemy (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: nodeData
+      value: 
+      objectReference: {fileID: 11400000, guid: 09f43b88bce60c74cafb3729a4579339, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!4 &410501108 stripped
@@ -3472,6 +3500,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: pathData
+      value: 
+      objectReference: {fileID: 11400000, guid: 09f43b88bce60c74cafb3729a4579339, type: 2}
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4615201390725979951, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_Name
       value: PropellerEnemy (2)
@@ -4362,6 +4398,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: pathData
+      value: 
+      objectReference: {fileID: 11400000, guid: 09f43b88bce60c74cafb3729a4579339, type: 2}
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4615201390725979951, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_Name
       value: PropellerEnemy (1)
@@ -7494,6 +7538,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WalkerEnemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: nodeData
+      value: 
+      objectReference: {fileID: 11400000, guid: 09f43b88bce60c74cafb3729a4579339, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!4 &1009323725 stripped
@@ -7657,7 +7705,7 @@ PrefabInstance:
     - target: {fileID: 8693721395999534111, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
       propertyPath: pathData
       value: 
-      objectReference: {fileID: 11400000, guid: 81bffe8826e7ab0418a6433e1a0be169, type: 2}
+      objectReference: {fileID: 11400000, guid: 09f43b88bce60c74cafb3729a4579339, type: 2}
     - target: {fileID: 9069905438800759649, guid: 1eb17e1433aebc849816f96e0408cfa5, type: 3}
       propertyPath: playerRightHand
       value: 
@@ -10295,6 +10343,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: pathData
+      value: 
+      objectReference: {fileID: 11400000, guid: 09f43b88bce60c74cafb3729a4579339, type: 2}
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4615201390725979951, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_Name
       value: PropellerEnemy (6)
@@ -11627,6 +11683,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: pathData
+      value: 
+      objectReference: {fileID: 11400000, guid: 09f43b88bce60c74cafb3729a4579339, type: 2}
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4615201390725979951, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_Name
       value: PropellerEnemy (3)
@@ -13114,6 +13178,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017641290}
     m_Modifications:
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: pathData
+      value: 
+      objectReference: {fileID: 11400000, guid: 09f43b88bce60c74cafb3729a4579339, type: 2}
+    - target: {fileID: 4615201390725979948, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
+      propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4615201390725979951, guid: 0783b96460055ed43b2f797559b053d0, type: 3}
       propertyPath: m_Name
       value: PropellerEnemy (5)
@@ -14588,6 +14660,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WalkerEnemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: nodeData
+      value: 
+      objectReference: {fileID: 11400000, guid: 09f43b88bce60c74cafb3729a4579339, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!4 &1982841680 stripped
@@ -14650,6 +14726,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WalkerEnemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268038808364851845, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
+      propertyPath: nodeData
+      value: 
+      objectReference: {fileID: 11400000, guid: 09f43b88bce60c74cafb3729a4579339, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36b99be1ba404dae96f10f0f4cbb9, type: 3}
 --- !u!4 &1998566920 stripped
