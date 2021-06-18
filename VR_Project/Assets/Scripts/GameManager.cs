@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.UI;
 using System.IO;
 
 public class GameManager : MonoBehaviour
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
     public bool isFinished = false;
     public bool hasWon = false;
     private bool calulated = false;
+    private bool initialised = false;
     private bool playedEndSound = false;
 
     public int growthRate = 1; // Decides how fast the scores will increase
@@ -32,7 +34,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timerText;
 
     [Header("Player Settings")]
-    public GameObject player;
+    public GameObject rightGameplayController;
+    public GameObject rightRayController;
     private XRGrabInteractable grabScript = null;
 
     [Header("Enemy Stats")]
@@ -73,7 +76,7 @@ public class GameManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Menu");
     }
 
     public void ChangeLevel(string a_name)
@@ -110,9 +113,19 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        UICanvas.GetComponent<Canvas>().worldCamera = Camera.main;
+
         TextMeshProUGUI winLoseText = UICanvas.transform.Find("WinOrLose").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI finalTimeText = UICanvas.transform.Find("TimeLeft").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI ticketsText = UICanvas.transform.Find("TicketsCollected").GetComponent<TextMeshProUGUI>();
+
+        Button replayButton = UICanvas.transform.Find("ReplayButton").GetComponent<Button>();
+        replayButton.onClick.AddListener(delegate { ChangeLevel(SceneManager.GetActiveScene().name); });
+        Button exitButton = UICanvas.transform.Find("ExitToMenuButton").GetComponent<Button>();
+        replayButton.onClick.AddListener(GoToMainMenu);
+
+        rightRayController.SetActive(true);
+        rightGameplayController.SetActive(false);
 
         FindObjectOfType<AudioManager>().StopPlaying("Circus Theme Music 1");
 

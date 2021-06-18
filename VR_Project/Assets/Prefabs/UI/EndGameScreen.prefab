@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 3770454365245969448}
   - component: {fileID: 25115629385536764}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: ReplayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -253,7 +253,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3770454365245969448}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2148044122247041504
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +279,7 @@ GameObject:
   - component: {fileID: 5886722834355987218}
   - component: {fileID: 6192031047821630050}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: ExitToMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -373,7 +385,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5886722834355987218}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4381467166217030932
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,6 +887,7 @@ GameObject:
   - component: {fileID: 8206111024630635015}
   - component: {fileID: 8206111024630635014}
   - component: {fileID: 8206111024630635013}
+  - component: {fileID: 5641596576337844613}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -957,6 +982,24 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5641596576337844613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8206111024630635067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 0
+  m_CheckFor2DOcclusion: 0
+  m_CheckFor3DOcclusion: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 2147483647
 --- !u!1 &8206111024705727487
 GameObject:
   m_ObjectHideFlags: 0
