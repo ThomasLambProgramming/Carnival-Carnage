@@ -401,7 +401,7 @@ MonoBehaviour:
   propellerFan: {fileID: 2213185306321126925}
   flyAwaySpeed: 5
   fanSpinSpeed: 900
-  shatterVersion: {fileID: 0}
+  shatterVersion: {fileID: 1412373835001596723}
   defaultHead: {fileID: 4087663659231154405}
   hatObject: {fileID: 4148095340238520050}
   pathData: {fileID: 0}
