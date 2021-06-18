@@ -45,11 +45,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFinished: 0
   hasWon: 0
+  growthRate: 1
   ticketsCollected: 0
+  endGameUISpawn: {fileID: 0}
+  endGameUI: {fileID: 0}
   timeRemaining: 20
   timerText: {fileID: 0}
-  player: {fileID: 0}
+  rightGameplayController: {fileID: 0}
+  rightRayController: {fileID: 0}
   enemiesLeft: 0
-  guiTime: 2
+  extraTime: 0
   enemiesText: {fileID: 0}
   bonusTime: {fileID: 0}
+  Hammers: 00000000

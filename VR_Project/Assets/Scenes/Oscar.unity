@@ -421,34 +421,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 891053956141491764, guid: ba953884017dc9e46807489d465a2d28, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.629
-      objectReference: {fileID: 0}
-    - target: {fileID: 891053956141491764, guid: ba953884017dc9e46807489d465a2d28, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.069
-      objectReference: {fileID: 0}
-    - target: {fileID: 2939720287215016877, guid: ba953884017dc9e46807489d465a2d28, type: 3}
-      propertyPath: m_fontSize
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2939720287215016877, guid: ba953884017dc9e46807489d465a2d28, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2939720287215016877, guid: ba953884017dc9e46807489d465a2d28, type: 3}
-      propertyPath: m_text
-      value: 'Tickets:'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6403485050217703365, guid: ba953884017dc9e46807489d465a2d28, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 8445060086372700459, guid: ba953884017dc9e46807489d465a2d28, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.35
-      objectReference: {fileID: 0}
     - target: {fileID: 8445060088002328669, guid: ba953884017dc9e46807489d465a2d28, type: 3}
       propertyPath: m_Name
       value: TicketDisplay
