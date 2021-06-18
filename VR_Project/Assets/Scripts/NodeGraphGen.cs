@@ -172,6 +172,10 @@ public class NodeManager : MonoBehaviour
         UnWalkable(ref nodes);
         //links all nodes together
         LinkNodes();
+
+
+        //all of this below is horrid but it was made for the vr working properly as
+        //actual development showed alot of flaws with this system with edge cases
         foreach (var node in m_nodeGraph)
         {
             for (int i = 0; i < m_nodeConnectionAmount; i++)
@@ -184,7 +188,27 @@ public class NodeManager : MonoBehaviour
                 }
             }
         }
-        
+
+        //some nodes are kept that have no connections this is to remove them
+        List<Node> validNodes = new List<Node>();
+        foreach (Node node in m_nodeGraph)
+        {
+            for(int i = 0; i < m_nodeConnectionAmount; i++)
+            {
+                if (node.connections[i] != null)
+                {
+                    validNodes.Add(node);
+                    break;
+                    //break out of that individual nodes loop
+                }
+            }
+        }
+        m_nodeGraph = null;
+        m_nodeGraph = new Node[validNodes.Count];
+        for(int i = 0; i < validNodes.Count; i++)
+        {
+            m_nodeGraph[i] = validNodes[i];
+        }
         nodeScriptableObject.NodeGraph = new Node[m_nodeGraph.Length];
         for (int i = 0; i < m_nodeGraph.Length; i++)
         {
