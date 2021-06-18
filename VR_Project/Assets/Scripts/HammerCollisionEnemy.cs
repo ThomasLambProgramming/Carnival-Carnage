@@ -94,11 +94,11 @@ public class HammerCollisionEnemy : MonoBehaviour
                     {
                         hammerRb.velocity = directionToHand * returnspeed;
                     }
+                    hammerRb.velocity += directionToHand * returnspeed * Time.deltaTime;
                     if (hammerRb.velocity.magnitude > maxReturnSpeed)
                     {
                         hammerRb.velocity = hammerRb.velocity.normalized * maxReturnSpeed;
                     }
-                    hammerRb.velocity += directionToHand * returnspeed * Time.deltaTime;
                     path = null;
                     usePath = false;
                 }
@@ -121,7 +121,10 @@ public class HammerCollisionEnemy : MonoBehaviour
                     forceDirection = forceDirection.normalized;
                     forceDirection = forceDirection * (returnspeed * Time.deltaTime);
                     hammerRb.velocity += forceDirection;
-                  
+                    if (hammerRb.velocity.magnitude > maxReturnSpeed)
+                    {
+                        hammerRb.velocity = hammerRb.velocity.normalized * maxReturnSpeed;
+                    }
                     if ((path[currentPathIndex] - transform.position).magnitude < goNextNodeDist)
                     {
                         if (currentPathIndex < path.Length - 1)

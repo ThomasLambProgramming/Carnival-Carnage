@@ -133,7 +133,7 @@ MonoBehaviour:
     m_pitch: 1
     m_spatialBlend: 0
   - m_name: Enemy - Prankster Charge Up
-    m_clip: {fileID: 8300000, guid: caec76118490680478a463638a3f0f07, type: 3}
+    m_clip: {fileID: 8300000, guid: 3eb18a0ac2a6c8742aa04beee8c4d097, type: 3}
     m_source: {fileID: 0}
     m_playOnAwake: 0
     m_loop: 0
@@ -141,15 +141,15 @@ MonoBehaviour:
     m_pitch: 1
     m_spatialBlend: 0
   - m_name: Enemy - Prankster Escapes
-    m_clip: {fileID: 8300000, guid: caec76118490680478a463638a3f0f07, type: 3}
+    m_clip: {fileID: 8300000, guid: ee9b76264b5ea514b9212ba304b52635, type: 3}
     m_source: {fileID: 0}
     m_playOnAwake: 0
     m_loop: 0
     m_volume: 1
     m_pitch: 1
     m_spatialBlend: 0
-  - m_name: Enemy - Prankster Escapes
-    m_clip: {fileID: 8300000, guid: caec76118490680478a463638a3f0f07, type: 3}
+  - m_name: Cheer
+    m_clip: {fileID: 8300000, guid: 4c98c8c1bb00e4449a2d0b01d6023fc2, type: 3}
     m_source: {fileID: 0}
     m_playOnAwake: 0
     m_loop: 0
