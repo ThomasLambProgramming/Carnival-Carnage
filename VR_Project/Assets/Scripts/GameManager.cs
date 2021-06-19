@@ -1,17 +1,24 @@
+/*
+* File: GameManager.cs
+*
+* Author: Mara Dusevic (s200494@students.aie.edu.au)
+* Date Created: Sunday 13 June 2021
+* Date Last Modified: Friday 18 June 2021
+*
+* Appears in every scene and updates the games state.
+* Contains functions that calculates the time, save
+* tickets collected, update enemy count, etc,.
+*
+*/
+
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
-using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.UI;
 using System.IO;
 
 public class GameManager : MonoBehaviour
 {
-
     #region Properties
 
     [Header("Game Settings")]
@@ -48,22 +55,31 @@ public class GameManager : MonoBehaviour
     //private string hammer_filePath = "";
     #endregion
 
+    // Start Function
     private void Start()
     {
+        // Finds the controller's grab interaction script
         grabScript = FindObjectOfType<XRGrabInteractable>().GetComponent<XRGrabInteractable>();
+
+        // Sets the path to the file that stores the player's ticket amount
         filePath = Application.dataPath + "TicketAmount.json";
-        //hammer_filePath = Application.dataPath + "EquippedHammer.json";
-        //SetStartHammer();
+
+        // hammer_filePath = Application.dataPath + "EquippedHammer.json";
+        // SetStartHammer();
+
         InitialiseGame();
         UpdateEnemies();
     }
 
+    // Update Function
     private void Update()
     {
+        // If game is not finished, continue updating the timer
         if (!isFinished)
         {
             UpdateTimer();
         }
+        // Otherwise call the end game level UI
         else
         {
             CompleteLevelUI();
@@ -72,19 +88,23 @@ public class GameManager : MonoBehaviour
 
     #region Game State Functions
 
+    // Called at start and initialises the game
     private void InitialiseGame()
     {
         FindObjectOfType<AudioManager>().PlaySound("Circus Theme Music 1");
     }
 
+    // Sets components in the end level UI to reflect player progress
     private void CompleteLevelUI()
     {
         // Obtain UI elements
         if (menu == null)
         {
+            // Spawns the UI at the given point
             menu = Instantiate(endGameUI, endGameUISpawn.transform);
         }
-
+        
+        // Finds the canvas in the given menu
         GameObject UICanvas = menu.GetComponentInChildren<Canvas>().gameObject;
 
         if (UICanvas == null)
@@ -92,22 +112,29 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        // Sets canvas render camera
         UICanvas.GetComponent<Canvas>().worldCamera = Camera.main;
 
+        // Finds all text components in the given canvas
         TextMeshProUGUI winLoseText = UICanvas.transform.Find("WinOrLose").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI finalTimeText = UICanvas.transform.Find("TimeLeft").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI ticketsText = UICanvas.transform.Find("TicketsCollected").GetComponent<TextMeshProUGUI>();
 
+        // Switches to controller that can raycast to UI
         rightRayController.SetActive(true);
         rightGameplayController.SetActive(false);
 
+        // Since level is over, stop playing main game theme
         FindObjectOfType<AudioManager>().StopPlaying("Circus Theme Music 1");
 
         // If enemies remain, player loses. Otherwise the player wins.
         if (enemiesLeft > 0)
         {
+            // Sets win text to show the player lost
             winLoseText.text = "You Lose!";
             winLoseText.color = GetColorFromString("D95151");
+            
+            // Plays losing music
             if (!playedEndSound)
             {
                 FindObjectOfType<AudioManager>().PlaySound("Lose Music");
@@ -116,8 +143,11 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            // Sets win text to show the player won
             winLoseText.text = "You Win!";
             winLoseText.color = GetColorFromString("71FF34");
+
+            // Plays winning music
             if (!playedEndSound)
             {
                 FindObjectOfType<AudioManager>().PlaySound("Win Music");
@@ -150,19 +180,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Calculates the tickets gained from the time remaining
     private int CalculateTickets()
     {
         int tickets = (int)timeRemaining;
         return tickets;
     }
 
+    // Creates an increasing score effect on the tickets collected
     IEnumerator TicketUpdater(TextMeshProUGUI a_ticketText)
     {
         while (true)
         {
+            // While the end tickets haven't reached the tickets collected
             if (endTickets != ticketsCollected && ticketsCollected > endTickets)
             {
+                // Updates the end ticket amount by the given growth rate
                 endTickets += growthRate;
+
+                // Updates the UI text
                 a_ticketText.text = endTickets.ToString();
             }
 
@@ -170,27 +206,34 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Saves the ticket count
+
     private class TicketObject
     {
         public int ticketAmount = 0;
         public TicketObject(int a_ticketAmount) => ticketAmount = a_ticketAmount;
     }
-    //ADDS ONTO THE FILE TICKET AMOUNT
+
+    // Adds onto the file ticket amount
     public void WriteTicketToFile(int ticketAmount)
     {
         TicketObject ticket = new TicketObject(ticketAmount);
 
         int heldTickets = ReadTicketFile();
-        //if there is a file then we can add
+
+        // If there is a file then we can add
         if (heldTickets != -1)
+        {
             ticket.ticketAmount += heldTickets;
+        }
 
         StreamWriter stream = new StreamWriter(filePath);
         string json = JsonUtility.ToJson(ticket, true);
         stream.Write(json);
         stream.Close();
     }
-    //OVERWRITES THE TICKET AMOUNT 
+
+    // Overwrites the file ticket amount 
     public void OverwriteTicketAmount(int ticketAmount)
     {
         TicketObject ticket = new TicketObject(ticketAmount);
@@ -199,11 +242,14 @@ public class GameManager : MonoBehaviour
         stream.Write(json);
         stream.Close();
     }
-    //RETURNS THE AMOUNT IN THE FILE
+
+    // Returns the amount in the file
     public int ReadTicketFile()
     {
         if (!File.Exists(filePath))
+        {
             return -1;
+        }
 
         StreamReader stream = new StreamReader(filePath);
         string jsonData = stream.ReadToEnd();
@@ -216,14 +262,17 @@ public class GameManager : MonoBehaviour
 
     #region Timer Functions
 
+    // Updates the timer
     private void UpdateTimer()
     {
+        // If game is not finished and the timer is above 0 continue updating
         if (timeRemaining > 0 && !isFinished)
         {
             timeRemaining -= Time.deltaTime - extraTime;
             extraTime = 0;
             SetTimer(timeRemaining);
         }
+        // Otherwise, game is finished and stop playing the timer sound
         else
         {
             isFinished = true;
@@ -231,17 +280,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Sets the timer text with the given time
     private void SetTimer(float a_time)
     {
+        // Converts the time into minutes and seconds
         float minutes = Mathf.FloorToInt(a_time / 60);
         float seconds = Mathf.FloorToInt(a_time % 60);
 
+        // If both are below zero, set to zero
         if (minutes < 0 && seconds < 0)
         {
             minutes = 0;
             seconds = 0;
         }
 
+        // If time is lower that 10 seconds and game is not over, play timer sound.
+        // Otherwise stop playing the timer if the time is above 10 seconds and game is finished. 
         if (a_time <= 10 && !FindObjectOfType<AudioManager>().isPlaying("Timer") && !isFinished)
         {
             FindObjectOfType<AudioManager>().PlaySound("Timer");
@@ -251,7 +305,10 @@ public class GameManager : MonoBehaviour
             FindObjectOfType<AudioManager>().StopPlaying("Timer");
         }
 
+        // Formats the time into the normal time format 
         time = string.Format("{0:00}:{1:00}", minutes, seconds);
+        
+        // Updates the timer text
         timerText.text = time;
     }
 
@@ -259,16 +316,20 @@ public class GameManager : MonoBehaviour
 
     #region Enemy Stat Functions
 
+    // Updates the enemies count, used at the beginning of the game
     private void UpdateEnemies()
     {
+        // Finds all the enemies in scene 
         enemiesLeft = FindObjectsOfType(typeof(BalloonEnemy), false).Length +
                       FindObjectsOfType(typeof(WalkerEnemy), false).Length +
                       FindObjectsOfType(typeof(Pranksters), false).Length +
                       FindObjectsOfType(typeof(PropellerEnemy), false).Length;
 
+        // Updates the enemies left text
         enemiesText.text = enemiesLeft.ToString();
     }
 
+    // Called in other scripts to add extra time and update enemies
     public void AddTime(GameObject a_source, float a_seconds)
     {
         // If melee attack +5s, else (hammer throw) +3s
@@ -285,6 +346,7 @@ public class GameManager : MonoBehaviour
         enemiesLeft--;
         enemiesText.text = enemiesLeft.ToString();
 
+        // If not enemies remain, game is over
         if (enemiesLeft == 0)
         {
             isFinished = true;
@@ -302,10 +364,9 @@ public class GameManager : MonoBehaviour
         StartCoroutine(GUIDisplayBonusTime(newBonus));
     }
 
+    // Used to destroy UI that appears to indicate extra time gained
     IEnumerator GUIDisplayBonusTime(GameObject a_text)
     {
-        //a_text.GetComponent<Animation>().Play();
-
         // Waits for a given amount of time
         yield return new WaitForSeconds(guiTime);
 
@@ -317,12 +378,14 @@ public class GameManager : MonoBehaviour
 
     #region Other Functions
 
+    // Used to convert hex values to decimal values and normalise them 
     private float HexToFloatNormalised(string a_hex)
     {
         int dec = System.Convert.ToInt32(a_hex, 16);
         return dec / 255f;
     }
 
+    // Using the given hex string it returns it's color
     private Color GetColorFromString(string a_hexString)
     {
         float red = HexToFloatNormalised(a_hexString.Substring(0, 2));
@@ -339,7 +402,6 @@ public class GameManager : MonoBehaviour
     }
 
     #region Hammer Management
-
 
     //public class Hammer
     //{
@@ -421,7 +483,6 @@ public class GameManager : MonoBehaviour
 
 
     #endregion
-
 
     #endregion
 }
