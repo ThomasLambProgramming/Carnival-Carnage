@@ -6,32 +6,45 @@ using Unity.Collections;
 
 public class HammerCollisionEnemy : MonoBehaviour
 {
+    //this makes sure that the hammer doesnt go into the ground on the recall
     public float yOffset = 1f;
     public NodeContainer pathData = null;
     public float yForceIncrease = 4f;
+    //hitting enemy force to launch head
     public float meleeHitForce = 200f;
     public float throwHitForce = 10f;
-    public float reSummonDistance = 5f;
+    
     //private Vector3 SummonPosition;
     //bool firstSummon = true;
     private Vector3 previousPosition;
     //give it a default so a null does not have to be done
     private Vector3 bufferPosition = new Vector3(0, 0, 0);
+    //hammerpart was used but with changes its just the hammer itself
     public GameObject hammerPart;
+    //frame skips so we can get the average movement over time for the launching head direction
     public int frameSkipsOnUpdate = 2;
     private int amountSkipped = 0;
+    
     public GameObject playerRightHand = null;
+    //makes it so the player cant super spam the recall and cancel
     public float summonTime = 0.5f;
     public float withInGrabDistance = 1f;
+    //pathfinding variables
     public float goNextNodeDist = 2f;
-    public float returnspeed = 10f;
     private int currentPathIndex = 0;
     bool usePath = false;
     private bool isBeingSummoned = false;
     private Vector3[] path;
+   
+    //return speed is not used but hammers have a different value so i dont want to touch and break it
+    public float returnspeed = 10f;
+    
     public float maxReturnSpeed = 50f;
     XRGrabInteractable grabScript = null;
     private Rigidbody hammerRb = null;
+    //have a seperate maxspeed so the hammer cant be thrown too hard 
+    //if its not being recalled (its also to stop players using the recall and cancelling to "throw" the hammer
+    //at a faster speed than they could throw
     public float maxSpeed = 20f;
     private float summonTimer = 0;
     public bool summon = false;
@@ -53,6 +66,7 @@ public class HammerCollisionEnemy : MonoBehaviour
     }
     public void StopSummon()
     {
+        //cancel everything needed so update function doesnt run anything
         isBeingSummoned = false;
         summonTimer = 0;
         usePath = false;
@@ -81,6 +95,7 @@ public class HammerCollisionEnemy : MonoBehaviour
             bufferPosition = hammerPart.transform.position;
             amountSkipped = 0;
         }
+        //if its in the hand make the velocity 0 so it doesnt do that stupid throw glitch
         if (grabScript.isSelected)
         {
             isBeingSummoned = false;
@@ -107,6 +122,8 @@ public class HammerCollisionEnemy : MonoBehaviour
             RaycastHit hit;
             //small note, why does unitys find layer return the actual number of the layer when it requires the bit
             //2147482879 is for the 8th and 9th floor so it ignores all grab objects and the ground 2147482879
+            //so i was very stupid and thought ah yes writing out the binary for the int and putting it in a calculator
+            //would be faster than thinking about what bitwise would be needed, so yeah that number is correct but the bitwise makes more sense
             if (Physics.Raycast(transform.position, directionToHand, out hit, Mathf.Infinity, ~(3 << 8)) && !IsBeingHeld())
             {
                 if (hit.transform.CompareTag("Obstacle"))
@@ -122,6 +139,8 @@ public class HammerCollisionEnemy : MonoBehaviour
                     currentPathIndex = 0;
                     usePath = true;
                 }
+                //if it hits the hand make the velocity half + direction because it makes it turn really well 
+                //quick but not jarring im very happy with it
                 else if (hit.transform.CompareTag("Hand"))
                 {
                     hammerRb.velocity = hammerRb.velocity / 1.5f;
@@ -132,6 +151,7 @@ public class HammerCollisionEnemy : MonoBehaviour
             }
             if (usePath)
             {
+                //if no path get one and index is the start
                 if (path == null)
                 {
                     path = FindPath();
@@ -141,10 +161,12 @@ public class HammerCollisionEnemy : MonoBehaviour
                 {
                     Vector3 indexPosition = path[currentPathIndex];
                     indexPosition.y = 1;
+                    //makes sure the y isnt in ground
                     Vector3 forceDirection = (indexPosition - transform.position).normalized;
                     forceDirection = forceDirection * maxReturnSpeed;
                     hammerRb.velocity = forceDirection;
-
+                    
+                    //if close enough to position goto next or the path is null
                     if ((path[currentPathIndex] - transform.position).magnitude < goNextNodeDist)
                     {
                         if (currentPathIndex < path.Length - 1)
@@ -159,6 +181,7 @@ public class HammerCollisionEnemy : MonoBehaviour
                     }
                 }
             }
+            //just a check at the end to make sure the hammer isnt going giga speeds
             if (hammerRb.velocity.magnitude > maxReturnSpeed)
             {
                 hammerRb.velocity = hammerRb.velocity.normalized * maxReturnSpeed;
@@ -171,6 +194,8 @@ public class HammerCollisionEnemy : MonoBehaviour
     {
         if (collision.transform.CompareTag("Enemy"))
         {
+            //for the walker since its on the floor i had to get the average velocity and increase the 
+            //y of it to give a nicer launch angle (it kinda works but not the greatest)
             Vector3 hammerDifference = hammerPart.transform.position - previousPosition;
             float amountMoved = hammerRb.velocity.magnitude;
             Vector3 forceDirection = hammerDifference.normalized;
@@ -178,7 +203,7 @@ public class HammerCollisionEnemy : MonoBehaviour
 
             Vector3 forceToAdd = forceDirection * amountMoved;
 
-
+            //give a different launch speed depending on if melee or ranged
             if (grabScript.isSelected)
             {
                 forceToAdd *= meleeHitForce;
@@ -190,6 +215,8 @@ public class HammerCollisionEnemy : MonoBehaviour
                 collision.transform.GetComponent<WalkerEnemy>().HasBeenHit(forceToAdd);
             }
         }
+        
+        //every other function here just gets that objects hit function
         else if (collision.transform.CompareTag("Crate"))
         {
             collision.transform.GetComponent<CrateDestory>().HammerHit();
@@ -212,6 +239,7 @@ public class HammerCollisionEnemy : MonoBehaviour
         {
             collision.transform.parent.GetComponent<BalloonEnemy>().BalloonHit();
         }
+        //prankster has the same thing as the walker launch angle thing
         else if (collision.transform.CompareTag("Prankster"))
         {
             Vector3 hammerDifference = hammerPart.transform.position - previousPosition;
@@ -220,9 +248,7 @@ public class HammerCollisionEnemy : MonoBehaviour
             forceDirection.y += yForceIncrease;
 
             Vector3 forceToAdd = forceDirection * amountMoved;
-
-
-
+            
             if (grabScript.isSelected)
             {
                 forceToAdd *= meleeHitForce;
@@ -235,6 +261,10 @@ public class HammerCollisionEnemy : MonoBehaviour
             }
         }
     }
+    //NOTE THIS PATHFINDING IS THE SAME AS THE PROPELLER ENEMY
+    //i dont want to copy paste just incase i changed one slight thing in this hammer one
+    //jesse please dont kill me i dont want to rewrite the comments for this
+    //the comments are on the propeller enemy one 
     private Vector3[] FindPath()
     {
         if (pathData.NodeGraph == null)

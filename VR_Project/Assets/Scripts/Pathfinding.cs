@@ -3,12 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Collections;
 using Unity.Jobs;
+/*
+* File: Pathfinding.cs
+*
+* Author: Thomas Lamb (s200498@students.aie.edu.au)
+* Date Created: 10th May 2021
+* Date Last Modified: 12th June 2021
+*
+* Pathfinding script to do the main pathfinding called from the enemies and
+* hammer 
+* 
+*/
 public struct PathFindJob : IJob
 {
     class PathNode : IHeapItem<PathNode>
     {
+        //the costs are the distances to the start and end node
         public float m_totalCost = 0;
+        //dist to start
         public float m_gCost = 0;
+        //dist to end
         public float m_hCost = 0;
         public float m_fCost { get { return m_gCost + m_hCost; } }
         public Node node = null;
@@ -20,6 +34,9 @@ public struct PathFindJob : IJob
             
             m_parent = a_parent;
         }
+        //item index is used to keep track of the heap 
+        //the item index and compare to are required to use the heap container
+        //we put the index in here so we can access it from the variable
         public int ItemIndex
         {
             get { return itemIndex; }
@@ -93,7 +110,8 @@ public struct PathFindJob : IJob
                 }
                 return;
             }
-
+            
+            //check neighbours for if its in the closed (already checked) and if its already in the open list
             foreach (Edge connection in currentNode.node.connections)
             {
                 if (connection == null || connection.to == -1 || closedNodes.Contains(NodeData[connection.to]))
@@ -108,11 +126,11 @@ public struct PathFindJob : IJob
                         break;
                     }
                 }
-                //UPDATE THIS TO RECALULATE THE CONNECTION COST IT COULD BE LOWER REEEE
-                
+
                 if (isOpen)
                     continue;
-
+                
+                //make a new pathnode for the added basic node
                 PathNode node = new PathNode(NodeData[connection.to], currentNode);
                 node.m_gCost = Vector3.Distance(node.node.m_position, currentNode.node.m_position) + currentNode.m_gCost;
 

@@ -1,6 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/*
+* File: Pranksters.cs
+*
+* Author: Thomas Lamb (s200498@students.aie.edu.au)
+* Date Created: 10th June 2021
+* Date Last Modified: 12th June 2021
+*
+* Teleporting enemy class
+* 
+*/
 public class Pranksters : MonoBehaviour
 {
     //public GameObject gameManager;
@@ -66,6 +76,7 @@ public class Pranksters : MonoBehaviour
                 teleportTimer = 0;
                 chargeParticleHappened = false;
             }
+            //constant rotation
             transform.Rotate(new Vector3(0, spinSpeed * Time.deltaTime, 0));
         }
     }
@@ -78,6 +89,7 @@ public class Pranksters : MonoBehaviour
             isDestroyed = true;
         }
 
+        //disable what isnt needed, make the head deparent and hit it with the required force
         hasBeenHit = true;
         mainCollider.enabled = false;
         headCollider.enabled = true;

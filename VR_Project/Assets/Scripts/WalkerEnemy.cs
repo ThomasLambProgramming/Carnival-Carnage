@@ -2,6 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+/*
+* File: WalkerEnemy.cs
+*
+* Author: Thomas Lamb (s200498@students.aie.edu.au)
+* Date Created: 4th June 2021
+* Date Last Modified: 12th June 2021
+*
+* Walker ai class for pathing around with navmesh 
+* and what it needs to do when it gets hit
+*/
 public class WalkerEnemy : MonoBehaviour
 {
     public AudioManager audioSources = null;
@@ -13,6 +23,8 @@ public class WalkerEnemy : MonoBehaviour
     public GameObject headObject = null;
     private Rigidbody headRb = null;
     public bool kill = false;
+    
+    //seperate colliders so when the walker is hit it doesnt instantly explode
     private BoxCollider mainCollider = null;
     private BoxCollider headCollider = null;
 
@@ -31,13 +43,19 @@ public class WalkerEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if all this is true then we want the walker to move
         if (navmesh != null && navmesh.enabled && makePath)
         {
+            //if the distance to the destination is lower then distanceToNewPath then we find a new random position
+            //in the node container
             if (Vector3.Magnitude(navmesh.destination - transform.position) < distanceToNewPath * distanceToNewPath)
                 navmesh.SetDestination(nodeData.NodeGraph[Random.Range(0, nodeData.NodeGraph.Length - 1)].m_position);
         }
+        //For some unknown reason in level 4 and 5 the rigidbody was infinitely gaining gravity on the y
+        //so when it was hit it would instantly fall through the ground
         rb.velocity = Vector3.zero;
         
+        //run the onhit function
         if (kill)
         {
             HasBeenHit(new Vector3(0, 100, 0));
@@ -59,6 +77,8 @@ public class WalkerEnemy : MonoBehaviour
         //aaron edits
         //onDeathParticle.Play();
         //edits end
+        
+        //stop it from moving and enable the proper head collider
         navmesh.enabled = false;
         mainCollider.enabled = false;
         headCollider.enabled = true;
