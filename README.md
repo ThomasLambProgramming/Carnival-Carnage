@@ -1,5 +1,5 @@
 # Carnival Carnage
-Small Vr project game made by
+Small Vr project game made by\
 Thomas Lamb - Programmer\
 Mara Dusevic - Programmer\
 Oscar Smith - Programmer\
@@ -11,3 +11,5 @@ Callum Hoy - Designer\
 Enis Zunic - Artist\
 Daniel Massa - Artist\
 Elisabeth Buttigieg - Artist\
+Fung Cheng\
+Indigo Larkin\
