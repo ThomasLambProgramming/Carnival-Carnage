@@ -11,5 +11,5 @@ Callum Hoy - Designer\
 Enis Zunic - Artist\
 Daniel Massa - Artist\
 Elisabeth Buttigieg - Artist\
-Fung Cheng\
-Indigo Larkin\
+Fung Cheng - Artist\
+Indigo Larkin - Artist
